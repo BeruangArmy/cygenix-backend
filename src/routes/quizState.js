@@ -69,15 +69,21 @@ router.get('/modules/:moduleId/quiz-state', verifyToken, async (req, res) => {
       ? await questionsRef.where(admin.firestore.FieldPath.documentId(), 'in', state.missedQuestionIds).get()
       : await questionsRef.where('level', '==', state.currentLevel).get();
 
-    const questions = snap.docs.map((d) => {
-      const q = d.data();
-      return {
-        id: d.id,
-        questionText: q.questionText,
-        options: isRetry ? shuffle(q.options || []) : (q.options || []),
-        xpValue: q.xpValue || 0,
-      };
-    });
+    // Sorted here rather than with orderBy() so the admin-set order applies
+    // without needing a level+sequenceOrder composite index. Questions authored
+    // before sequenceOrder existed default to 0 and keep their relative order.
+    const questions = snap.docs
+      .slice()
+      .sort((a, b) => ((a.data().sequenceOrder || 0) - (b.data().sequenceOrder || 0)))
+      .map((d) => {
+        const q = d.data();
+        return {
+          id: d.id,
+          questionText: q.questionText,
+          options: isRetry ? shuffle(q.options || []) : (q.options || []),
+          xpValue: q.xpValue || 0,
+        };
+      });
 
     res.json({
       phase: 'in_progress',
