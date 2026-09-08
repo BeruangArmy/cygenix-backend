@@ -199,10 +199,18 @@ router.post('/modules/:moduleId/quiz-state/submit', verifyToken, async (req, res
       });
     });
 
-    // Any wrong answer at all gates advancement now (first attempt or
-    // retry round alike) — used to allow 1 wrong on a first attempt
-    // through, but that threshold was lowered to 0 per dev-task-prompt-22.
-    const clearedGate = wrongIds.length === 0;
+    // Advancement is driven by the module's own passMark (a percentage set in
+    // Admin > Content > Modules), so different modules can demand different
+    // standards. Scoring at or above it clears the level even with a wrong
+    // answer; falling short queues exactly the missed questions for a
+    // half-XP retry round, as before.
+    //
+    // passMark 100 reproduces the previous fixed "every answer correct"
+    // behaviour, and is what a module gets if the field was never set.
+    const moduleSnap = await db.collection('modules').doc(moduleId).get();
+    const passMark = (moduleSnap.data() || {}).passMark ?? 100;
+    const scorePct = ((questionsSnap.size - wrongIds.length) / questionsSnap.size) * 100;
+    const clearedGate = scorePct >= passMark;
     const hadAnyMiss = (state.hadAnyMiss || false) || wrongIds.length > 0;
     let advanced = false;
     let moduleCompleted = false;
