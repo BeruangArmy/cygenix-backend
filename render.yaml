@@ -1,0 +1,21 @@
+# Render Blueprint for cygenix-backend.
+#
+# Render reads this when you create a service from this repo ("New +" >
+# "Blueprint"). The three Firebase values are marked sync:false so Render
+# prompts for them instead of storing secrets in git — paste them from your
+# local .env (they're the same values, see SETUP.md step 3).
+services:
+  - type: web
+    name: cygenix-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false

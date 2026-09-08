@@ -1,0 +1,125 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVenatorEmail() {
+      return isSignedIn() && request.auth.token.email.matches('.*@venatorcorp[.]com$');
+    }
+
+    function isSelf(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return isSignedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // users/{uid} — profile + gamification stats (xpTotal, level, streakDays,
+    // departmentId/departmentName — see Data Dictionary Table 2: Users).
+    // Self can read/create their own doc but can never set role to admin
+    // (role is fixed to 'employee' at signup by AuthService; promote via
+    // console). Admins can read/write any profile.
+    match /users/{uid} {
+      allow read: if isSelf(uid) || isAdmin();
+      allow create: if isSelf(uid) && isVenatorEmail() && request.resource.data.role == 'employee';
+      allow update: if isAdmin() ||
+        (isSelf(uid) && request.resource.data.role == resource.data.role);
+      allow delete: if isAdmin();
+
+      // users/{uid}/quizAttempts (Table 8), lessonProgress (Table 5),
+      // challengeAttempts (Table 10), xpLog (Table 13), badges (Table 12
+      // "earned" side) — all written by the trusted backend only
+      // (firebase-admin bypasses rules); read-only for the owner/admin.
+      match /quizAttempts/{attemptId} {
+        allow read: if isSelf(uid) || isAdmin();
+        allow write: if false;
+      }
+      match /lessonProgress/{progressId} {
+        allow read: if isSelf(uid) || isAdmin();
+        allow write: if false;
+      }
+      match /challengeAttempts/{attemptId} {
+        allow read: if isSelf(uid) || isAdmin();
+        allow write: if false;
+      }
+      match /badges/{badgeId} {
+        allow read: if isSelf(uid) || isAdmin();
+        allow write: if false;
+      }
+      match /xpLog/{logId} {
+        allow read: if isSelf(uid) || isAdmin();
+        allow write: if false;
+      }
+      // Per-module leveled-quiz progression (current level, missed-question
+      // retry gate, module completion + 7-day retry lock) — see
+      // cygenix-backend/src/routes/quizState.js. Backend-authoritative only.
+      match /moduleQuizState/{moduleId} {
+        allow read: if isSelf(uid) || isAdmin();
+        allow write: if false;
+      }
+      // Notifications (badge earned, XP gained, module unlocked, daily
+      // rank) — created only by the backend, but the owner can mark their
+      // own read (and only that field — nothing else about a
+      // notification is client-editable).
+      match /notifications/{notificationId} {
+        allow read: if isSelf(uid) || isAdmin();
+        allow update: if isSelf(uid) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+        allow create, delete: if false;
+      }
+    }
+
+    // departments (Table 1) — master data, admin-authored. Public read
+    // (department names aren't sensitive) because the Register screen's
+    // dropdown has to load before an account — and therefore an auth
+    // session — exists.
+    match /departments/{departmentId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // modules/{moduleId} + lessons/quizQuestions/scenarioChallenges
+    // subcollections (Tables 3, 4, 6+7, 9) — every authenticated employee
+    // can read modules/lessons; only admins can write, straight from the
+    // Flutter Admin Content Management screens.
+    match /modules/{moduleId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+
+      match /lessons/{lessonId} {
+        allow read: if isSignedIn();
+        allow write: if isAdmin();
+      }
+
+      // quizQuestions/scenarioChallenges are deliberately NOT
+      // client-readable by employees — each doc carries the correct-answer
+      // key. Employees only see this content via the Express backend
+      // (GET /modules/:moduleId/quiz-state, GET /modules/:moduleId/challenges),
+      // which uses the Admin SDK (bypasses these rules) and strips the
+      // answer before responding. See cygenix-backend/src/routes/quizState.js
+      // and challenges.js.
+      match /quizQuestions/{questionId} {
+        allow read: if isAdmin();
+        allow write: if isAdmin();
+      }
+      match /scenarioChallenges/{challengeId} {
+        allow read: if isAdmin();
+        allow write: if isAdmin();
+      }
+    }
+
+    // badges (Table 11) — definitions, readable by anyone signed in
+    // (BadgesScreen shows locked/unlocked state), writable only by admins.
+    // Whether a given user has *earned* a badge lives at
+    // users/{uid}/badges above, written only by the backend.
+    match /badges/{badgeId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+  }
+}

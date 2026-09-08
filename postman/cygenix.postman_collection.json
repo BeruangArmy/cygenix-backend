@@ -1,0 +1,201 @@
+{
+  "info": {
+    "name": "CyGenix API",
+    "description": "cygenix-backend (Express + Firebase Admin). Run 'Sign in (get ID token)' first — it signs in against Firebase Auth directly and saves the ID token into {{idToken}}, which every other request sends as 'Authorization: Bearer {{idToken}}'.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{idToken}}", "type": "string" }]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:4000" },
+    { "key": "firebaseApiKey", "value": "REPLACE_WITH_FIREBASE_WEB_API_KEY", "description": "Firebase Console > Project Settings > General > Web API Key" },
+    { "key": "testEmail", "value": "employee1@venatorcorp.com" },
+    { "key": "testPassword", "value": "REPLACE_ME" },
+    { "key": "idToken", "value": "" },
+    { "key": "moduleId", "value": "REPLACE_WITH_A_MODULE_DOC_ID" },
+    { "key": "lessonId", "value": "REPLACE_WITH_A_LESSON_DOC_ID" },
+    { "key": "challengeId", "value": "REPLACE_WITH_A_SCENARIO_CHALLENGE_DOC_ID" },
+    { "key": "userId", "value": "REPLACE_WITH_A_USER_UID" }
+  ],
+  "item": [
+    {
+      "name": "Auth (Firebase Identity Toolkit)",
+      "item": [
+        {
+          "name": "Sign in (get ID token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const body = pm.response.json();",
+                  "if (body.idToken) {",
+                  "  pm.collectionVariables.set('idToken', body.idToken);",
+                  "  console.log('Saved idToken to collection variable.');",
+                  "} else {",
+                  "  console.warn('No idToken in response:', body);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={{firebaseApiKey}}",
+              "protocol": "https",
+              "host": ["identitytoolkit", "googleapis", "com"],
+              "path": ["v1", "accounts:signInWithPassword"],
+              "query": [{ "key": "key", "value": "{{firebaseApiKey}}" }]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{testEmail}}\",\n  \"password\": \"{{testPassword}}\",\n  \"returnSecureToken\": true\n}"
+            },
+            "description": "Calls Firebase Auth's REST API directly (this is the same sign-in the Flutter app does via firebase_auth) — not a cygenix-backend endpoint. Needs a real account created via the app's Register screen or the Firebase Console."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET /health",
+          "request": { "method": "GET", "auth": { "type": "noauth" }, "url": "{{baseUrl}}/health" }
+        }
+      ]
+    },
+    {
+      "name": "Modules",
+      "item": [
+        {
+          "name": "GET /modules",
+          "request": { "method": "GET", "url": "{{baseUrl}}/modules" }
+        },
+        {
+          "name": "GET /modules/:moduleId/lessons",
+          "request": { "method": "GET", "url": "{{baseUrl}}/modules/{{moduleId}}/lessons" }
+        }
+      ]
+    },
+    {
+      "name": "Lessons",
+      "item": [
+        {
+          "name": "POST /lessons/:lessonId/complete",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/lessons/{{lessonId}}/complete",
+            "body": { "mode": "raw", "raw": "{\n  \"moduleId\": \"{{moduleId}}\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quiz State (leveled: Easy -> Medium -> Hard)",
+      "item": [
+        {
+          "name": "GET /modules/:moduleId/quiz-state",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/modules/{{moduleId}}/quiz-state",
+            "description": "Returns whatever's current for this user+module: a fresh level's 5 questions, a missed-question retry round (reshuffled options, isRetry:true), or phase:'completed' with lockedUntil/canRetryNow if the module is done."
+          }
+        },
+        {
+          "name": "POST /modules/:moduleId/quiz-state/submit",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/modules/{{moduleId}}/quiz-state/submit",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"answers\": {\n    \"REPLACE_WITH_QUESTION_DOC_ID\": \"REPLACE_WITH_SELECTED_OPTION_TEXT\"\n  }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "answers maps quizQuestions doc IDs (from GET quiz-state) to the selected option's TEXT (not index — retry rounds reshuffle option order, so index isn't stable). Missing 2+ on a first attempt gates advancement until the missed ones are re-answered correctly, at half XP."
+          }
+        },
+        {
+          "name": "POST /modules/:moduleId/quiz-state/retry-module",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/modules/{{moduleId}}/quiz-state/retry-module",
+            "description": "Starts a fresh Easy->Medium->Hard pass at half XP throughout. Only works when phase is 'completed' and not currently locked (403 otherwise) — completing a retry pass locks further retries for 7 days."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Scenario Challenges",
+      "item": [
+        {
+          "name": "GET /challenges/today",
+          "request": { "method": "GET", "url": "{{baseUrl}}/challenges/today" }
+        },
+        {
+          "name": "GET /modules/:moduleId/challenges",
+          "request": { "method": "GET", "url": "{{baseUrl}}/modules/{{moduleId}}/challenges" }
+        },
+        {
+          "name": "POST /challenges/:challengeId/attempt",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/challenges/{{challengeId}}/attempt",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"moduleId\": \"{{moduleId}}\",\n  \"selectedOption\": 1\n}"
+            },
+            "description": "selectedOption is the 0-3 index into the options array returned by GET /challenges/today."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Leaderboard",
+      "item": [
+        {
+          "name": "GET /leaderboard?window=alltime",
+          "request": { "method": "GET", "url": "{{baseUrl}}/leaderboard?window=alltime" }
+        },
+        {
+          "name": "GET /leaderboard?window=weekly",
+          "request": { "method": "GET", "url": "{{baseUrl}}/leaderboard?window=weekly" }
+        },
+        {
+          "name": "GET /leaderboard?window=monthly",
+          "request": { "method": "GET", "url": "{{baseUrl}}/leaderboard?window=monthly" }
+        }
+      ]
+    },
+    {
+      "name": "Progress",
+      "item": [
+        {
+          "name": "GET /progress/:userId",
+          "request": { "method": "GET", "url": "{{baseUrl}}/progress/{{userId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "GET /admin/employees",
+          "request": { "method": "GET", "url": "{{baseUrl}}/admin/employees" }
+        },
+        {
+          "name": "GET /admin/employees/:userId",
+          "request": { "method": "GET", "url": "{{baseUrl}}/admin/employees/{{userId}}" }
+        }
+      ]
+    }
+  ]
+}

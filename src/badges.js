@@ -1,0 +1,122 @@
+const { db, admin } = require('./firebaseAdmin');
+const { notify } = require('./notifications');
+
+// Evaluates every badge definition (Data Dictionary Table 11) against one
+// user and awards (writes users/{uid}/badges/{badgeId}, Table 12) any that
+// newly qualify. Badge docs carry a criteriaType/criteriaValue pair so this
+// can run automatically — criteria (free text) is just the human-readable
+// description shown in the app.
+//
+// context lets callers report the specific event that just happened, since
+// some criteria (quiz_perfect, module_complete) only make sense evaluated
+// at the moment they occur rather than recomputed from scratch every time.
+async function checkAndAwardBadges(uid, context = {}) {
+  const [badgesSnap, userSnap, earnedSnap] = await Promise.all([
+    db.collection('badges').get(),
+    db.collection('users').doc(uid).get(),
+    db.collection('users').doc(uid).collection('badges').get(),
+  ]);
+  if (!userSnap.exists) return [];
+
+  const user = userSnap.data();
+  const alreadyEarned = new Set(earnedSnap.docs.map((d) => d.id));
+  const newlyAwarded = [];
+
+  let rank = null;
+  const needsRank = badgesSnap.docs.some((d) => !alreadyEarned.has(d.id) && d.data().criteriaType === 'top_rank');
+  if (needsRank) {
+    const leaderboardSnap = await db.collection('users').orderBy('xpTotal', 'desc').limit(200).get();
+    rank = leaderboardSnap.docs.findIndex((d) => d.id === uid) + 1 || null;
+  }
+
+  // Only run this (a published-module count + the user's completed-module
+  // count) when a badge actually needs it, matching the top_rank pattern.
+  let allModulesComplete = null;
+  const needsAllModules = badgesSnap.docs.some((d) => !alreadyEarned.has(d.id) && d.data().criteriaType === 'all_modules_complete');
+  if (needsAllModules) {
+    const [modulesSnap, completedStateSnap] = await Promise.all([
+      db.collection('modules').where('status', '==', 'published').get(),
+      db.collection('users').doc(uid).collection('moduleQuizState').where('phase', '==', 'completed').get(),
+    ]);
+    allModulesComplete = modulesSnap.size > 0 && completedStateSnap.size >= modulesSnap.size;
+  }
+
+  for (const badgeDoc of badgesSnap.docs) {
+    if (alreadyEarned.has(badgeDoc.id)) continue;
+    const badge = badgeDoc.data();
+    let qualifies = false;
+
+    switch (badge.criteriaType) {
+      case 'module_complete':
+        qualifies = context.moduleCompletedId != null && context.moduleCompletedId === badge.criteriaValue;
+        break;
+      case 'any_module_complete':
+        qualifies = context.moduleCompletedId != null;
+        break;
+      case 'quiz_perfect':
+        qualifies = context.perfectScoreJustAchieved === true;
+        break;
+      case 'streak':
+        qualifies = (user.streakDays || 0) >= (parseInt(badge.criteriaValue, 10) || Infinity);
+        break;
+      case 'top_rank':
+        qualifies = rank != null && rank <= (parseInt(badge.criteriaValue, 10) || 0);
+        break;
+      case 'level_reached':
+        qualifies = (user.level || 1) >= (parseInt(badge.criteriaValue, 10) || Infinity);
+        break;
+      case 'all_modules_complete':
+        qualifies = allModulesComplete === true;
+        break;
+      default:
+        qualifies = false;
+    }
+
+    if (qualifies) {
+      await db.collection('users').doc(uid).collection('badges').doc(badgeDoc.id).set({
+        badgeName: badge.badgeName,
+        earnedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+      await notify(uid, {
+        type: 'badge_earned',
+        title: 'New badge earned!',
+        body: `You've earned the "${badge.badgeName}" badge.`,
+        meta: { badgeId: badgeDoc.id, badgeName: badge.badgeName },
+      });
+      newlyAwarded.push({ id: badgeDoc.id, badgeName: badge.badgeName });
+    }
+  }
+
+  return newlyAwarded;
+}
+
+// Updates streakDays based on the gap since the user's last recorded
+// activity, and returns the new value. Call once per "counts as active
+// today" event (currently: quiz submit).
+async function bumpStreak(uid) {
+  const userRef = db.collection('users').doc(uid);
+  return db.runTransaction(async (tx) => {
+    const snap = await tx.get(userRef);
+    const data = snap.data() || {};
+    const now = new Date();
+    const todayKey = now.toISOString().slice(0, 10);
+    const lastKey = data.lastActivityDate || null;
+
+    let streakDays = data.streakDays || 0;
+    if (lastKey === todayKey) {
+      // already counted today — no change.
+    } else if (lastKey) {
+      const yesterday = new Date(now);
+      yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+      const yesterdayKey = yesterday.toISOString().slice(0, 10);
+      streakDays = lastKey === yesterdayKey ? streakDays + 1 : 1;
+    } else {
+      streakDays = 1;
+    }
+
+    tx.set(userRef, { streakDays, lastActivityDate: todayKey }, { merge: true });
+    return streakDays;
+  });
+}
+
+module.exports = { checkAndAwardBadges, bumpStreak };
