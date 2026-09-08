@@ -114,7 +114,12 @@ async function bumpStreak(uid) {
       streakDays = 1;
     }
 
-    tx.set(userRef, { streakDays, lastActivityDate: todayKey }, { merge: true });
+    // All-time best, kept alongside the running streak so missing a day
+    // resets streakDays without erasing what the user actually achieved.
+    // Seeded from the current streak for users who predate this field.
+    const highestStreak = Math.max(data.highestStreak || 0, streakDays);
+
+    tx.set(userRef, { streakDays, highestStreak, lastActivityDate: todayKey }, { merge: true });
     return streakDays;
   });
 }
