@@ -127,7 +127,10 @@ router.post('/modules/:moduleId/quiz-state/check', verifyToken, async (req, res)
     }
 
     const correctText = (q.options || [])[q.correctOption];
-    res.json({ correct: selectedText === correctText, correctText });
+    // feedback is the admin-authored "why" for this question. It only goes out
+    // once the answer has been checked, so it still can't be used to probe the
+    // key early — and it's what the answer sheet shows after each question.
+    res.json({ correct: selectedText === correctText, correctText, feedback: q.feedback || '' });
   } catch (err) {
     res.status(500).json({ error: 'Failed to check answer.', detail: err.message });
   }
