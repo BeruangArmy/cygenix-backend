@@ -94,11 +94,21 @@ router.get('/drill/today', verifyToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     const key = dayKey();
-    const chosen = await drillForToday(uid, key);
-    if (!chosen) return res.json({ item: null, reason: 'No drill items have been set up yet.' });
-    const item = chosen.data();
     const stateSnap = await db.collection('users').doc(uid).collection('drills').doc(key).get();
     const state = stateSnap.exists ? stateSnap.data() : null;
+
+    // Once answered, today's item is pinned to the one that was answered.
+    // Re-picking would filter it out as "seen" and hand back a different
+    // message, leaving the card and the verdict beneath it describing two
+    // different emails.
+    let chosen = null;
+    if (state && state.itemId) {
+      const pinned = await db.collection('drillItems').doc(state.itemId).get();
+      if (pinned.exists) chosen = pinned;
+    }
+    chosen = chosen || (await drillForToday(uid, key));
+    if (!chosen) return res.json({ item: null, reason: 'No drill items have been set up yet.' });
+    const item = chosen.data();
 
     const week = await weekOf(uid);
     const answered = week.filter((d) => d.done);
