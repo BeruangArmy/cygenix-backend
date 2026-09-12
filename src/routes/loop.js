@@ -488,12 +488,21 @@ router.post('/admin/reports/:uid/:reportId', verifyToken, adminOnly, async (req,
 
 router.get('/admin/reports', verifyToken, adminOnly, async (req, res) => {
   try {
-    const snap = await db.collectionGroup('reports').where('verdict', '==', 'pending').limit(50).get();
+    // No where clause: a collection-group query filtered on `verdict` needs
+    // a composite index, which would make the queue unusable until someone
+    // clicked a Firebase console link. Report volume is small, so the filter
+    // is applied in memory instead.
+    const snap = await db.collectionGroup('reports').get();
+    const pending = snap.docs.filter((d) => (d.data().verdict || 'pending') === 'pending').slice(0, 50);
+    const names = new Map();
     const rows = [];
-    for (const d of snap.docs) {
+    for (const d of pending) {
       const uid = d.ref.parent.parent.id;
-      const u = await db.collection('users').doc(uid).get();
-      rows.push({ id: d.id, uid, employee: (u.data() || {}).fullName || '', ...d.data() });
+      if (!names.has(uid)) {
+        const u = await db.collection('users').doc(uid).get();
+        names.set(uid, (u.data() || {}).fullName || '');
+      }
+      rows.push({ id: d.id, uid, employee: names.get(uid), ...d.data() });
     }
     res.json(rows);
   } catch (err) {
