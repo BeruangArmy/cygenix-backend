@@ -311,7 +311,10 @@ router.get('/boss/:moduleId', verifyToken, async (req, res) => {
     const runRef = db.collection('users').doc(uid).collection('bossRuns').doc(moduleId);
     const run = await runRef.get();
     const data = run.exists ? run.data() : {};
-    const clearedCount = (await db.collectionGroup('bossRuns').where('moduleId', '==', moduleId).where('cleared', '==', true).get()).size;
+    // A counter on the boss doc rather than a collection-group query: the
+    // query form needs a composite index, which would make this feature
+    // depend on someone clicking a Firebase console link before it worked.
+    const clearedCount = boss.clearedCount || 0;
 
     res.json({
       boss: {
@@ -376,7 +379,12 @@ router.post('/boss/:moduleId/play', verifyToken, async (req, res) => {
       const firstClear = !data.cleared;
       await runRef.set({ cleared: true, bestTurns: Math.max(best, turns.length) }, { merge: true });
       let xp = 0;
-      if (firstClear) { xp = BOSS_XP; await awardXp(uid, xp, 'boss', { moduleId }); }
+      if (firstClear) {
+        xp = BOSS_XP;
+        await awardXp(uid, xp, 'boss', { moduleId });
+        await db.collection('modules').doc(moduleId).collection('boss').doc('main')
+          .set({ clearedCount: admin.firestore.FieldValue.increment(1) }, { merge: true });
+      }
       const badges = await checkAndAwardBadges(uid, {});
       return res.json({ outcome: 'cleared', reply: choice.reply || '', survived: turns.length, total: turns.length, xp, badgesAwarded: badges });
     }
