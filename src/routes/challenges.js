@@ -12,22 +12,48 @@ function stripAnswer(doc) {
   return { id: doc.id, ...rest };
 }
 
-// GET /challenges/today — one Scenario Challenge (Table 9), picked
-// deterministically per calendar day (UTC) across every published
-// module's scenarioChallenges, so everyone sees the same "Today's
-// Challenge" and it changes daily. correctOption is stripped; grading
-// happens server-side in POST /challenges/:challengeId/attempt.
+// GET /challenges/today - one Scenario Challenge (Table 9).
+//
+// Picked per user per UTC day: the pick is a hash of (uid, day), so two
+// people get different scenarios on the same day and the same person gets a
+// different one tomorrow - but it is stable for the whole day, so reopening
+// the app (or logging out and back in) cannot reroll a scenario someone does
+// not fancy. Challenges already attempted are held back until the user has
+// seen the rest of the pool.
+//
+// correctOption is stripped; grading happens server-side in
+// POST /challenges/:challengeId/attempt.
+function dailyPick(uid, dayKey, len) {
+  let h = 2166136261;
+  const s = `${uid}:${dayKey}`;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  return len ? h % len : 0;
+}
+
 router.get('/challenges/today', verifyToken, async (req, res) => {
   try {
     const snap = await db.collectionGroup('scenarioChallenges').get();
     if (snap.empty) return res.status(404).json({ error: 'No scenario challenges have been authored yet.' });
 
-    const dayIndex = Math.floor(Date.now() / 86400000); // days since epoch, UTC
-    const pick = snap.docs[dayIndex % snap.docs.length];
+    const uid = req.user.uid;
+    const dayKey = new Date().toISOString().slice(0, 10);
+
+    const attemptsSnap = await db.collection('users').doc(uid).collection('challengeAttempts').get();
+    const seen = new Set(attemptsSnap.docs.map((d) => d.data().challengeId).filter(Boolean));
+
+    // Prefer what they have not met yet; once the pool is exhausted, allow
+    // repeats rather than running out of challenges entirely.
+    const fresh = snap.docs.filter((d) => !seen.has(d.id));
+    const pool = fresh.length ? fresh : snap.docs;
+
+    const pick = pool[dailyPick(uid, dayKey, pool.length)];
     const moduleId = pick.ref.parent.parent.id;
-    res.json({ moduleId, ...stripAnswer(pick) });
+    res.json({ moduleId, seenAll: fresh.length === 0, ...stripAnswer(pick) });
   } catch (err) {
-    res.status(500).json({ error: 'Failed to load today\'s challenge.', detail: err.message });
+    res.status(500).json({ error: 'Failed to load today s challenge.', detail: err.message });
   }
 });
 

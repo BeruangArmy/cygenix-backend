@@ -40,10 +40,33 @@ async function awardXp(uid, amount, reason, meta = {}) {
 
 /** Deterministic per user per day, so reopening the app cannot reroll it. */
 function pickIndex(uid, key, len) {
-  let h = 0;
+  let h = 2166136261;
   const s = `${uid}:${key}`;
-  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
   return len ? h % len : 0;
+}
+
+/**
+ * Today's drill for this user.
+ *
+ * Random-looking per (user, day) but stable within the day — reopening the
+ * app, or logging out and back in, cannot reroll a message someone does not
+ * fancy. Items already answered are held back until the pool is exhausted,
+ * so the drill works through the set rather than repeating early.
+ */
+async function drillForToday(uid, key) {
+  const poolSnap = await db.collection('drillItems').get();
+  const pool = poolSnap.docs.filter((d) => d.data().active !== false);
+  if (!pool.length) return null;
+
+  const doneSnap = await db.collection('users').doc(uid).collection('drills').get();
+  const seen = new Set(doneSnap.docs.map((d) => d.data().itemId).filter(Boolean));
+  const fresh = pool.filter((d) => !seen.has(d.id));
+  const from = fresh.length ? fresh : pool;
+  return from[pickIndex(uid, key, from.length)];
 }
 
 async function weekOf(uid) {
@@ -71,11 +94,8 @@ router.get('/drill/today', verifyToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     const key = dayKey();
-    const poolSnap = await db.collection('drillItems').get();
-    const pool = poolSnap.docs.filter((d) => d.data().active !== false);
-    if (!pool.length) return res.json({ item: null, reason: 'No drill items have been set up yet.' });
-
-    const chosen = pool[pickIndex(uid, key, pool.length)];
+    const chosen = await drillForToday(uid, key);
+    if (!chosen) return res.json({ item: null, reason: 'No drill items have been set up yet.' });
     const item = chosen.data();
     const stateSnap = await db.collection('users').doc(uid).collection('drills').doc(key).get();
     const state = stateSnap.exists ? stateSnap.data() : null;
@@ -129,10 +149,8 @@ router.post('/drill/answer', verifyToken, async (req, res) => {
     const ref = db.collection('users').doc(uid).collection('drills').doc(key);
     if ((await ref.get()).exists) return res.status(409).json({ error: 'Already answered today.' });
 
-    const poolSnap = await db.collection('drillItems').get();
-    const pool = poolSnap.docs.filter((d) => d.data().active !== false);
-    if (!pool.length) return res.status(404).json({ error: 'No drill items.' });
-    const chosen = pool[pickIndex(uid, key, pool.length)];
+    const chosen = await drillForToday(uid, key);
+    if (!chosen) return res.status(404).json({ error: 'No drill items.' });
     const item = chosen.data();
 
     const correct = (choice === 'phish') === (item.isPhish === true);
