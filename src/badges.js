@@ -103,13 +103,25 @@ async function bumpStreak(uid) {
     const lastKey = data.lastActivityDate || null;
 
     let streakDays = data.streakDays || 0;
+    let insurance = data.streakInsurance || 0;
     if (lastKey === todayKey) {
       // already counted today — no change.
     } else if (lastKey) {
-      const yesterday = new Date(now);
-      yesterday.setUTCDate(yesterday.getUTCDate() - 1);
-      const yesterdayKey = yesterday.toISOString().slice(0, 10);
-      streakDays = lastKey === yesterdayKey ? streakDays + 1 : 1;
+      const dayBefore = (n) => {
+        const d = new Date(now);
+        d.setUTCDate(d.getUTCDate() - n);
+        return d.toISOString().slice(0, 10);
+      };
+      if (lastKey === dayBefore(1)) {
+        streakDays += 1;
+      } else if (lastKey === dayBefore(2) && insurance > 0) {
+        // Streak insurance (design 5a): one banked day covers exactly one
+        // gap, and is spent doing it.
+        insurance -= 1;
+        streakDays += 1;
+      } else {
+        streakDays = 1;
+      }
     } else {
       streakDays = 1;
     }
@@ -119,7 +131,7 @@ async function bumpStreak(uid) {
     // Seeded from the current streak for users who predate this field.
     const highestStreak = Math.max(data.highestStreak || 0, streakDays);
 
-    tx.set(userRef, { streakDays, highestStreak, lastActivityDate: todayKey }, { merge: true });
+    tx.set(userRef, { streakDays, highestStreak, streakInsurance: insurance, lastActivityDate: todayKey }, { merge: true });
     return streakDays;
   });
 }
