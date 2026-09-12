@@ -585,6 +585,12 @@ router.delete('/admin/drill-items/:id', verifyToken, adminOnly, async (req, res)
   res.json({ ok: true });
 });
 
+/** The full boss doc, outcomes included — admins author the fatal branches. */
+router.get('/admin/boss/:moduleId', verifyToken, adminOnly, async (req, res) => {
+  const snap = await db.collection('modules').doc(req.params.moduleId).collection('boss').doc('main').get();
+  res.json(snap.exists ? snap.data() : { name: '', intro: '', howItPlays: [], turns: [] });
+});
+
 router.put('/admin/boss/:moduleId', verifyToken, adminOnly, async (req, res) => {
   const { name, intro, howItPlays, turns } = req.body || {};
   await db.collection('modules').doc(req.params.moduleId).collection('boss').doc('main').set({
