@@ -1,0 +1,86 @@
+{
+  "WkFexL5BaaA8sjIeexPY": [
+    "Clicking a suspicious link, even if nothing seemed to happen afterward",
+    "A calendar invite from someone outside the company you don't recognise",
+    "A routine software update notice that appears on your machine overnight",
+    "A meeting reminder that arrives for a meeting you already attended"
+  ],
+  "sVulO9QkjYRDUuxnGCXs": [
+    "It satisfies the audit requirement that incidents are logged somewhere",
+    "It limits damage and helps protect others from the same attack",
+    "It establishes who was at fault so the mistake is not repeated",
+    "It matters mainly for large organisations with a dedicated SOC team"
+  ],
+  "SWLUG6trWn2NDJeNG60C": [
+    "Your line manager, who will pass it on if they judge it serious",
+    "IT Support (it-support@venator.com)",
+    "The police, since a security incident is a criminal matter",
+    "The vendor whose product was involved in the incident"
+  ],
+  "nfX2sRv7NBqjoecAkdN1": [
+    "No — unconfirmed reports waste the security team's limited time",
+    "Yes, it's better to report and be wrong than stay silent",
+    "Only once a colleague has agreed that it looks serious enough",
+    "Only where money or payment details are directly involved"
+  ],
+  "Ffa9pJWaZXEJFtLARHIz": [
+    "Only if the data on it was definitely accessed by someone",
+    "Yes",
+    "Only if it was not protected by a password or PIN",
+    "Only for laptops and tablets, not for phones"
+  ],
+  "7AlnSFKThrReLKVHUyKP": [
+    "It avoids uncomfortable conversations about who caused the incident",
+    "Fear of punishment discourages people from reporting, which delays response and increases damage",
+    "It has little effect on reporting rates but improves general morale",
+    "It applies mainly to senior staff, who have the most to lose"
+  ],
+  "XeqYtdagk71XExB3V2sP": [
+    "A general description is enough for the team to start looking",
+    "What happened, when, and exactly what you clicked or entered",
+    "The sender's display name, which is what identifies the campaign",
+    "Nothing in particular — security can reconstruct it from logs"
+  ],
+  "yhSiNCVUUGUCqucGoMGM": [
+    "Little changes in a few hours; response happens the next working day",
+    "Malware can spread further across the network the longer it goes unreported",
+    "Ransomware is normally set to activate only after a 24-hour delay",
+    "Security teams work business hours, so timing rarely changes the outcome"
+  ],
+  "tVm5hTrP5sFwXKKpzOpH": [
+    "No — an honest mistake with no malicious intent is not an incident",
+    "Yes, misdirected sensitive data is a reportable incident",
+    "Only if the recipient replies or acknowledges receiving it",
+    "Only where a large volume of records was involved in the send"
+  ],
+  "h6m9DvTop9sq7PFglRDt": [
+    "Assume it is fine — over-reporting erodes trust in real alerts",
+    "Report it anyway and let IT/security assess it",
+    "Ask a colleague to judge it before involving the security team",
+    "Wait until you are certain, so the report is accurate"
+  ],
+  "XO3fquYkkryz181shJjj": [
+    "Completeness matters more, because an incomplete report misleads the team",
+    "Early containment can prevent an incident from spreading, and details can be added later, but lost time often can't be recovered",
+    "Speed has little effect once an attacker already has a foothold inside",
+    "A slower, thorough report is preferred because it needs no follow-up"
+  ],
+  "xnwpQ5xUKmtK8efD7B3Q": [
+    "There is no real security risk, though it is bad for team morale",
+    "Incidents go unreported and unresolved longer, allowing more damage before anyone responds",
+    "Embarrassment affects morale rather than security, since tools catch most things",
+    "It affects new employees mainly, who have not yet learned the process"
+  ],
+  "c4X5jkneY5ZEG2hRFZgY": [
+    "It is not risky while no visible damage has actually occurred yet",
+    "The attacker may already have valid credentials and could act on them at any time, even if there's no immediate visible impact",
+    "Fake login pages usually fail to capture a password correctly anyway",
+    "Password entry alone is not reportable unless data was then accessed"
+  ],
+  "TVizGGk6VJC79SKOPyaB": [
+    "A failed attempt produces nothing the security team can usefully act on",
+    "It helps security teams identify and warn about a campaign that may be targeting other employees too",
+    "Only successful attacks reveal which controls actually need strengthening",
+    "Reporting near-misses inflates the incident count and skews reporting"
+  ]
+}

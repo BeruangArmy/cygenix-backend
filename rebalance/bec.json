@@ -1,0 +1,92 @@
+{
+  "yy50wHzVClOE3BhK6Iwp": [
+    "Yes — every BEC attempt carries a payload of some kind",
+    "No — it's often just a convincing email or message",
+    "Only when the attacker is impersonating an outside vendor",
+    "Only against companies without email filtering in place"
+  ],
+  "5z7jl8qxwKka6Xin46eU": [
+    "Employees chosen at random from the company directory",
+    "Employees who can approve payments or share sensitive data",
+    "IT staff, because they hold the administrator accounts",
+    "Customers of the company rather than its own staff"
+  ],
+  "DuR2Hlg4Bexk46qrE7IG": [
+    "Impersonating an executive or vendor to request money or data",
+    "Sending mass newsletters that carry hidden tracking pixels",
+    "Installing remote-access software on a finance workstation",
+    "Booking meetings in order to map out the company's org chart"
+  ],
+  "h2jBPLsBFhTsxdmTPT2s": [
+    "Reply to the email and ask them to confirm it in writing",
+    "Call the requester on a known number, not one in the email",
+    "Process it promptly so the business is not held up waiting",
+    "Check with a colleague whether the request looks normal"
+  ],
+  "wmRfTSm6k1vPha3YGHzF": [
+    "Normal for deals",
+    "A major red flag",
+    "Fine if it is small",
+    "Standard practice"
+  ],
+  "Q47yn9vgn4QbEAVUnKw5": [
+    "A backup domain a company registers to protect its own brand",
+    "A domain that closely resembles a real company's domain, used to spoof its emails",
+    "A secondary domain used for marketing so it cannot hurt deliverability",
+    "A domain placed on a blocklist after being reported for sending spam"
+  ],
+  "0zpZecmXK09xJCJGkEqk": [
+    "Coincidental — executives travel constantly and still send requests",
+    "A common BEC tactic, exploiting reduced ability to verify in person",
+    "Reassuring, since only someone with their calendar would know that",
+    "Irrelevant, because urgency is normal in finance requests anyway"
+  ],
+  "YFHH5kRhRXfWPP9MDhjR": [
+    "To harvest addresses in bulk for a mass phishing campaign later",
+    "To learn real names, roles, and relationships that make the impersonation convincing",
+    "To find out which staff have publicly listed their phone numbers",
+    "To identify who works remotely and is therefore harder to verify"
+  ],
+  "Mv7s3IkrG9gKhz5uguGW": [
+    "Update the details promptly so the vendor relationship is not damaged",
+    "Verify the change by calling the vendor directly using a previously known number",
+    "Reply to the email asking them to confirm the change in writing",
+    "Split the next payment across both accounts as a safety measure"
+  ],
+  "mOso75CtcxLqrK9UAFUc": [
+    "Policies like this exist for audit purposes rather than for security",
+    "Bypassing normal checks is exactly what BEC attackers are counting on",
+    "Executives are never personally involved in payment approvals",
+    "The delay it causes outweighs the risk on routine payments"
+  ],
+  "aC9bZiVgGKE36EKQ1iI6": [
+    "Processing approved payments faster so there is less window to interfere",
+    "Requiring independent verification and dual approval for any payment or bank detail change",
+    "Treating email from internal addresses as trusted so staff can act without delay",
+    "Blocking all attachments on mail sent to finance and accounts payable"
+  ],
+  "GMTk2KqBavbNEb20EYiP": [
+    "It is not harder — a compromised account still fails authentication checks",
+    "The email genuinely comes from the real address, so sender-address checks alone won't catch it",
+    "A compromised account always shows unusual formatting that gives it away",
+    "An invoice cannot be altered once it has left the vendor's billing system"
+  ],
+  "EA2j7rORHNgFGPsx1fWz": [
+    "Yes — attackers rarely invest the effort needed to write convincingly",
+    "No — well-researched, well-written BEC emails are common and just as dangerous",
+    "Only if the message also contains a link or an attachment to open",
+    "Yes, provided it comes from a contact you have dealt with before"
+  ],
+  "xOFlrdXzXssbr8VPGkWC": [
+    "Wait for the vendor to confirm receipt before escalating it internally",
+    "Contact your bank/finance team immediately to attempt to halt or reverse the transfer, and report it",
+    "Reply to the original email and ask the sender to confirm the account details",
+    "Document what happened and include it in the end-of-week incident summary"
+  ],
+  "s9O7NYEsmjVPOMHktBL5": [
+    "Accounts payable staff receive less security training than others",
+    "They have the authority and access to actually process payments",
+    "Targets are chosen at random from whoever replies to the first email",
+    "Accounts payable addresses are easier to spoof than other mailboxes"
+  ]
+}
