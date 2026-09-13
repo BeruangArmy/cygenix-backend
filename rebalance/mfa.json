@@ -1,0 +1,92 @@
+{
+  "6fQOeb95PK1yp6ZTdrqc": [
+    "MFA provides no protection at all once a phishing kit is involved, so the extra step is not worth the friction it adds at every single login",
+    "MFA significantly raises the bar but isn't foolproof against real-time phishing relays, so verifying the login page's URL still matters",
+    "This kind of attack is purely theoretical and has never been seen outside a lab",
+    "MFA fully prevents this attack in every case, since the code is valid for one site"
+  ],
+  "ABJWbCSVEs1p2AwiMv9R": [
+    "A technical malfunction in MFA systems that causes the same prompt to be delivered over and over again",
+    "Repeatedly sending MFA approval requests hoping the user eventually approves one out of annoyance",
+    "A method for resetting a forgotten MFA enrolment on a new device",
+    "A type of phishing email that imitates an MFA prompt"
+  ],
+  "7oPVteHYJcleSP78Fe9w": [
+    "A technical vulnerability in the MFA app that lets requests be queued and replayed later",
+    "Fatigue and annoyance, hoping you approve one just to make the notifications stop",
+    "A weak Wi-Fi connection that drops the first few prompts",
+    "An expired password that keeps re-triggering the login"
+  ],
+  "lNODc7EiZs3VD9feu2h0": [
+    "It isn't relevant to workplace security, since personal and corporate accounts are kept entirely separate by IT",
+    "Personal account breaches can expose reused passwords or personal info later used against your work accounts",
+    "Personal accounts are never targeted, because they hold nothing of value to an attacker",
+    "Work accounts don't support MFA, so the comparison doesn't apply"
+  ],
+  "FLt5lhOQKRXTKjNLbU8r": [
+    "They look more modern",
+    "They're not vulnerable to SIM swapping and are harder to intercept",
+    "SMS costs more money",
+    "They work without a phone"
+  ],
+  "0JQSlPFkzFeRCuowFSmF": [
+    "It isn't actually more resistant, because an attacker who reaches the login screen can read the same number you would",
+    "It requires you to actually be at the login screen to see the number, making blind approval far less likely",
+    "Number matching is slower, and the extra delay is what discourages attacks",
+    "It replaces the need for a password entirely"
+  ],
+  "Fkd1A9gQRqICmaAUWaJW": [
+    "It isn't a real risk, because carriers verify identity in person before moving a number",
+    "An attacker can redirect your phone number to their own device and receive your codes",
+    "SIM swapping affects voice calls only, never text messages",
+    "It requires physical access to your phone and its SIM tray"
+  ],
+  "ft8Ss3VPn5XJaCJHx7Nd": [
+    "A system glitch that is safe to ignore until the prompts stop on their own",
+    "Someone else has your password and is trying to get into your account",
+    "Your phone needs a software update before prompts will settle",
+    "Nothing — repeated prompts are normal when the network is slow"
+  ],
+  "g7ooB99uwnPVhOIFPC3t": [
+    "Nothing at all, provided you did not also type your password into a page you were unsure about at the time",
+    "Immediately change your password and report it to IT, since your account may now be compromised",
+    "Wait to see whether anything unusual happens on the account first",
+    "Turn MFA off to prevent further accidental approvals"
+  ],
+  "DFXx5H7jYCdvY59R1Boa": [
+    "It isn't necessary if the password is strong",
+    "It adds a second layer, so a stolen password alone isn't enough to log in",
+    "It makes logging in faster",
+    "It replaces the password"
+  ],
+  "7KKdIyuglLpwbDf2YX0N": [
+    "Only a password",
+    "Two or more different factors",
+    "Your email address",
+    "A username only"
+  ],
+  "T2geX9WD2W6BLEoOuzhw": [
+    "Multi-Factor Authentication",
+    "Manual File Access",
+    "Multiple Firewall App",
+    "Master File Authority"
+  ],
+  "vpfYPDVVeHvuyJWMUzRq": [
+    "Approve it to clear the notification",
+    "Deny it and report it",
+    "Ignore it silently",
+    "Approve it if it's late at night"
+  ],
+  "xPKsvRIvWNPTYgfcNqfn": [
+    "Authenticator app codes",
+    "SMS text codes",
+    "Hardware security keys",
+    "Biometric approval"
+  ],
+  "IhlhtKoFTtIzNkmcxTgh": [
+    "Yes, if they sound official",
+    "No, never",
+    "Only with IT staff",
+    "Only if it's urgent"
+  ]
+}

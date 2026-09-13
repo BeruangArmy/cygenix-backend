@@ -54,7 +54,7 @@ router.get('/leaderboard', verifyToken, async (req, res) => {
         return {
           rank: i + 1,
           id: d.id,
-          name: data.fullName || 'Unknown',
+          name: data.nickname || data.fullName || 'Unknown',
           xp: data.xpTotal || 0,
           level: data.level || 1,
           avatarId: data.avatarId || 'assets/mascot_neutral.png',
@@ -87,7 +87,7 @@ router.get('/leaderboard', verifyToken, async (req, res) => {
       return {
         rank: i + 1,
         id: r.id,
-        name: data.fullName || 'Unknown',
+        name: data.nickname || data.fullName || 'Unknown',
         xp: r.xp,
         level: data.level || 1,
         avatarId: data.avatarId || 'assets/mascot_neutral.png',

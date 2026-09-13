@@ -1,0 +1,92 @@
+{
+  "Xx59GZpZH0uDgzF2yNt0": [
+    "Yes — opening it is the quickest way to see what it refers to",
+    "No — check directly via the courier's official app or site instead",
+    "Only where the message looks professionally formatted",
+    "Yes, provided it quotes a tracking number you recognise"
+  ],
+  "YiYHnyobsjryORqtORDX": [
+    "Reply to the text and ask whether the message is genuine",
+    "Log in through the bank's official app, not the link in the text",
+    "Open the link but stop short of entering your password",
+    "Call the number given in the text and ask them to confirm"
+  ],
+  "qGJseGK44jJCkZTuWIji": [
+    "Reply with the code, since they clearly already have your number",
+    "Never share it — OTPs are not meant to be forwarded",
+    "Share it only once they confirm your name and account",
+    "Forward it to IT first and then reply to the sender"
+  ],
+  "P11cgts8tuZSgWCP1SgU": [
+    "A fake package delivery notification",
+    "A calendar invite forwarded by a coworker",
+    "A newsletter from the company intranet",
+    "A reminder for a meeting later today"
+  ],
+  "EnKuo3J2mKl8ouvVDjIl": [
+    "SMS + phishing",
+    "Social media + phishing",
+    "Spam + fishing",
+    "Software + hacking"
+  ],
+  "WHpFxfWH7gknmqq1JWl6": [
+    "Phones run no antivirus, so a malicious link installs unchecked",
+    "It's harder to see the true destination URL on a small screen, and easy to tap without thinking",
+    "Mobile browsers load pages faster than scanning can complete",
+    "Text messages cannot be blocked or filtered the way email can"
+  ],
+  "aiTIa0dJYbPlZ29SrUpu": [
+    "How official the sender name appears in your messages list",
+    "Whether the same message appears when logging into the official account/app directly, not any link",
+    "Whether the spelling and grammar are correct throughout",
+    "How urgent the wording is compared with the sender's usual tone"
+  ],
+  "go7DoKwo1HrVHowkOym9": [
+    "A normal HR request",
+    "Likely a smishing/impersonation attempt",
+    "Safe, since HR holds this anyway",
+    "Risky only if it carries a link"
+  ],
+  "migqj21Patr3oRYpvPHa": [
+    "Reply to confirm",
+    "Block the sender's number",
+    "Keep it for reference",
+    "Nothing more is needed"
+  ],
+  "unCAa3lyBe1W2WEHlx03": [
+    "A legitimate promotion",
+    "A smishing/scam attempt",
+    "Safe for a known brand",
+    "A scam only if it asks to pay"
+  ],
+  "Ap570K2FDreZVVCEy9wT": [
+    "Enter your credentials carefully, checking the page as you go",
+    "Don't enter credentials; navigate to the bank's site directly via a bookmark or official app instead",
+    "Enter a deliberately wrong password first to see how it responds",
+    "Screenshot the page for reporting, then log in as you normally would"
+  ],
+  "daZAKNzQCYIzY4ItCgSe": [
+    "Attackers use leaked personal details, like your name or a recent purchase, to make the text look more convincing",
+    "Breached details add little, because texts are too short to use them",
+    "Data from a breach cannot be matched to a mobile number reliably",
+    "Leaked data helps with email phishing but not with SMS campaigns"
+  ],
+  "ggizHGlnqxvy2UugzAXh": [
+    "Wait and watch the account for any unusual activity first",
+    "Immediately contact the account provider to secure the account, and report it to IT",
+    "Reply again and tell them to disregard the code you sent",
+    "Change your phone number so they cannot contact you again"
+  ],
+  "Jqec6RYMljF2yqJHQDOt": [
+    "To pressure you into acting before you think it through or verify",
+    "Because one-time codes genuinely do expire within a minute",
+    "To keep the message short enough to fit in a single text",
+    "It is incidental — the wording is copied from real bank alerts"
+  ],
+  "kZ9s8SyVu9csLuROBabO": [
+    "Sender name/number alone can't be trusted; verify through an independent channel",
+    "It means a message from a known short code can be treated as safe",
+    "Spoofing works for voice calls but not for the SMS sender ID",
+    "It affects only certain carriers, so most texts remain reliable"
+  ]
+}

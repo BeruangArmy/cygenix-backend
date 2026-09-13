@@ -2,344 +2,20 @@
   {
     "moduleId": "KJNy1HHPVhAulA6nn7QJ",
     "module": "Password Hygiene & Password Managers",
-    "qid": "Gu9ycj32QiUXMr65omVy",
-    "level": "hard",
-    "question": "Why do security experts increasingly recommend passphrases over complex short passwords with symbol substitutions?",
-    "options": [
-      "Passphrases are trendier",
-      "Substitution patterns are predictable and accounted for by cracking tools, while length scales security more reliably",
-      "Symbols are banned by most systems",
-      "Passphrases are shorter to type"
-    ],
-    "correctIdx": 1,
-    "correctLen": 117,
-    "avgOther": 30,
-    "isLongest": true,
-    "ratio": 3.94
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "WHpFxfWH7gknmqq1JWl6",
+    "qid": "BrustzcvgacXOvXd4e8g",
     "level": "medium",
-    "question": "Why are smishing links particularly risky on mobile?",
+    "question": "Why should you avoid predictable patterns like \"Password123!\"?",
     "options": [
-      "Phones don't have antivirus",
-      "It's harder to see the true destination URL on a small screen, and easy to tap without thinking",
-      "Mobile links load faster",
-      "Texts can't be blocked"
+      "They're hard to type",
+      "Attackers' cracking tools already account for common patterns like these",
+      "They break company policy",
+      "A manager can't store them"
     ],
     "correctIdx": 1,
-    "correctLen": 95,
+    "correctLen": 72,
     "avgOther": 24,
     "isLongest": true,
-    "ratio": 3.9
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "WvPF2B0hewHMFVOfHHK1",
-    "level": "hard",
-    "question": "A caller claims to be from IT and asks you to read back a code, which was actually sent to reset your password. What is happening?",
-    "options": [
-      "A normal identity check",
-      "The attacker is trying to hijack your account via a password reset, using you to relay the code",
-      "A billing verification process",
-      "A routine security audit"
-    ],
-    "correctIdx": 1,
-    "correctLen": 95,
-    "avgOther": 26,
-    "isLongest": true,
-    "ratio": 3.7
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "0tbvD3xhA6uzL4LNz1b3",
-    "level": "hard",
-    "question": "An attacker impersonating a vendor technician arrives with a badge-like lanyard and references a real, upcoming maintenance window. What makes this pretext more dangerous than a random cold call?",
-    "options": [
-      "It isn't more dangerous",
-      "It combines physical presence with researched, plausible details, making both social and visual cues seem legitimate",
-      "Badges are always fully verified visually",
-      "Maintenance windows are never real"
-    ],
-    "correctIdx": 1,
-    "correctLen": 116,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 3.55
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "aiTIa0dJYbPlZ29SrUpu",
-    "level": "medium",
-    "question": "Which detail is most useful for verifying a text's legitimacy?",
-    "options": [
-      "How official the sender name looks",
-      "Whether the same message appears when logging into the official account/app directly, not any link",
-      "Whether it has correct spelling",
-      "How urgent it sounds"
-    ],
-    "correctIdx": 1,
-    "correctLen": 98,
-    "avgOther": 28,
-    "isLongest": true,
-    "ratio": 3.46
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "tEcY9RoKX3kGlZI72do1",
-    "level": "hard",
-    "question": "Why can excessive helpfulness within an organization become a security liability during pretexting attacks?",
-    "options": [
-      "Helpfulness is never a risk",
-      "Employees may bypass verification steps to be accommodating, which is exactly what the pretext is designed to exploit",
-      "It only matters for customer-facing staff",
-      "It has no connection to pretexting"
-    ],
-    "correctIdx": 1,
-    "correctLen": 117,
-    "avgOther": 34,
-    "isLongest": true,
-    "ratio": 3.44
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "gdqfukAP0PnV8vUPBfsg",
-    "level": "hard",
-    "question": "An employee's antivirus alert is silently disabled just before a ransomware attack begins. What does this suggest?",
-    "options": [
-      "A random software bug",
-      "The attacker likely already has a foothold and is deliberately disabling defenses before the main attack",
-      "Antivirus software disables itself periodically",
-      "It suggests nothing unusual"
-    ],
-    "correctIdx": 1,
-    "correctLen": 104,
-    "avgOther": 32,
-    "isLongest": true,
-    "ratio": 3.28
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "APDcO7sOVxIt3M4lPpwQ",
-    "level": "hard",
-    "question": "Why is password reuse considered more dangerous today than it was years ago?",
-    "options": [
-      "Passwords are weaker today",
-      "Large-scale credential leaks are common, and automated tools can test leaked passwords across many sites in minutes",
-      "Reuse has always been equally risky",
-      "Modern accounts don't support strong passwords"
-    ],
-    "correctIdx": 1,
-    "correctLen": 115,
-    "avgOther": 36,
-    "isLongest": true,
-    "ratio": 3.22
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "Ap570K2FDreZVVCEy9wT",
-    "level": "hard",
-    "question": "A smishing link opens a page pixel-perfectly identical to your bank's login page. What is the safest action?",
-    "options": [
-      "Enter your credentials carefully",
-      "Don't enter credentials; navigate to the bank's site directly via a bookmark or official app instead",
-      "Enter a wrong password first to test it",
-      "Screenshot it and then log in"
-    ],
-    "correctIdx": 1,
-    "correctLen": 100,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 3
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "6fQOeb95PK1yp6ZTdrqc",
-    "level": "hard",
-    "question": "Phishing kits exist that capture both your password and MFA code in real time by relaying them through a fake login page. What does this mean for MFA's protection?",
-    "options": [
-      "MFA provides no protection at all",
-      "MFA significantly raises the bar but isn't foolproof against real-time phishing relays, so verifying the login page's URL still matters",
-      "This type of attack is purely theoretical and doesn't happen",
-      "MFA fully prevents this attack in all cases"
-    ],
-    "correctIdx": 1,
-    "correctLen": 135,
-    "avgOther": 45,
-    "isLongest": true,
-    "ratio": 2.98
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "ABJWbCSVEs1p2AwiMv9R",
-    "level": "medium",
-    "question": "What is \"MFA fatigue\" or \"prompt bombing\"?",
-    "options": [
-      "A technical malfunction in MFA systems",
-      "Repeatedly sending MFA approval requests hoping the user eventually approves one out of annoyance",
-      "A method for resetting forgotten MFA",
-      "A type of phishing email"
-    ],
-    "correctIdx": 1,
-    "correctLen": 97,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 2.97
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "7oPVteHYJcleSP78Fe9w",
-    "level": "hard",
-    "question": "An attacker who already has your password sends you 10 MFA push notifications at 2am. What is this attack designed to exploit?",
-    "options": [
-      "A technical vulnerability in the MFA app",
-      "Fatigue and annoyance, hoping you approve one just to make the notifications stop",
-      "A weak Wi-Fi connection",
-      "An expired password"
-    ],
-    "correctIdx": 1,
-    "correctLen": 81,
-    "avgOther": 27,
-    "isLongest": true,
-    "ratio": 2.96
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "L3KSCKl69hTHFX2yS0W9",
-    "level": "hard",
-    "question": "What makes spear phishing more dangerous than a generic mass phishing email?",
-    "options": [
-      "It is sent to more people at once",
-      "It is personalized using real details about you or your organization, making it more convincing",
-      "It only targets executives",
-      "It always contains malware attachments"
-    ],
-    "correctIdx": 1,
-    "correctLen": 95,
-    "avgOther": 32,
-    "isLongest": true,
-    "ratio": 2.94
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "daZAKNzQCYIzY4ItCgSe",
-    "level": "hard",
-    "question": "Why might smishing be combined with details from a prior data breach?",
-    "options": [
-      "Attackers use leaked personal details, like your name or a recent purchase, to make the text look more convincing",
-      "It has no real effect on believability",
-      "Breached data can't be used for texts",
-      "It only helps with email phishing, not SMS"
-    ],
-    "correctIdx": 0,
-    "correctLen": 113,
-    "avgOther": 39,
-    "isLongest": true,
-    "ratio": 2.9
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "ggizHGlnqxvy2UugzAXh",
-    "level": "hard",
-    "question": "You already replied to a smishing text with a code before realizing it was fake. What is the next step?",
-    "options": [
-      "Wait and see what happens",
-      "Immediately contact the account provider to secure the account, and report it to IT",
-      "Reply again asking them to disregard it",
-      "Change your phone number"
-    ],
-    "correctIdx": 1,
-    "correctLen": 83,
-    "avgOther": 29,
-    "isLongest": true,
-    "ratio": 2.83
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "7zYi8DrAZOI79P9iv7nH",
-    "level": "hard",
-    "question": "Why might an organization mandate a password manager rather than just recommending strong passwords?",
-    "options": [
-      "It's cheaper than training",
-      "It removes reliance on individual memory/habits, ensuring genuine uniqueness and strength across all accounts",
-      "Recommendations are legally required to be mandates",
-      "Password managers replace the need for MFA"
-    ],
-    "correctIdx": 1,
-    "correctLen": 109,
-    "avgOther": 40,
-    "isLongest": true,
-    "ratio": 2.75
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "NNLavpnaXUpNuhmkNnev",
-    "level": "easy",
-    "question": "Pretexting relies mainly on:",
-    "options": [
-      "A fabricated, believable scenario or false identity",
-      "Malware attachments",
-      "Weak Wi-Fi passwords",
-      "Outdated software"
-    ],
-    "correctIdx": 0,
-    "correctLen": 51,
-    "avgOther": 19,
-    "isLongest": true,
-    "ratio": 2.73
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "lNODc7EiZs3VD9feu2h0",
-    "level": "hard",
-    "question": "Why is enabling MFA on personal accounts, not just work accounts, also relevant to workplace security?",
-    "options": [
-      "It isn't relevant to workplace security",
-      "Personal account breaches can expose reused passwords or personal info later used against your work accounts",
-      "Personal accounts are never targeted by attackers",
-      "Work accounts don't support MFA"
-    ],
-    "correctIdx": 1,
-    "correctLen": 108,
-    "avgOther": 40,
-    "isLongest": true,
-    "ratio": 2.72
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "Z2Xpr5LmLzYXhwIsEvTO",
-    "level": "easy",
-    "question": "Pretexting often exploits which human trait?",
-    "options": [
-      "Willingness to help and trust authority",
-      "Boredom",
-      "Technical expertise",
-      "Slow typing speed"
-    ],
-    "correctIdx": 0,
-    "correctLen": 39,
-    "avgOther": 14,
-    "isLongest": true,
-    "ratio": 2.72
+    "ratio": 3.04
   },
   {
     "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
@@ -351,301 +27,13 @@
       "They look more modern",
       "They're not vulnerable to SIM swapping and are harder to intercept",
       "SMS costs more money",
-      "They work without a phone at all"
+      "They work without a phone"
     ],
     "correctIdx": 1,
     "correctLen": 66,
-    "avgOther": 24,
+    "avgOther": 22,
     "isLongest": true,
-    "ratio": 2.71
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "8G8ZQjqwPT91mEaOt5yo",
-    "level": "medium",
-    "question": "How does a password manager help protect against phishing?",
-    "options": [
-      "It blocks all phishing emails",
-      "It won't autofill credentials on a fake lookalike domain, since the URL doesn't match",
-      "It scans links for malware",
-      "It reports phishing to IT automatically"
-    ],
-    "correctIdx": 1,
-    "correctLen": 85,
-    "avgOther": 31,
-    "isLongest": true,
-    "ratio": 2.71
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "0JQSlPFkzFeRCuowFSmF",
-    "level": "hard",
-    "question": "Why is \"number matching\" (entering a number shown on the login screen into your MFA app) more resistant to prompt bombing than a simple approve/deny push?",
-    "options": [
-      "It isn't actually more resistant",
-      "It requires you to actually be at the login screen to see the number, making blind approval far less likely",
-      "Number matching is slower, which discourages attacks",
-      "It replaces the need for a password"
-    ],
-    "correctIdx": 1,
-    "correctLen": 107,
-    "avgOther": 40,
-    "isLongest": true,
-    "ratio": 2.7
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "APl4wfwd6rMJKreXZ9XG",
-    "level": "hard",
-    "question": "Why might attackers specifically target new employees with vishing?",
-    "options": [
-      "New employees have weaker phones",
-      "They're less familiar with normal IT processes and more likely to comply without question",
-      "New employees don't have passwords yet",
-      "It's random and has no pattern"
-    ],
-    "correctIdx": 1,
-    "correctLen": 89,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 2.67
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "kdlHoouEgS480gmREu9J",
-    "level": "hard",
-    "question": "Why is a phishing email often the very first step in what eventually becomes a ransomware incident?",
-    "options": [
-      "Phishing and ransomware are unrelated",
-      "It's frequently the initial access point that lets attackers install malware and move through the network",
-      "Ransomware only spreads through USB drives",
-      "Phishing emails can't deliver ransomware"
-    ],
-    "correctIdx": 1,
-    "correctLen": 105,
-    "avgOther": 40,
-    "isLongest": true,
-    "ratio": 2.65
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "NtvUlzEG78ce4I7ST1CA",
-    "level": "hard",
-    "question": "Why should employees report failed or suspicious pretexting attempts, even if they didn't fall for them?",
-    "options": [
-      "There's no benefit to reporting a failed attempt",
-      "It helps identify attackers targeting the organization and warns others before someone else is targeted",
-      "Only successful attacks need to be reported",
-      "It creates unnecessary paperwork"
-    ],
-    "correctIdx": 1,
-    "correctLen": 103,
-    "avgOther": 41,
-    "isLongest": true,
-    "ratio": 2.51
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "Fkd1A9gQRqICmaAUWaJW",
-    "level": "medium",
-    "question": "Why is SIM swapping a risk for SMS-based MFA?",
-    "options": [
-      "It isn't actually a risk",
-      "An attacker can redirect your phone number to their own device and receive your codes",
-      "SIM swapping only affects phone calls",
-      "It requires physical access to your phone"
-    ],
-    "correctIdx": 1,
-    "correctLen": 85,
-    "avgOther": 34,
-    "isLongest": true,
-    "ratio": 2.5
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "ksfPPakePz4tuYGbYMof",
-    "level": "easy",
-    "question": "Which is an example of pretexting?",
-    "options": [
-      "Someone posing as a new IT hire asking for your login to \"test the system\"",
-      "A scheduled team meeting invite",
-      "An automatic software update",
-      "A public company press release"
-    ],
-    "correctIdx": 0,
-    "correctLen": 74,
-    "avgOther": 30,
-    "isLongest": true,
-    "ratio": 2.49
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "mGTN7Qd7QaGxOjoVtAs6",
-    "level": "hard",
-    "question": "Why might ransomware sit dormant on a network for days or weeks before encrypting anything?",
-    "options": [
-      "It's a technical limitation of ransomware",
-      "To spread further, identify high-value systems, and steal data before triggering the visible attack",
-      "Dormancy has no strategic purpose",
-      "It only happens with poorly written ransomware"
-    ],
-    "correctIdx": 1,
-    "correctLen": 99,
-    "avgOther": 40,
-    "isLongest": true,
-    "ratio": 2.48
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "hC5kkb8yjdbdjwizHF7u",
-    "level": "medium",
-    "question": "What is \"double extortion\" in a ransomware attack?",
-    "options": [
-      "Demanding payment twice for the same file",
-      "Stealing data before encrypting it, then threatening to leak it in addition to demanding a ransom for decryption",
-      "Encrypting files twice for extra security",
-      "A ransomware variant that only affects double the files"
-    ],
-    "correctIdx": 1,
-    "correctLen": 112,
-    "avgOther": 46,
-    "isLongest": true,
-    "ratio": 2.45
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "Xx59GZpZH0uDgzF2yNt0",
-    "level": "easy",
-    "question": "Should you tap a link in an unexpected delivery text?",
-    "options": [
-      "Yes, to see what it is",
-      "No — check directly via the courier's official app or site instead",
-      "Only if it looks professional",
-      "Yes, if it has a tracking number"
-    ],
-    "correctIdx": 1,
-    "correctLen": 66,
-    "avgOther": 28,
-    "isLongest": true,
-    "ratio": 2.39
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "1C7qAwFko3cJFfUECUGk",
-    "level": "hard",
-    "question": "If backups exist but are stored on the same always-connected network as production systems, why might they fail to protect against ransomware?",
-    "options": [
-      "Backups are always immune to ransomware",
-      "Ransomware that spreads across the network can encrypt or destroy connected backups too",
-      "This setup has no real weakness",
-      "Backups only fail due to hardware issues"
-    ],
-    "correctIdx": 1,
-    "correctLen": 87,
-    "avgOther": 37,
-    "isLongest": true,
-    "ratio": 2.37
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "g0jlEOjb6LKsTTrULuUa",
-    "level": "hard",
-    "question": "What is the most reliable defense against a well-researched pretext?",
-    "options": [
-      "Trusting your instinct about whether someone seems honest",
-      "A consistent, non-negotiable identity verification procedure that doesn't depend on how convincing the story seems",
-      "Asking more detailed follow-up questions",
-      "Requiring ID only from unfamiliar-looking people"
-    ],
-    "correctIdx": 1,
-    "correctLen": 114,
-    "avgOther": 48,
-    "isLongest": true,
-    "ratio": 2.36
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "Jqec6RYMljF2yqJHQDOt",
-    "level": "hard",
-    "question": "Why do OTP-phishing smishing scams often create urgency (\"code expires in 60 seconds\")?",
-    "options": [
-      "To pressure you into acting before you think it through or verify",
-      "Because OTPs technically expire that fast",
-      "To make the text shorter",
-      "It's a coincidence"
-    ],
-    "correctIdx": 0,
-    "correctLen": 65,
-    "avgOther": 28,
-    "isLongest": true,
-    "ratio": 2.35
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "kZ9s8SyVu9csLuROBabO",
-    "level": "hard",
-    "question": "Attackers can spoof the sender ID shown for a text so it appears to come from a real short code your bank uses. What does this mean for smishing detection?",
-    "options": [
-      "Sender name/number alone can't be trusted; verify through an independent channel",
-      "It means the message is safe",
-      "Only phone calls can be spoofed, not texts",
-      "It only affects certain carriers"
-    ],
-    "correctIdx": 0,
-    "correctLen": 80,
-    "avgOther": 34,
-    "isLongest": true,
-    "ratio": 2.35
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "ft8Ss3VPn5XJaCJHx7Nd",
-    "level": "medium",
-    "question": "If you receive several unexpected MFA prompts in a row, what does that likely mean?",
-    "options": [
-      "A system glitch, safe to ignore",
-      "Someone else has your password and is trying to get into your account",
-      "Your phone needs an update",
-      "Nothing, this is normal behavior"
-    ],
-    "correctIdx": 1,
-    "correctLen": 69,
-    "avgOther": 30,
-    "isLongest": true,
-    "ratio": 2.33
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "hRQ32gt80Fr1KdAttX9D",
-    "level": "medium",
-    "question": "Why is a long passphrase often stronger than a short complex password?",
-    "options": [
-      "Passphrases are easier to type",
-      "Length increases the number of possible combinations more than symbol substitution does",
-      "Passphrases can't be cracked at all",
-      "Complex passwords are actually weaker by design"
-    ],
-    "correctIdx": 1,
-    "correctLen": 87,
-    "avgOther": 37,
-    "isLongest": true,
-    "ratio": 2.33
+    "ratio": 3
   },
   {
     "moduleId": "biyeZLy4nvajdtYv6t17",
@@ -654,232 +42,16 @@
     "level": "hard",
     "question": "An attacker calls pretending to be a coworker, referencing real project names found on LinkedIn, to build trust before asking for a password reset. This combination is called:",
     "options": [
+      "A coincidence — nothing more",
       "Vishing combined with pretexting/social engineering research",
-      "A harmless coincidence",
       "Standard IT verification",
-      "Spear phishing only, not vishing"
+      "Spear phishing, not vishing"
     ],
-    "correctIdx": 0,
+    "correctIdx": 1,
     "correctLen": 60,
     "avgOther": 26,
     "isLongest": true,
-    "ratio": 2.31
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "YZC5NZDSsfN3cPGAcCAD",
-    "level": "medium",
-    "question": "Which is a common vishing scenario?",
-    "options": [
-      "Someone claiming to be from the helpdesk asking for your password to \"fix an issue\"",
-      "A calendar reminder call from your own phone",
-      "An automated appointment confirmation",
-      "A call from a saved contact"
-    ],
-    "correctIdx": 0,
-    "correctLen": 83,
-    "avgOther": 36,
-    "isLongest": true,
-    "ratio": 2.31
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "0wUgdjTXhWIKEKV7l5NH",
-    "level": "medium",
-    "question": "Why do security teams generally advise against paying a ransomware ransom?",
-    "options": [
-      "Payment is illegal everywhere",
-      "There's no guarantee of getting files back, and it funds further attacks",
-      "Ransomware always self-resolves",
-      "Insurance always covers it instead"
-    ],
-    "correctIdx": 1,
-    "correctLen": 72,
-    "avgOther": 31,
-    "isLongest": true,
-    "ratio": 2.3
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "5gZfNyUorCHEsDztRgCO",
-    "level": "hard",
-    "question": "Why should employees report suspicious but seemingly minor symptoms, like unusual slowness or pop-ups, rather than dismissing them?",
-    "options": [
-      "Minor symptoms are never worth reporting",
-      "Early symptoms can be the first visible sign of malware before it fully activates or spreads",
-      "IT only cares about major incidents",
-      "These symptoms are always unrelated to security"
-    ],
-    "correctIdx": 1,
-    "correctLen": 92,
-    "avgOther": 41,
-    "isLongest": true,
-    "ratio": 2.26
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "b2kKCeaV0yn521dOArno",
-    "level": "hard",
-    "question": "Why is \"vishing followed by a fake confirmation email\" more dangerous than a call alone?",
-    "options": [
-      "It isn't more dangerous",
-      "The email can appear to corroborate the caller's story, making the scam more convincing",
-      "Emails are always more trustworthy than calls",
-      "It allows the attacker to skip the call entirely"
-    ],
-    "correctIdx": 1,
-    "correctLen": 87,
-    "avgOther": 39,
-    "isLongest": true,
-    "ratio": 2.25
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "kwAXxaPlGqEGXhZxD9Ns",
-    "level": "hard",
-    "question": "A pretexting attacker builds trust over several small, low-risk interactions before making the real request. Why is this multi-step approach effective?",
-    "options": [
-      "It wastes the attacker's time for no benefit",
-      "Each small interaction lowers suspicion, making the final, higher-risk request seem like a natural continuation",
-      "Multiple interactions always get flagged by security systems",
-      "It only works over long time periods of months"
-    ],
-    "correctIdx": 1,
-    "correctLen": 111,
-    "avgOther": 50,
-    "isLongest": true,
-    "ratio": 2.22
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "PyFExTXdajpwFQ0ABWqR",
-    "level": "medium",
-    "question": "What should you do if you learn a service you use was breached?",
-    "options": [
-      "Nothing, unless you get a direct notification",
-      "Change your password for that account, and anywhere else you may have reused it",
-      "Wait for the company to fix it",
-      "Only worry if it's a work account"
-    ],
-    "correctIdx": 1,
-    "correctLen": 79,
-    "avgOther": 36,
-    "isLongest": true,
-    "ratio": 2.19
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "JxB4DtUNd8maEWhHTpQZ",
-    "level": "medium",
-    "question": "Why do pretexting attacks often use a title like \"auditor\" or \"executive assistant\"?",
-    "options": [
-      "These titles are easier to spell",
-      "Titles implying authority make people less likely to question the request",
-      "These roles never actually exist",
-      "It's a random choice with no purpose"
-    ],
-    "correctIdx": 1,
-    "correctLen": 73,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 2.19
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "7vA92b7ydgldSUEdCICf",
-    "level": "medium",
-    "question": "Why is pretexting considered the foundation of many other social engineering attacks?",
-    "options": [
-      "It isn't related to other attack types",
-      "Vishing, BEC, and tailgating often rely on a fabricated pretext to work",
-      "It only applies to phone calls",
-      "It requires no research at all"
-    ],
-    "correctIdx": 1,
-    "correctLen": 71,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 2.17
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "RYfGBLPnvuKaCBT3dCJp",
-    "level": "medium",
-    "question": "What is \"credential stuffing\"?",
-    "options": [
-      "Adding extra characters to make a password longer",
-      "Using leaked username/password pairs to try logging into other accounts",
-      "A type of phishing email",
-      "A password manager feature"
-    ],
-    "correctIdx": 1,
-    "correctLen": 71,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 2.15
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "DuuDLGAlVu9OwEL3TYLV",
-    "level": "easy",
-    "question": "What does a password manager mainly do?",
-    "options": [
-      "Generates and stores strong, unique passwords for each account",
-      "Speeds up your internet connection",
-      "Deletes old accounts automatically",
-      "Backs up your files"
-    ],
-    "correctIdx": 0,
-    "correctLen": 62,
-    "avgOther": 29,
-    "isLongest": true,
-    "ratio": 2.14
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "EYLzs5flwYHLfR7Dj39L",
-    "level": "medium",
-    "question": "Which attachment type should make you most cautious in an unexpected email?",
-    "options": [
-      "A .txt file",
-      "A .pdf you were expecting",
-      "A macro-enabled .docm or .exe file",
-      "A .png image"
-    ],
-    "correctIdx": 2,
-    "correctLen": 34,
-    "avgOther": 16,
-    "isLongest": true,
-    "ratio": 2.13
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "oDKVMFsO1KLCK4ULtQJG",
-    "level": "easy",
-    "question": "What does ransomware do?",
-    "options": [
-      "Speeds up your computer",
-      "Encrypts your files and demands payment to unlock them",
-      "Deletes spam emails",
-      "Updates your software automatically"
-    ],
-    "correctIdx": 1,
-    "correctLen": 54,
-    "avgOther": 26,
-    "isLongest": true,
-    "ratio": 2.1
+    "ratio": 2.28
   },
   {
     "moduleId": "5gfknBKr3gDnAQZGTVwR",
@@ -900,130 +72,22 @@
     "ratio": 2.09
   },
   {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "AmnO3IIiuvpxzFUeil6i",
-    "level": "hard",
-    "question": "A password manager's master password is compromised. Why is this a uniquely high-impact event?",
-    "options": [
-      "It isn't particularly high-impact",
-      "It can expose every stored password at once, unlike a single reused password",
-      "Password managers can't be compromised",
-      "It only affects the manager app itself"
-    ],
-    "correctIdx": 1,
-    "correctLen": 76,
-    "avgOther": 36,
-    "isLongest": true,
-    "ratio": 2.09
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "zZHdqe7o9oL3Spz4zBrC",
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "sYy4jBvM5ymJsDn9YEFR",
     "level": "easy",
-    "question": "A stranger claiming to be an auditor asks for confidential files without proper verification. This should be:",
+    "question": "Vishing is phishing conducted over:",
     "options": [
-      "Provided since audits are routine",
-      "Verified through official channels before any information is shared",
-      "Given partially as a compromise",
-      "Escalated only if they ask twice"
+      "Phone calls",
+      "Post",
+      "Chat apps",
+      "Fax"
     ],
-    "correctIdx": 1,
-    "correctLen": 67,
-    "avgOther": 32,
+    "correctIdx": 0,
+    "correctLen": 11,
+    "avgOther": 5,
     "isLongest": true,
-    "ratio": 2.09
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "BrustzcvgacXOvXd4e8g",
-    "level": "medium",
-    "question": "Why should you avoid predictable patterns like \"Password123!\"?",
-    "options": [
-      "They're hard to type",
-      "Attackers' cracking tools already account for common patterns like these",
-      "They're against most company policies only",
-      "They can't be stored in a password manager"
-    ],
-    "correctIdx": 1,
-    "correctLen": 72,
-    "avgOther": 35,
-    "isLongest": true,
-    "ratio": 2.08
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "g7ooB99uwnPVhOIFPC3t",
-    "level": "hard",
-    "question": "What should you do if you accidentally approve an MFA prompt you didn't intend to?",
-    "options": [
-      "Nothing, if you didn't enter a password too",
-      "Immediately change your password and report it to IT, since your account may now be compromised",
-      "Wait to see if anything unusual happens first",
-      "Turn off MFA to prevent future accidental approvals"
-    ],
-    "correctIdx": 1,
-    "correctLen": 95,
-    "avgOther": 46,
-    "isLongest": true,
-    "ratio": 2.05
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "D0PfQwNujZS2GXHXofbP",
-    "level": "hard",
-    "question": "A vendor invoice email arrives with correct company branding, a real-looking sender name, and references an actual ongoing project. What is the safest verification step?",
-    "options": [
-      "Trust it since it references real project details",
-      "Reply directly to the email asking to confirm the bank details",
-      "Contact the vendor using a phone number or email address you already have on file, not one from this message",
-      "Forward payment since the branding looks authentic"
-    ],
-    "correctIdx": 2,
-    "correctLen": 108,
-    "avgOther": 54,
-    "isLongest": true,
-    "ratio": 2.01
-  },
-  {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "AhmPPYjclwazUbFDBKtY",
-    "level": "easy",
-    "question": "What is the main risk of reusing the same password across multiple accounts?",
-    "options": [
-      "Slower login times",
-      "One breach exposes all accounts using that password",
-      "It uses more storage",
-      "None, as long as it's a strong password"
-    ],
-    "correctIdx": 1,
-    "correctLen": 51,
-    "avgOther": 26,
-    "isLongest": true,
-    "ratio": 1.99
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "HFyX4G5uUDAY2MfySCiH",
-    "level": "easy",
-    "question": "Is verifying someone's identity before helping them considered rude in a security context?",
-    "options": [
-      "Yes, always",
-      "No, it's standard and expected practice",
-      "Only for senior staff",
-      "Only if they seem suspicious"
-    ],
-    "correctIdx": 1,
-    "correctLen": 39,
-    "avgOther": 20,
-    "isLongest": true,
-    "ratio": 1.95
+    "ratio": 2.06
   },
   {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
@@ -1044,312 +108,6 @@
     "ratio": 1.91
   },
   {
-    "moduleId": "CxP6a8gX2nxxNazQ6WWc",
-    "module": "Incident Reporting",
-    "qid": "c4X5jkneY5ZEG2hRFZgY",
-    "level": "hard",
-    "question": "An employee doesn't report accidentally entering their password on a fake login page because \"nothing bad happened yet.\" Why is this risky?",
-    "options": [
-      "It is not risky while no visible damage has actually occurred yet",
-      "The attacker may already have valid credentials and could act on them at any time, even if there's no immediate visible impact",
-      "Fake login pages usually fail to capture a password correctly anyway",
-      "Password entry alone is not reportable unless data was then accessed"
-    ],
-    "correctIdx": 1,
-    "correctLen": 126,
-    "avgOther": 67,
-    "isLongest": true,
-    "ratio": 1.88
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "YiYHnyobsjryORqtORDX",
-    "level": "easy",
-    "question": "What is the best way to verify a suspicious \"bank\" text?",
-    "options": [
-      "Reply asking if it is real",
-      "Log in through the bank's official app, not the link in the text",
-      "Click the link but don't enter a password",
-      "Call the number provided in the text"
-    ],
-    "correctIdx": 1,
-    "correctLen": 64,
-    "avgOther": 34,
-    "isLongest": true,
-    "ratio": 1.86
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "CTCMaqEarGFWwrIQM8wR",
-    "level": "medium",
-    "question": "Why is disconnecting an infected computer from the network important?",
-    "options": [
-      "It isn't actually important",
-      "To prevent ransomware/malware from spreading to other systems",
-      "It only helps the computer run faster",
-      "It automatically removes the malware"
-    ],
-    "correctIdx": 1,
-    "correctLen": 61,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 1.83
-  },
-  {
-    "moduleId": "CxP6a8gX2nxxNazQ6WWc",
-    "module": "Incident Reporting",
-    "qid": "XO3fquYkkryz181shJjj",
-    "level": "hard",
-    "question": "Why is the speed of reporting often more important than the completeness of the initial report?",
-    "options": [
-      "Completeness matters more, because an incomplete report misleads the team",
-      "Early containment can prevent an incident from spreading, and details can be added later, but lost time often can't be recovered",
-      "Speed has little effect once an attacker already has a foothold inside",
-      "A slower, thorough report is preferred because it needs no follow-up"
-    ],
-    "correctIdx": 1,
-    "correctLen": 128,
-    "avgOther": 70,
-    "isLongest": true,
-    "ratio": 1.82
-  },
-  {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "DFXx5H7jYCdvY59R1Boa",
-    "level": "easy",
-    "question": "Why is MFA important even if your password is strong?",
-    "options": [
-      "It isn't necessary if the password is strong enough",
-      "It adds a second layer, so a stolen password alone isn't enough to log in",
-      "It makes logging in faster",
-      "It replaces the need for a password entirely"
-    ],
-    "correctIdx": 1,
-    "correctLen": 73,
-    "avgOther": 40,
-    "isLongest": true,
-    "ratio": 1.81
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "lZLK64T09OdLh2Hew21q",
-    "level": "easy",
-    "question": "A caller claims to be your bank and asks for your PIN. You should:",
-    "options": [
-      "Give it since they said it's your bank",
-      "Refuse and hang up, then call the bank's official number",
-      "Give a fake PIN to test them",
-      "Ask them to text you instead"
-    ],
-    "correctIdx": 1,
-    "correctLen": 56,
-    "avgOther": 31,
-    "isLongest": true,
-    "ratio": 1.79
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "OUkgvCsFxeuVUx08ozp0",
-    "level": "easy",
-    "question": "What is the main goal of a phishing attack?",
-    "options": [
-      "To trick you into revealing credentials or installing malware",
-      "To improve your email spam filter",
-      "To back up your files automatically",
-      "To speed up your internet connection"
-    ],
-    "correctIdx": 0,
-    "correctLen": 61,
-    "avgOther": 35,
-    "isLongest": true,
-    "ratio": 1.76
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "jraCY3nsz4dfqLlzirz8",
-    "level": "hard",
-    "question": "What is the safest response to any unsolicited call asking for credentials, codes, or remote access?",
-    "options": [
-      "Comply if the caller sounds professional",
-      "Decline, hang up, and verify independently before taking any action",
-      "Give partial information as a compromise",
-      "Ask a coworker to handle it instead"
-    ],
-    "correctIdx": 1,
-    "correctLen": 67,
-    "avgOther": 38,
-    "isLongest": true,
-    "ratio": 1.75
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "6afNkGnuRa71yi5GyWr7",
-    "level": "medium",
-    "question": "A link in an email displays as \"venator.com/login\" but hovering shows a totally different URL. What should you do?",
-    "options": [
-      "Click it since the displayed text looks correct",
-      "Do not click it — the real destination does not match what is shown",
-      "Click it only if you are on WiFi",
-      "Forward it to a friend to check first"
-    ],
-    "correctIdx": 1,
-    "correctLen": 67,
-    "avgOther": 39,
-    "isLongest": true,
-    "ratio": 1.73
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "qGJseGK44jJCkZTuWIji",
-    "level": "easy",
-    "question": "A text asks for your one-time password (OTP). What should you do?",
-    "options": [
-      "Reply with the code",
-      "Never share it — OTPs are not meant to be forwarded",
-      "Share it only if they know your name",
-      "Forward it to IT first, then reply"
-    ],
-    "correctIdx": 1,
-    "correctLen": 51,
-    "avgOther": 30,
-    "isLongest": true,
-    "ratio": 1.72
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "D2XBXGclGGqSga9vuwST",
-    "level": "easy",
-    "question": "Caller ID showing your bank's real number means the call is definitely legitimate.",
-    "options": [
-      "True",
-      "False — caller ID can be spoofed",
-      "True, only for banks",
-      "True, if it's a toll-free number"
-    ],
-    "correctIdx": 1,
-    "correctLen": 32,
-    "avgOther": 19,
-    "isLongest": true,
-    "ratio": 1.71
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "3FUVSgL7V2bbgSG0K7Ct",
-    "level": "easy",
-    "question": "Which of these is a common phishing red flag?",
-    "options": [
-      "A message creating urgency, like \"act within 24 hours\"",
-      "An email signed with a real full name",
-      "A message sent during work hours",
-      "An email with no attachments"
-    ],
-    "correctIdx": 0,
-    "correctLen": 54,
-    "avgOther": 32,
-    "isLongest": true,
-    "ratio": 1.67
-  },
-  {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "go7DoKwo1HrVHowkOym9",
-    "level": "medium",
-    "question": "A text claims to be from \"HR\" asking you to text back your login details urgently. This is:",
-    "options": [
-      "A normal HR request",
-      "Likely a smishing/impersonation attempt",
-      "Safe since it mentions HR",
-      "Only risky if it has a link"
-    ],
-    "correctIdx": 1,
-    "correctLen": 39,
-    "avgOther": 24,
-    "isLongest": true,
-    "ratio": 1.65
-  },
-  {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "c06zSxEyOaTK36KpDL4K",
-    "level": "medium",
-    "question": "What should you do if someone's story keeps changing or has small inconsistencies?",
-    "options": [
-      "Ignore the inconsistencies if they seem minor",
-      "Treat it as a red flag and verify further before proceeding",
-      "Assume it's just miscommunication",
-      "Proceed but note it for later"
-    ],
-    "correctIdx": 1,
-    "correctLen": 59,
-    "avgOther": 36,
-    "isLongest": true,
-    "ratio": 1.65
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "1MBfVv6KHDG3LWYyAygb",
-    "level": "hard",
-    "question": "A phishing email successfully bypasses the spam filter and is technically well-crafted with no obvious spelling errors. Does the absence of typos mean it is safe?",
-    "options": [
-      "Yes, phishing emails always have spelling mistakes",
-      "No, well-crafted phishing with no errors is common and still dangerous",
-      "Yes, spam filters catch everything else",
-      "No, but only if it also has an attachment"
-    ],
-    "correctIdx": 1,
-    "correctLen": 70,
-    "avgOther": 43,
-    "isLongest": true,
-    "ratio": 1.62
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "v741PHdM78OoR5e4fxvI",
-    "level": "medium",
-    "question": "You get an email from \"IT Support\" but the address is it-support@venat0r-support.com. What is wrong?",
-    "options": [
-      "Nothing, this is a normal support address",
-      "The domain is spoofed to look similar to the real one",
-      "It is just an old email format",
-      "The subject line is missing"
-    ],
-    "correctIdx": 1,
-    "correctLen": 53,
-    "avgOther": 33,
-    "isLongest": true,
-    "ratio": 1.62
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "seb8NClEEbgIpCIwwSUi",
-    "level": "easy",
-    "question": "What is a safe way to verify a caller claiming to be IT support?",
-    "options": [
-      "Trust them since they knew your name",
-      "Hang up and call IT back using a number you already have",
-      "Ask them to prove it over the same call",
-      "Give limited information only"
-    ],
-    "correctIdx": 1,
-    "correctLen": 56,
-    "avgOther": 35,
-    "isLongest": true,
-    "ratio": 1.62
-  },
-  {
     "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
     "module": "Multi-Factor Authentication (MFA)",
     "qid": "7KKdIyuglLpwbDf2YX0N",
@@ -1358,14 +116,68 @@
     "options": [
       "Only a password",
       "Two or more different factors",
-      "Your email address alone",
+      "Your email address",
       "A username only"
     ],
     "correctIdx": 1,
     "correctLen": 29,
-    "avgOther": 18,
+    "avgOther": 16,
     "isLongest": true,
-    "ratio": 1.61
+    "ratio": 1.81
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "DuuDLGAlVu9OwEL3TYLV",
+    "level": "easy",
+    "question": "What does a password manager mainly do?",
+    "options": [
+      "Generates and stores strong, unique passwords for each account",
+      "Speeds up your internet connection by caching the sites you log into",
+      "Deletes old accounts",
+      "Backs up your files"
+    ],
+    "correctIdx": 0,
+    "correctLen": 62,
+    "avgOther": 36,
+    "isLongest": false,
+    "ratio": 1.74
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "RYfGBLPnvuKaCBT3dCJp",
+    "level": "medium",
+    "question": "What is \"credential stuffing\"?",
+    "options": [
+      "Padding a password with extra characters so it meets a minimum length rule",
+      "Using leaked username/password pairs to try logging into other accounts",
+      "A type of phishing email",
+      "A password manager feature"
+    ],
+    "correctIdx": 1,
+    "correctLen": 71,
+    "avgOther": 41,
+    "isLongest": false,
+    "ratio": 1.72
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "DFXx5H7jYCdvY59R1Boa",
+    "level": "easy",
+    "question": "Why is MFA important even if your password is strong?",
+    "options": [
+      "It isn't necessary once the password is long enough to resist cracking attempts",
+      "It adds a second layer, so a stolen password alone isn't enough to log in",
+      "It makes logging in faster",
+      "It replaces the password"
+    ],
+    "correctIdx": 1,
+    "correctLen": 73,
+    "avgOther": 43,
+    "isLongest": false,
+    "ratio": 1.7
   },
   {
     "moduleId": "biyeZLy4nvajdtYv6t17",
@@ -1374,16 +186,34 @@
     "level": "medium",
     "question": "A caller asks you to read a one-time code sent to your phone \"to confirm your identity.\" What should you do?",
     "options": [
-      "Read it, since it confirms who you are",
+      "Read it out to confirm who you are",
       "Refuse — OTPs authenticate you, not the caller",
-      "Read half of it",
-      "Ask them to call back later for it"
+      "Read only half of it",
+      "Ask them to call back later"
     ],
     "correctIdx": 1,
     "correctLen": 46,
-    "avgOther": 29,
+    "avgOther": 27,
     "isLongest": true,
-    "ratio": 1.59
+    "ratio": 1.7
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "D0PfQwNujZS2GXHXofbP",
+    "level": "hard",
+    "question": "A vendor invoice email arrives with correct company branding, a real-looking sender name, and references an actual ongoing project. What is the safest verification step?",
+    "options": [
+      "Trust it, since it references a project only an insider would know",
+      "Reply directly to the email and ask the sender to confirm the new bank details",
+      "Contact the vendor using a phone number or email address you already have on file, not one from this message",
+      "Pay it, since the branding and sender name both look authentic"
+    ],
+    "correctIdx": 2,
+    "correctLen": 108,
+    "avgOther": 69,
+    "isLongest": true,
+    "ratio": 1.57
   },
   {
     "moduleId": "5gfknBKr3gDnAQZGTVwR",
@@ -1404,112 +234,76 @@
     "ratio": 1.57
   },
   {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "WSIFjO1dTwZX1rH3if7z",
-    "level": "easy",
-    "question": "If you suspect your computer is infected with malware, what is the first step?",
+    "moduleId": "CxP6a8gX2nxxNazQ6WWc",
+    "module": "Incident Reporting",
+    "qid": "c4X5jkneY5ZEG2hRFZgY",
+    "level": "hard",
+    "question": "An employee doesn't report accidentally entering their password on a fake login page because \"nothing bad happened yet.\" Why is this risky?",
     "options": [
-      "Keep working normally",
-      "Disconnect from the network and report it to IT",
-      "Restart the computer several times",
-      "Delete random files to try to fix it"
+      "It is not risky while no visible damage has occurred, since the security tools would have raised an alert",
+      "The attacker may already have valid credentials and could act on them at any time, even if there's no immediate visible impact",
+      "Fake login pages usually fail to capture a password correctly anyway",
+      "Password entry alone is not reportable unless data was then accessed"
     ],
     "correctIdx": 1,
-    "correctLen": 47,
-    "avgOther": 30,
+    "correctLen": 126,
+    "avgOther": 80,
     "isLongest": true,
-    "ratio": 1.55
+    "ratio": 1.57
   },
   {
-    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
-    "module": "Pretexting & Impersonation",
-    "qid": "hUoj1tiZ5AjIXVjuysJ9",
-    "level": "medium",
-    "question": "If someone pressures you to skip identity verification \"just this once,\" what should you do?",
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "oDKVMFsO1KLCK4ULtQJG",
+    "level": "easy",
+    "question": "What does ransomware do?",
     "options": [
-      "Make an exception since they asked nicely",
-      "Follow policy anyway and verify regardless of pressure",
-      "Skip it only if they seem senior",
-      "Ask a coworker to decide instead"
+      "Speeds up your computer",
+      "Encrypts your files and demands payment to unlock them",
+      "Deletes spam emails",
+      "Updates your software automatically in the background overnight"
     ],
     "correctIdx": 1,
     "correctLen": 54,
     "avgOther": 35,
-    "isLongest": true,
+    "isLongest": false,
     "ratio": 1.54
   },
   {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "Tbn75eimCnVmT2QUAYPu",
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "AhmPPYjclwazUbFDBKtY",
     "level": "easy",
-    "question": "If you suspect an email is phishing, what should you do first?",
+    "question": "What is the main risk of reusing the same password across multiple accounts?",
     "options": [
-      "Reply asking if it is legitimate",
-      "Click the link to see where it goes",
-      "Avoid clicking anything and report it to IT Support",
-      "Forward it to a coworker to check"
+      "Slower login times",
+      "One breach exposes all accounts using that password",
+      "It uses more storage",
+      "None, as long as the password itself is long and hard to guess"
     ],
-    "correctIdx": 2,
+    "correctIdx": 1,
     "correctLen": 51,
     "avgOther": 33,
-    "isLongest": true,
+    "isLongest": false,
     "ratio": 1.53
   },
   {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "P11cgts8tuZSgWCP1SgU",
-    "level": "easy",
-    "question": "Which of these is a common smishing lure?",
-    "options": [
-      "A fake package delivery notification",
-      "A calendar invite from a coworker",
-      "A company newsletter",
-      "A meeting reminder"
-    ],
-    "correctIdx": 0,
-    "correctLen": 36,
-    "avgOther": 24,
-    "isLongest": true,
-    "ratio": 1.52
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "NupF60F0ftJfgpgvs2bt",
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "7zYi8DrAZOI79P9iv7nH",
     "level": "hard",
-    "question": "Why are shortened URLs (like bit.ly links) considered higher risk in phishing emails?",
+    "question": "Why might an organization mandate a password manager rather than just recommending strong passwords?",
     "options": [
-      "They load slower than normal links",
-      "They hide the real destination domain until you click",
-      "They only work on mobile devices",
-      "They are always blocked by spam filters"
+      "It is cheaper than training staff, and fewer helpdesk password resets offset the licence cost",
+      "It removes reliance on individual memory/habits, ensuring genuine uniqueness and strength across all accounts",
+      "A recommendation is legally required to be issued as a mandate",
+      "Password managers replace the need for MFA on important accounts"
     ],
     "correctIdx": 1,
-    "correctLen": 53,
-    "avgOther": 35,
+    "correctLen": 109,
+    "avgOther": 73,
     "isLongest": true,
-    "ratio": 1.51
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "vH4Mwe62TrJLCpNSECEA",
-    "level": "medium",
-    "question": "Why do vishing callers often create time pressure?",
-    "options": [
-      "To be efficient with your time",
-      "To prevent you from verifying or thinking it through",
-      "It's required by call center scripts",
-      "To keep the call short for the company"
-    ],
-    "correctIdx": 1,
-    "correctLen": 52,
-    "avgOther": 35,
-    "isLongest": true,
-    "ratio": 1.5
+    "ratio": 1.49
   },
   {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
@@ -1530,112 +324,346 @@
     "ratio": 1.48
   },
   {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "jPZV6ti3ZWYVrhtj0XjP",
-    "level": "medium",
-    "question": "What role do regular backups play in ransomware defense?",
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "Ap570K2FDreZVVCEy9wT",
+    "level": "hard",
+    "question": "A smishing link opens a page pixel-perfectly identical to your bank's login page. What is the safest action?",
     "options": [
-      "They prevent infection entirely",
-      "They let you restore files without needing to pay a ransom",
-      "They have no real security benefit",
-      "They only help with accidental deletions, not ransomware"
+      "Enter your credentials carefully, checking the page's address bar as you type",
+      "Don't enter credentials; navigate to the bank's site directly via a bookmark or official app instead",
+      "Enter a deliberately wrong password first to see how it responds",
+      "Screenshot the page for reporting, then log in as you normally would"
     ],
     "correctIdx": 1,
-    "correctLen": 58,
-    "avgOther": 40,
+    "correctLen": 100,
+    "avgOther": 70,
     "isLongest": true,
     "ratio": 1.44
   },
   {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "1QbxhS6QLQEWah3hMbuY",
-    "level": "medium",
-    "question": "You already clicked a phishing link and entered your password. What is the right next step?",
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "g0jlEOjb6LKsTTrULuUa",
+    "level": "hard",
+    "question": "What is the most reliable defense against a well-researched pretext?",
     "options": [
-      "Do nothing, it is probably fine",
-      "Wait a few days to see if anything happens",
-      "Change that password immediately and report the incident",
-      "Only mention it if someone else notices first"
+      "Trusting your instinct about whether someone seems honest",
+      "A consistent, non-negotiable identity verification procedure that doesn't depend on how convincing the story seems",
+      "Asking increasingly detailed follow-up questions until the caller slips up and contradicts something they said earlier",
+      "Requiring identification only from people you do not recognise"
     ],
-    "correctIdx": 2,
-    "correctLen": 56,
-    "avgOther": 39,
+    "correctIdx": 1,
+    "correctLen": 114,
+    "avgOther": 79,
+    "isLongest": false,
+    "ratio": 1.44
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "go7DoKwo1HrVHowkOym9",
+    "level": "medium",
+    "question": "A text claims to be from \"HR\" asking you to text back your login details urgently. This is:",
+    "options": [
+      "A normal HR request",
+      "Likely a smishing/impersonation attempt",
+      "Safe, since HR holds this anyway",
+      "Risky only if it carries a link"
+    ],
+    "correctIdx": 1,
+    "correctLen": 39,
+    "avgOther": 27,
     "isLongest": true,
-    "ratio": 1.42
+    "ratio": 1.43
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "HFyX4G5uUDAY2MfySCiH",
+    "level": "easy",
+    "question": "Is verifying someone's identity before helping them considered rude in a security context?",
+    "options": [
+      "Yes — it signals distrust",
+      "No, it's standard and expected practice",
+      "Only when asking senior staff",
+      "Only if they seem suspicious"
+    ],
+    "correctIdx": 1,
+    "correctLen": 39,
+    "avgOther": 27,
+    "isLongest": true,
+    "ratio": 1.43
   },
   {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
     "module": "Incident Reporting",
-    "qid": "TVizGGk6VJC79SKOPyaB",
+    "qid": "XO3fquYkkryz181shJjj",
     "level": "hard",
-    "question": "Why should even a failed or unsuccessful attack attempt, like a phishing email you correctly ignored, be reported?",
+    "question": "Why is the speed of reporting often more important than the completeness of the initial report?",
     "options": [
-      "A failed attempt produces nothing the security team can usefully act on",
-      "It helps security teams identify and warn about a campaign that may be targeting other employees too",
-      "Only successful attacks reveal which controls actually need strengthening",
-      "Reporting near-misses inflates the incident count and skews reporting"
+      "Completeness matters more, because an incomplete report misleads the team and sends them looking in the wrong place from the very start",
+      "Early containment can prevent an incident from spreading, and details can be added later, but lost time often can't be recovered",
+      "Speed has little effect once an attacker already has a foothold inside",
+      "A slower, thorough report is preferred because it needs no follow-up"
     ],
     "correctIdx": 1,
-    "correctLen": 100,
-    "avgOther": 71,
-    "isLongest": true,
+    "correctLen": 128,
+    "avgOther": 91,
+    "isLongest": false,
     "ratio": 1.41
   },
   {
-    "moduleId": "PnidqxS3AejqssXBMFVn",
-    "module": "Business Email Compromise (BEC)",
-    "qid": "xOFlrdXzXssbr8VPGkWC",
-    "level": "hard",
-    "question": "If you suspect you already acted on a BEC request (e.g., initiated a transfer), what is the most urgent next step?",
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "8G8ZQjqwPT91mEaOt5yo",
+    "level": "medium",
+    "question": "How does a password manager help protect against phishing?",
     "options": [
-      "Wait for the vendor to confirm receipt before escalating it internally",
-      "Contact your bank/finance team immediately to attempt to halt or reverse the transfer, and report it",
-      "Reply to the original email and ask the sender to confirm the account details",
-      "Document what happened and include it in the end-of-week incident summary"
+      "It blocks phishing emails before they reach your inbox, using the same filters as the mail gateway",
+      "It won't autofill credentials on a fake lookalike domain, since the URL doesn't match",
+      "It scans every link in a message for malware",
+      "It reports phishing to IT automatically"
     ],
     "correctIdx": 1,
-    "correctLen": 100,
-    "avgOther": 73,
+    "correctLen": 85,
+    "avgOther": 60,
+    "isLongest": false,
+    "ratio": 1.41
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "daZAKNzQCYIzY4ItCgSe",
+    "level": "hard",
+    "question": "Why might smishing be combined with details from a prior data breach?",
+    "options": [
+      "Attackers use leaked personal details, like your name or a recent purchase, to make the text look more convincing",
+      "Breached details add very little, because a text is far too short to carry enough context to be persuasive on its own",
+      "Data from a breach cannot be matched to a mobile number reliably",
+      "Leaked data helps with email phishing but not with SMS campaigns"
+    ],
+    "correctIdx": 0,
+    "correctLen": 113,
+    "avgOther": 82,
+    "isLongest": false,
+    "ratio": 1.38
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "tEcY9RoKX3kGlZI72do1",
+    "level": "hard",
+    "question": "Why can excessive helpfulness within an organization become a security liability during pretexting attacks?",
+    "options": [
+      "Helpfulness is a culture issue rather than a security one, and it belongs with HR rather than within the security team's remit",
+      "Employees may bypass verification steps to be accommodating, which is exactly what the pretext is designed to exploit",
+      "It matters only for customer-facing staff who deal with outsiders",
+      "It has little connection, since verification is automated anyway"
+    ],
+    "correctIdx": 1,
+    "correctLen": 117,
+    "avgOther": 85,
+    "isLongest": false,
+    "ratio": 1.38
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "0JQSlPFkzFeRCuowFSmF",
+    "level": "hard",
+    "question": "Why is \"number matching\" (entering a number shown on the login screen into your MFA app) more resistant to prompt bombing than a simple approve/deny push?",
+    "options": [
+      "It isn't actually more resistant, because an attacker who reaches the login screen can read the same number you would",
+      "It requires you to actually be at the login screen to see the number, making blind approval far less likely",
+      "Number matching is slower, and the extra delay is what discourages attacks",
+      "It replaces the need for a password entirely"
+    ],
+    "correctIdx": 1,
+    "correctLen": 107,
+    "avgOther": 78,
+    "isLongest": false,
+    "ratio": 1.37
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "Gu9ycj32QiUXMr65omVy",
+    "level": "hard",
+    "question": "Why do security experts increasingly recommend passphrases over complex short passwords with symbol substitutions?",
+    "options": [
+      "Passphrases are simply a newer fashion, and the security community tends to follow whichever style is currently in vogue",
+      "Substitution patterns are predictable and accounted for by cracking tools, while length scales security more reliably",
+      "Symbols are banned by most systems, so passphrases are the only option left",
+      "Passphrases are shorter to type and therefore less error-prone"
+    ],
+    "correctIdx": 1,
+    "correctLen": 117,
+    "avgOther": 86,
+    "isLongest": false,
+    "ratio": 1.37
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "NtvUlzEG78ce4I7ST1CA",
+    "level": "hard",
+    "question": "Why should employees report failed or suspicious pretexting attempts, even if they didn't fall for them?",
+    "options": [
+      "A failed attempt gives the security team nothing to act on",
+      "It helps identify attackers targeting the organization and warns others before someone else is targeted",
+      "Only successful attacks reveal which controls actually failed",
+      "It adds paperwork for the security team without changing anything about how the attacker operates next time"
+    ],
+    "correctIdx": 1,
+    "correctLen": 103,
+    "avgOther": 75,
+    "isLongest": false,
+    "ratio": 1.37
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "8EMZdeQpHU4Obsl7ywd2",
+    "level": "easy",
+    "question": "Should you use personal information like your birthday in a password?",
+    "options": [
+      "Yes, easy to remember",
+      "No, it's easy to guess or find",
+      "Only for low-value accounts",
+      "Yes, with a symbol"
+    ],
+    "correctIdx": 1,
+    "correctLen": 30,
+    "avgOther": 22,
     "isLongest": true,
+    "ratio": 1.36
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "AmnO3IIiuvpxzFUeil6i",
+    "level": "hard",
+    "question": "A password manager's master password is compromised. Why is this a uniquely high-impact event?",
+    "options": [
+      "It isn't particularly high-impact, because each stored entry is encrypted separately",
+      "It can expose every stored password at once, unlike a single reused password",
+      "Password managers cannot be compromised at all",
+      "It affects only the manager app itself"
+    ],
+    "correctIdx": 1,
+    "correctLen": 76,
+    "avgOther": 56,
+    "isLongest": false,
     "ratio": 1.36
   },
   {
     "moduleId": "wNcOaCrq03cTuD1Kj5AO",
     "module": "Pretexting & Impersonation",
-    "qid": "1aIOPv7uRqmJ5GuRGde1",
-    "level": "medium",
-    "question": "An attacker calls the helpdesk pretending to be an employee who \"forgot their password,\" using details found on social media. This is:",
+    "qid": "0tbvD3xhA6uzL4LNz1b3",
+    "level": "hard",
+    "question": "An attacker impersonating a vendor technician arrives with a badge-like lanyard and references a real, upcoming maintenance window. What makes this pretext more dangerous than a random cold call?",
     "options": [
-      "A normal helpdesk interaction",
-      "Pretexting used to trick the helpdesk into a password reset",
-      "Not a security concern since it's just a password reset",
-      "Only risky if the attacker knows the employee ID"
+      "It is no more dangerous — a lanyard proves nothing either way",
+      "It combines physical presence with researched, plausible details, making both social and visual cues seem legitimate",
+      "Badges are checked visually at reception before anyone is let through, so the physical risk is already handled by the front desk",
+      "Maintenance windows are internal, so nobody outside could know one"
     ],
     "correctIdx": 1,
-    "correctLen": 59,
-    "avgOther": 44,
+    "correctLen": 116,
+    "avgOther": 85,
+    "isLongest": false,
+    "ratio": 1.36
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "6fQOeb95PK1yp6ZTdrqc",
+    "level": "hard",
+    "question": "Phishing kits exist that capture both your password and MFA code in real time by relaying them through a fake login page. What does this mean for MFA's protection?",
+    "options": [
+      "MFA provides no protection at all once a phishing kit is involved, so the extra step is not worth the friction it adds at every single login",
+      "MFA significantly raises the bar but isn't foolproof against real-time phishing relays, so verifying the login page's URL still matters",
+      "This kind of attack is purely theoretical and has never been seen outside a lab",
+      "MFA fully prevents this attack in every case, since the code is valid for one site"
+    ],
+    "correctIdx": 1,
+    "correctLen": 135,
+    "avgOther": 100,
+    "isLongest": false,
+    "ratio": 1.35
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "T2geX9WD2W6BLEoOuzhw",
+    "level": "easy",
+    "question": "What does MFA stand for?",
+    "options": [
+      "Multi-Factor Authentication",
+      "Manual File Access",
+      "Multiple Firewall App",
+      "Master File Authority"
+    ],
+    "correctIdx": 0,
+    "correctLen": 27,
+    "avgOther": 20,
     "isLongest": true,
+    "ratio": 1.35
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "kwAXxaPlGqEGXhZxD9Ns",
+    "level": "hard",
+    "question": "A pretexting attacker builds trust over several small, low-risk interactions before making the real request. Why is this multi-step approach effective?",
+    "options": [
+      "It wastes the attacker's time over several days without meaningfully improving the odds of the final request succeeding",
+      "Each small interaction lowers suspicion, making the final, higher-risk request seem like a natural continuation",
+      "Repeated contact from one person is always flagged by monitoring",
+      "It only works across months, which most attackers will not invest"
+    ],
+    "correctIdx": 1,
+    "correctLen": 111,
+    "avgOther": 83,
+    "isLongest": false,
     "ratio": 1.34
   },
   {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "gbLegvSAhaX2An0FtyBS",
-    "level": "medium",
-    "question": "An email claims to be from the CEO, asking you to urgently buy gift cards and skip the usual approval process. This is:",
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "WSIFjO1dTwZX1rH3if7z",
+    "level": "easy",
+    "question": "If you suspect your computer is infected with malware, what is the first step?",
     "options": [
-      "Normal — executives often skip process when busy",
-      "A likely Business Email Compromise (BEC) / CEO fraud attempt",
-      "Fine as long as the email signature looks right",
-      "Not a concern since it is only gift cards"
+      "Keep working normally",
+      "Disconnect from the network and report it to IT",
+      "Restart the computer several times to clear whatever is running",
+      "Delete files at random"
     ],
     "correctIdx": 1,
-    "correctLen": 60,
-    "avgOther": 45,
-    "isLongest": true,
-    "ratio": 1.32
+    "correctLen": 47,
+    "avgOther": 35,
+    "isLongest": false,
+    "ratio": 1.33
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "ABJWbCSVEs1p2AwiMv9R",
+    "level": "medium",
+    "question": "What is \"MFA fatigue\" or \"prompt bombing\"?",
+    "options": [
+      "A technical malfunction in MFA systems that causes the same prompt to be delivered over and over again",
+      "Repeatedly sending MFA approval requests hoping the user eventually approves one out of annoyance",
+      "A method for resetting a forgotten MFA enrolment on a new device",
+      "A type of phishing email that imitates an MFA prompt"
+    ],
+    "correctIdx": 1,
+    "correctLen": 97,
+    "avgOther": 73,
+    "isLongest": false,
+    "ratio": 1.33
   },
   {
     "moduleId": "PnidqxS3AejqssXBMFVn",
@@ -1656,40 +684,130 @@
     "ratio": 1.32
   },
   {
-    "moduleId": "PnidqxS3AejqssXBMFVn",
-    "module": "Business Email Compromise (BEC)",
-    "qid": "GMTk2KqBavbNEb20EYiP",
-    "level": "hard",
-    "question": "An attacker compromises a real vendor's email account and sends a legitimate-looking invoice with changed bank details. Why is this harder to detect than a spoofed domain?",
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "WHpFxfWH7gknmqq1JWl6",
+    "level": "medium",
+    "question": "Why are smishing links particularly risky on mobile?",
     "options": [
-      "It is not harder — a compromised account still fails authentication checks",
-      "The email genuinely comes from the real address, so sender-address checks alone won't catch it",
-      "A compromised account always shows unusual formatting that gives it away",
-      "An invoice cannot be altered once it has left the vendor's billing system"
+      "Phones run no antivirus at all, so a malicious link is able to install software entirely unchecked",
+      "It's harder to see the true destination URL on a small screen, and easy to tap without thinking",
+      "Mobile browsers load pages faster than scanning can complete",
+      "Text messages cannot be blocked or filtered the way email can"
     ],
     "correctIdx": 1,
-    "correctLen": 94,
+    "correctLen": 95,
     "avgOther": 73,
-    "isLongest": true,
-    "ratio": 1.29
+    "isLongest": false,
+    "ratio": 1.3
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "aiTIa0dJYbPlZ29SrUpu",
+    "level": "medium",
+    "question": "Which detail is most useful for verifying a text's legitimacy?",
+    "options": [
+      "How official the sender name appears in your messages list alongside the genuine bank alerts you already have",
+      "Whether the same message appears when logging into the official account/app directly, not any link",
+      "Whether the spelling and grammar are correct throughout",
+      "How urgent the wording is compared with the sender's usual tone"
+    ],
+    "correctIdx": 1,
+    "correctLen": 98,
+    "avgOther": 76,
+    "isLongest": false,
+    "ratio": 1.3
   },
   {
     "moduleId": "0CWGai8J7q0rxAS6fOsh",
     "module": "Phishing Awareness",
-    "qid": "VrR0EoygIYZjgFCdsniv",
+    "qid": "L3KSCKl69hTHFX2yS0W9",
     "level": "hard",
-    "question": "You receive a call (\"vishing\") from someone claiming to be Venator IT, asking you to read out a one-time verification code you just received by SMS. What should you do?",
+    "question": "What makes spear phishing more dangerous than a generic mass phishing email?",
     "options": [
-      "Read it out since they already know you work at Venator",
-      "Refuse, hang up, and verify by calling IT back on a known number",
-      "Read it out only if they know your employee ID",
-      "Text the code to them instead of reading it aloud"
+      "It reaches far more recipients than a generic campaign does, so the odds of someone falling for it are higher",
+      "It is personalized using real details about you or your organization, making it more convincing",
+      "It is aimed only at executives, who hold the most access",
+      "It always carries a malware attachment rather than a link"
     ],
     "correctIdx": 1,
-    "correctLen": 64,
-    "avgOther": 50,
+    "correctLen": 95,
+    "avgOther": 74,
+    "isLongest": false,
+    "ratio": 1.28
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "kZ9s8SyVu9csLuROBabO",
+    "level": "hard",
+    "question": "Attackers can spoof the sender ID shown for a text so it appears to come from a real short code your bank uses. What does this mean for smishing detection?",
+    "options": [
+      "Sender name/number alone can't be trusted; verify through an independent channel",
+      "It means a message from a known short code can be treated as safe",
+      "Spoofing works for voice calls but not for the SMS sender ID",
+      "It affects only certain carriers, so most texts remain reliable"
+    ],
+    "correctIdx": 0,
+    "correctLen": 80,
+    "avgOther": 63,
     "isLongest": true,
     "ratio": 1.28
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "g7ooB99uwnPVhOIFPC3t",
+    "level": "hard",
+    "question": "What should you do if you accidentally approve an MFA prompt you didn't intend to?",
+    "options": [
+      "Nothing at all, provided you did not also type your password into a page you were unsure about at the time",
+      "Immediately change your password and report it to IT, since your account may now be compromised",
+      "Wait to see whether anything unusual happens on the account first",
+      "Turn MFA off to prevent further accidental approvals"
+    ],
+    "correctIdx": 1,
+    "correctLen": 95,
+    "avgOther": 74,
+    "isLongest": false,
+    "ratio": 1.28
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "APDcO7sOVxIt3M4lPpwQ",
+    "level": "hard",
+    "question": "Why is password reuse considered more dangerous today than it was years ago?",
+    "options": [
+      "Passwords themselves are weaker today, because systems now cap how many characters you are allowed to use when you set one",
+      "Large-scale credential leaks are common, and automated tools can test leaked passwords across many sites in minutes",
+      "Reuse has always carried exactly the same risk; nothing about it has changed",
+      "Modern accounts don't support strong passwords, so reuse is unavoidable"
+    ],
+    "correctIdx": 1,
+    "correctLen": 115,
+    "avgOther": 90,
+    "isLongest": false,
+    "ratio": 1.28
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "migqj21Patr3oRYpvPHa",
+    "level": "medium",
+    "question": "What should you do with a smishing text after reporting it to IT?",
+    "options": [
+      "Reply to confirm",
+      "Block the sender's number",
+      "Keep it for reference",
+      "Nothing more is needed"
+    ],
+    "correctIdx": 1,
+    "correctLen": 25,
+    "avgOther": 20,
+    "isLongest": true,
+    "ratio": 1.27
   },
   {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
@@ -1710,21 +828,75 @@
     "ratio": 1.27
   },
   {
-    "moduleId": "PnidqxS3AejqssXBMFVn",
-    "module": "Business Email Compromise (BEC)",
-    "qid": "Mv7s3IkrG9gKhz5uguGW",
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "Fkd1A9gQRqICmaAUWaJW",
     "level": "medium",
-    "question": "A vendor emails saying their bank account changed and asks you to update payment details immediately. What should you do?",
+    "question": "Why is SIM swapping a risk for SMS-based MFA?",
     "options": [
-      "Update the details promptly so the vendor relationship is not damaged",
-      "Verify the change by calling the vendor directly using a previously known number",
-      "Reply to the email asking them to confirm the change in writing",
-      "Split the next payment across both accounts as a safety measure"
+      "It isn't a real risk, because carriers verify identity in person before moving a number",
+      "An attacker can redirect your phone number to their own device and receive your codes",
+      "SIM swapping affects voice calls only, never text messages",
+      "It requires physical access to your phone and its SIM tray"
     ],
     "correctIdx": 1,
-    "correctLen": 80,
-    "avgOther": 65,
-    "isLongest": true,
+    "correctLen": 85,
+    "avgOther": 68,
+    "isLongest": false,
+    "ratio": 1.26
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "ggizHGlnqxvy2UugzAXh",
+    "level": "hard",
+    "question": "You already replied to a smishing text with a code before realizing it was fake. What is the next step?",
+    "options": [
+      "Wait and watch the account for unusual activity for a few days before reporting anything",
+      "Immediately contact the account provider to secure the account, and report it to IT",
+      "Reply again and tell them to disregard the code you sent",
+      "Change your phone number so they cannot contact you again"
+    ],
+    "correctIdx": 1,
+    "correctLen": 83,
+    "avgOther": 67,
+    "isLongest": false,
+    "ratio": 1.24
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "lNODc7EiZs3VD9feu2h0",
+    "level": "hard",
+    "question": "Why is enabling MFA on personal accounts, not just work accounts, also relevant to workplace security?",
+    "options": [
+      "It isn't relevant to workplace security, since personal and corporate accounts are kept entirely separate by IT",
+      "Personal account breaches can expose reused passwords or personal info later used against your work accounts",
+      "Personal accounts are never targeted, because they hold nothing of value to an attacker",
+      "Work accounts don't support MFA, so the comparison doesn't apply"
+    ],
+    "correctIdx": 1,
+    "correctLen": 108,
+    "avgOther": 87,
+    "isLongest": false,
+    "ratio": 1.24
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "7oPVteHYJcleSP78Fe9w",
+    "level": "hard",
+    "question": "An attacker who already has your password sends you 10 MFA push notifications at 2am. What is this attack designed to exploit?",
+    "options": [
+      "A technical vulnerability in the MFA app that lets requests be queued and replayed later",
+      "Fatigue and annoyance, hoping you approve one just to make the notifications stop",
+      "A weak Wi-Fi connection that drops the first few prompts",
+      "An expired password that keeps re-triggering the login"
+    ],
+    "correctIdx": 1,
+    "correctLen": 81,
+    "avgOther": 66,
+    "isLongest": false,
     "ratio": 1.23
   },
   {
@@ -1746,6 +918,258 @@
     "ratio": 1.23
   },
   {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "3Ad2uo3GQdBqTAVPnvZe",
+    "level": "easy",
+    "question": "A caller asking you to urgently install remote-access software is a:",
+    "options": [
+      "Normal IT procedure",
+      "Red flag / likely vishing",
+      "A support requirement",
+      "Helpful and efficient"
+    ],
+    "correctIdx": 1,
+    "correctLen": 25,
+    "avgOther": 20,
+    "isLongest": true,
+    "ratio": 1.23
+  },
+  {
+    "moduleId": "CxP6a8gX2nxxNazQ6WWc",
+    "module": "Incident Reporting",
+    "qid": "TVizGGk6VJC79SKOPyaB",
+    "level": "hard",
+    "question": "Why should even a failed or unsuccessful attack attempt, like a phishing email you correctly ignored, be reported?",
+    "options": [
+      "A failed attempt produces nothing the security team can usefully act on, since no harm was actually done",
+      "It helps security teams identify and warn about a campaign that may be targeting other employees too",
+      "Only successful attacks reveal which controls actually need strengthening",
+      "Reporting near-misses inflates the incident count and skews reporting"
+    ],
+    "correctIdx": 1,
+    "correctLen": 100,
+    "avgOther": 82,
+    "isLongest": false,
+    "ratio": 1.22
+  },
+  {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "jraCY3nsz4dfqLlzirz8",
+    "level": "hard",
+    "question": "What is the safest response to any unsolicited call asking for credentials, codes, or remote access?",
+    "options": [
+      "Comply where the caller sounds professional and knows your details",
+      "Decline, hang up, and verify independently before taking any action",
+      "Give partial information as a compromise",
+      "Pass the call to a coworker so they can decide what to share"
+    ],
+    "correctIdx": 1,
+    "correctLen": 67,
+    "avgOther": 55,
+    "isLongest": true,
+    "ratio": 1.21
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "PyFExTXdajpwFQ0ABWqR",
+    "level": "medium",
+    "question": "What should you do if you learn a service you use was breached?",
+    "options": [
+      "Nothing, unless the service sends you a direct notification naming your account specifically",
+      "Change your password for that account, and anywhere else you may have reused it",
+      "Wait for the company to finish fixing it before doing anything",
+      "Only worry if it happens to be a work account"
+    ],
+    "correctIdx": 1,
+    "correctLen": 79,
+    "avgOther": 66,
+    "isLongest": false,
+    "ratio": 1.19
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "hC5kkb8yjdbdjwizHF7u",
+    "level": "medium",
+    "question": "What is \"double extortion\" in a ransomware attack?",
+    "options": [
+      "Demanding payment twice for the same files, once to decrypt them and again to remove the infection from the machine",
+      "Stealing data before encrypting it, then threatening to leak it in addition to demanding a ransom for decryption",
+      "Encrypting every file twice over, so a single decryption key is not enough to recover the data",
+      "A ransomware variant that affects twice as many files as an ordinary strain"
+    ],
+    "correctIdx": 1,
+    "correctLen": 112,
+    "avgOther": 95,
+    "isLongest": false,
+    "ratio": 1.18
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "6afNkGnuRa71yi5GyWr7",
+    "level": "medium",
+    "question": "A link in an email displays as \"venator.com/login\" but hovering shows a totally different URL. What should you do?",
+    "options": [
+      "Click it, since the text shown matches the site you expected",
+      "Do not click it — the real destination does not match what is shown",
+      "Click it only from a device on the company's own network",
+      "Forward it to a colleague and ask them to open it instead"
+    ],
+    "correctIdx": 1,
+    "correctLen": 67,
+    "avgOther": 58,
+    "isLongest": true,
+    "ratio": 1.16
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "gdqfukAP0PnV8vUPBfsg",
+    "level": "hard",
+    "question": "An employee's antivirus alert is silently disabled just before a ransomware attack begins. What does this suggest?",
+    "options": [
+      "A random software bug — security tools occasionally crash and restart on their own, which is why the alert stopped",
+      "The attacker likely already has a foothold and is deliberately disabling defenses before the main attack",
+      "Antivirus disables itself periodically during maintenance windows set by the vendor",
+      "Nothing unusual — alerts are routinely muted while large updates install"
+    ],
+    "correctIdx": 1,
+    "correctLen": 104,
+    "avgOther": 90,
+    "isLongest": false,
+    "ratio": 1.16
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "zZHdqe7o9oL3Spz4zBrC",
+    "level": "easy",
+    "question": "A stranger claiming to be an auditor asks for confidential files without proper verification. This should be:",
+    "options": [
+      "Provided promptly, since audits are routine and time-sensitive",
+      "Verified through official channels before any information is shared",
+      "Given in part, as a compromise between helping and refusing",
+      "Escalated only if the same person asks a second time"
+    ],
+    "correctIdx": 1,
+    "correctLen": 67,
+    "avgOther": 58,
+    "isLongest": true,
+    "ratio": 1.16
+  },
+  {
+    "moduleId": "PnidqxS3AejqssXBMFVn",
+    "module": "Business Email Compromise (BEC)",
+    "qid": "xOFlrdXzXssbr8VPGkWC",
+    "level": "hard",
+    "question": "If you suspect you already acted on a BEC request (e.g., initiated a transfer), what is the most urgent next step?",
+    "options": [
+      "Wait for the vendor to confirm they received the funds before escalating anything internally to your finance team",
+      "Contact your bank/finance team immediately to attempt to halt or reverse the transfer, and report it",
+      "Reply to the original email and ask the sender to confirm the account details",
+      "Document what happened and include it in the end-of-week incident summary"
+    ],
+    "correctIdx": 1,
+    "correctLen": 100,
+    "avgOther": 88,
+    "isLongest": false,
+    "ratio": 1.14
+  },
+  {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "WvPF2B0hewHMFVOfHHK1",
+    "level": "hard",
+    "question": "A caller claims to be from IT and asks you to read back a code, which was actually sent to reset your password. What is happening?",
+    "options": [
+      "A routine identity check that the helpdesk performs before it can safely discuss anything on your account",
+      "The attacker is trying to hijack your account via a password reset, using you to relay the code",
+      "A billing verification step used when an account has a payment outstanding",
+      "A standard security audit confirming that account recovery still works"
+    ],
+    "correctIdx": 1,
+    "correctLen": 95,
+    "avgOther": 83,
+    "isLongest": false,
+    "ratio": 1.14
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "ksfPPakePz4tuYGbYMof",
+    "level": "easy",
+    "question": "Which is an example of pretexting?",
+    "options": [
+      "Someone posing as a new IT hire asking for your login to \"test the system\"",
+      "A recurring team meeting invite sent by the project manager",
+      "An automatic software update that installs itself overnight without asking you",
+      "A press release published on the company's public website"
+    ],
+    "correctIdx": 0,
+    "correctLen": 74,
+    "avgOther": 65,
+    "isLongest": false,
+    "ratio": 1.14
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "1MBfVv6KHDG3LWYyAygb",
+    "level": "hard",
+    "question": "A phishing email successfully bypasses the spam filter and is technically well-crafted with no obvious spelling errors. Does the absence of typos mean it is safe?",
+    "options": [
+      "Yes — a message written this well has to come from a real sender",
+      "No, well-crafted phishing with no errors is common and still dangerous",
+      "Yes, because anything poorly written is caught by the spam filter",
+      "No, but only where the message also carries an attachment"
+    ],
+    "correctIdx": 1,
+    "correctLen": 70,
+    "avgOther": 62,
+    "isLongest": true,
+    "ratio": 1.13
+  },
+  {
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "hRQ32gt80Fr1KdAttX9D",
+    "level": "medium",
+    "question": "Why is a long passphrase often stronger than a short complex password?",
+    "options": [
+      "Passphrases are easier to type, and fewer typing mistakes means fewer lockouts over the course of a year",
+      "Length increases the number of possible combinations more than symbol substitution does",
+      "Passphrases cannot be cracked at all, whatever tools are used",
+      "Complex passwords are weaker by design, since the rules are published"
+    ],
+    "correctIdx": 1,
+    "correctLen": 87,
+    "avgOther": 78,
+    "isLongest": false,
+    "ratio": 1.12
+  },
+  {
+    "moduleId": "PnidqxS3AejqssXBMFVn",
+    "module": "Business Email Compromise (BEC)",
+    "qid": "Mv7s3IkrG9gKhz5uguGW",
+    "level": "medium",
+    "question": "A vendor emails saying their bank account changed and asks you to update payment details immediately. What should you do?",
+    "options": [
+      "Update the details promptly, so the vendor relationship is not damaged by a late payment",
+      "Verify the change by calling the vendor directly using a previously known number",
+      "Reply to the email asking them to confirm the change in writing",
+      "Split the next payment across both accounts as a safety measure"
+    ],
+    "correctIdx": 1,
+    "correctLen": 80,
+    "avgOther": 71,
+    "isLongest": false,
+    "ratio": 1.12
+  },
+  {
     "moduleId": "PnidqxS3AejqssXBMFVn",
     "module": "Business Email Compromise (BEC)",
     "qid": "aC9bZiVgGKE36EKQ1iI6",
@@ -1754,50 +1178,50 @@
     "options": [
       "Processing approved payments faster so there is less window to interfere",
       "Requiring independent verification and dual approval for any payment or bank detail change",
-      "Treating email from internal addresses as trusted so staff can act without delay",
+      "Treating email from internal addresses as inherently trusted, so finance staff can act without delay",
       "Blocking all attachments on mail sent to finance and accounts payable"
     ],
     "correctIdx": 1,
     "correctLen": 90,
-    "avgOther": 74,
-    "isLongest": true,
-    "ratio": 1.22
+    "avgOther": 80,
+    "isLongest": false,
+    "ratio": 1.12
   },
   {
-    "moduleId": "PnidqxS3AejqssXBMFVn",
-    "module": "Business Email Compromise (BEC)",
-    "qid": "EA2j7rORHNgFGPsx1fWz",
-    "level": "hard",
-    "question": "An \"executive\" email uses correct names, project references, and a plausible tone, with no spelling errors. Does this rule out BEC?",
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "D2XBXGclGGqSga9vuwST",
+    "level": "easy",
+    "question": "Caller ID showing your bank's real number means the call is definitely legitimate.",
     "options": [
-      "Yes — attackers rarely invest the effort needed to write convincingly",
-      "No — well-researched, well-written BEC emails are common and just as dangerous",
-      "Only if the message also contains a link or an attachment to open",
-      "Yes, provided it comes from a contact you have dealt with before"
+      "True — caller ID is verified by the network",
+      "False — caller ID can be spoofed",
+      "True",
+      "True, provided it is a toll-free number"
     ],
     "correctIdx": 1,
-    "correctLen": 78,
-    "avgOther": 66,
-    "isLongest": true,
-    "ratio": 1.18
+    "correctLen": 32,
+    "avgOther": 29,
+    "isLongest": false,
+    "ratio": 1.12
   },
   {
-    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
-    "module": "Multi-Factor Authentication (MFA)",
-    "qid": "T2geX9WD2W6BLEoOuzhw",
-    "level": "easy",
-    "question": "What does MFA stand for?",
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "Jqec6RYMljF2yqJHQDOt",
+    "level": "hard",
+    "question": "Why do OTP-phishing smishing scams often create urgency (\"code expires in 60 seconds\")?",
     "options": [
-      "Multi-Factor Authentication",
-      "Manual File Access",
-      "Multiple Firewall Application",
-      "Master File Authorization"
+      "To pressure you into acting before you think it through or verify",
+      "Because one-time codes genuinely do expire within a minute",
+      "To keep the message short enough to fit in a single text",
+      "It is incidental — the wording is copied from real bank alerts"
     ],
     "correctIdx": 0,
-    "correctLen": 27,
-    "avgOther": 24,
-    "isLongest": false,
-    "ratio": 1.13
+    "correctLen": 65,
+    "avgOther": 59,
+    "isLongest": true,
+    "ratio": 1.11
   },
   {
     "moduleId": "PnidqxS3AejqssXBMFVn",
@@ -1820,19 +1244,19 @@
   {
     "moduleId": "PnidqxS3AejqssXBMFVn",
     "module": "Business Email Compromise (BEC)",
-    "qid": "mOso75CtcxLqrK9UAFUc",
-    "level": "medium",
-    "question": "Why should payment approval processes never be bypassed, even for a \"CEO\" request?",
+    "qid": "GMTk2KqBavbNEb20EYiP",
+    "level": "hard",
+    "question": "An attacker compromises a real vendor's email account and sends a legitimate-looking invoice with changed bank details. Why is this harder to detect than a spoofed domain?",
     "options": [
-      "Policies like this exist for audit purposes rather than for security",
-      "Bypassing normal checks is exactly what BEC attackers are counting on",
-      "Executives are never personally involved in payment approvals",
-      "The delay it causes outweighs the risk on routine payments"
+      "It is not harder to detect, because a compromised account still fails the usual sender authentication checks",
+      "The email genuinely comes from the real address, so sender-address checks alone won't catch it",
+      "A compromised account always shows unusual formatting that gives it away",
+      "An invoice cannot be altered once it has left the vendor's billing system"
     ],
     "correctIdx": 1,
-    "correctLen": 69,
-    "avgOther": 62,
-    "isLongest": true,
+    "correctLen": 94,
+    "avgOther": 84,
+    "isLongest": false,
     "ratio": 1.11
   },
   {
@@ -1854,40 +1278,238 @@
     "ratio": 1.1
   },
   {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "8EMZdeQpHU4Obsl7ywd2",
-    "level": "easy",
-    "question": "Should you use personal information like your birthday in a password?",
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "7vA92b7ydgldSUEdCICf",
+    "level": "medium",
+    "question": "Why is pretexting considered the foundation of many other social engineering attacks?",
     "options": [
-      "Yes, it's easy to remember",
-      "No, it's easy to guess or find",
-      "Only for low-value accounts",
-      "Yes, if combined with a symbol"
+      "It is a separate technique unrelated to other attack types",
+      "Vishing, BEC, and tailgating often rely on a fabricated pretext to work",
+      "It applies only to phone calls rather than to email or face-to-face approaches",
+      "It needs no research, so attackers reach for it by default"
     ],
     "correctIdx": 1,
-    "correctLen": 30,
-    "avgOther": 28,
-    "isLongest": true,
+    "correctLen": 71,
+    "avgOther": 65,
+    "isLongest": false,
+    "ratio": 1.1
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "5gZfNyUorCHEsDztRgCO",
+    "level": "hard",
+    "question": "Why should employees report suspicious but seemingly minor symptoms, like unusual slowness or pop-ups, rather than dismissing them?",
+    "options": [
+      "Minor symptoms are never worth reporting, because the helpdesk only triages confirmed incidents",
+      "Early symptoms can be the first visible sign of malware before it fully activates or spreads",
+      "IT only acts on major incidents, so small reports are closed without being read",
+      "Slowness and pop-ups are always unrelated to security and come from the browser"
+    ],
+    "correctIdx": 1,
+    "correctLen": 92,
+    "avgOther": 84,
+    "isLongest": false,
+    "ratio": 1.09
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "Xx59GZpZH0uDgzF2yNt0",
+    "level": "easy",
+    "question": "Should you tap a link in an unexpected delivery text?",
+    "options": [
+      "Yes — opening it is the quickest way to find out what the message refers to",
+      "No — check directly via the courier's official app or site instead",
+      "Only where the message looks professionally formatted",
+      "Yes, provided it quotes a tracking number you recognise"
+    ],
+    "correctIdx": 1,
+    "correctLen": 66,
+    "avgOther": 61,
+    "isLongest": false,
     "ratio": 1.08
   },
   {
-    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
-    "module": "Password Hygiene & Password Managers",
-    "qid": "9soVUDGQIdkHl9pAStHM",
-    "level": "hard",
-    "question": "What additional protection should always accompany a strong, unique password on important accounts?",
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "vH4Mwe62TrJLCpNSECEA",
+    "level": "medium",
+    "question": "Why do vishing callers often create time pressure?",
     "options": [
-      "A password hint",
-      "Multi-factor authentication (MFA)",
-      "A shorter password for convenience",
-      "Sharing it with a trusted coworker as backup"
+      "To be efficient with your time and keep the call brief",
+      "To prevent you from verifying or thinking it through",
+      "Because call-centre scripts require a stated deadline",
+      "To keep the company's phone costs down"
     ],
     "correctIdx": 1,
-    "correctLen": 33,
-    "avgOther": 31,
+    "correctLen": 52,
+    "avgOther": 48,
+    "isLongest": false,
+    "ratio": 1.08
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "JxB4DtUNd8maEWhHTpQZ",
+    "level": "medium",
+    "question": "Why do pretexting attacks often use a title like \"auditor\" or \"executive assistant\"?",
+    "options": [
+      "Those titles are common enough in large firms to pass without being questioned",
+      "Titles implying authority make people less likely to question the request",
+      "Those roles rarely exist, so nobody can check the claim easily",
+      "The title is chosen at random and carries no particular weight"
+    ],
+    "correctIdx": 1,
+    "correctLen": 73,
+    "avgOther": 67,
+    "isLongest": false,
+    "ratio": 1.08
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "CTCMaqEarGFWwrIQM8wR",
+    "level": "medium",
+    "question": "Why is disconnecting an infected computer from the network important?",
+    "options": [
+      "It isn't important once the antivirus has already quarantined the file",
+      "To prevent ransomware/malware from spreading to other systems",
+      "It only helps the computer run faster while a scan is in progress",
+      "It removes the malware automatically"
+    ],
+    "correctIdx": 1,
+    "correctLen": 61,
+    "avgOther": 57,
+    "isLongest": false,
+    "ratio": 1.07
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "kdlHoouEgS480gmREu9J",
+    "level": "hard",
+    "question": "Why is a phishing email often the very first step in what eventually becomes a ransomware incident?",
+    "options": [
+      "Phishing and ransomware are unrelated: one targets people by email, the other spreads only between machines on a network",
+      "It's frequently the initial access point that lets attackers install malware and move through the network",
+      "Ransomware spreads only through USB drives handed between staff, never through a message",
+      "Phishing emails cannot deliver ransomware, because attachments are stripped in transit"
+    ],
+    "correctIdx": 1,
+    "correctLen": 105,
+    "avgOther": 98,
+    "isLongest": false,
+    "ratio": 1.07
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "YiYHnyobsjryORqtORDX",
+    "level": "easy",
+    "question": "What is the best way to verify a suspicious \"bank\" text?",
+    "options": [
+      "Reply to the text and ask whether the message is genuine before acting",
+      "Log in through the bank's official app, not the link in the text",
+      "Open the link but stop short of entering your password",
+      "Call the number given in the text and ask them to confirm"
+    ],
+    "correctIdx": 1,
+    "correctLen": 64,
+    "avgOther": 60,
     "isLongest": false,
     "ratio": 1.06
+  },
+  {
+    "moduleId": "PnidqxS3AejqssXBMFVn",
+    "module": "Business Email Compromise (BEC)",
+    "qid": "EA2j7rORHNgFGPsx1fWz",
+    "level": "hard",
+    "question": "An \"executive\" email uses correct names, project references, and a plausible tone, with no spelling errors. Does this rule out BEC?",
+    "options": [
+      "Yes — attackers rarely invest the effort needed to write this convincingly to a finance team",
+      "No — well-researched, well-written BEC emails are common and just as dangerous",
+      "Only if the message also contains a link or an attachment to open",
+      "Yes, provided it comes from a contact you have dealt with before"
+    ],
+    "correctIdx": 1,
+    "correctLen": 78,
+    "avgOther": 74,
+    "isLongest": false,
+    "ratio": 1.06
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "NNLavpnaXUpNuhmkNnev",
+    "level": "easy",
+    "question": "Pretexting relies mainly on:",
+    "options": [
+      "A fabricated, believable scenario or false identity",
+      "A malicious attachment that runs once it is opened",
+      "A weak wireless password on the office network",
+      "Software left unpatched long after a fix shipped"
+    ],
+    "correctIdx": 0,
+    "correctLen": 51,
+    "avgOther": 48,
+    "isLongest": true,
+    "ratio": 1.06
+  },
+  {
+    "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
+    "module": "Multi-Factor Authentication (MFA)",
+    "qid": "ft8Ss3VPn5XJaCJHx7Nd",
+    "level": "medium",
+    "question": "If you receive several unexpected MFA prompts in a row, what does that likely mean?",
+    "options": [
+      "A system glitch that is safe to ignore until the prompts stop on their own",
+      "Someone else has your password and is trying to get into your account",
+      "Your phone needs a software update before prompts will settle",
+      "Nothing — repeated prompts are normal when the network is slow"
+    ],
+    "correctIdx": 1,
+    "correctLen": 69,
+    "avgOther": 66,
+    "isLongest": false,
+    "ratio": 1.05
+  },
+  {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "YZC5NZDSsfN3cPGAcCAD",
+    "level": "medium",
+    "question": "Which is a common vishing scenario?",
+    "options": [
+      "Someone claiming to be from the helpdesk asking for your password to \"fix an issue\"",
+      "An automated reminder confirming an appointment you booked yourself last week",
+      "A colleague ringing from a number already saved in your phone's contacts",
+      "A scheduled callback from your own IT team that you requested through the support portal"
+    ],
+    "correctIdx": 0,
+    "correctLen": 83,
+    "avgOther": 79,
+    "isLongest": false,
+    "ratio": 1.05
+  },
+  {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "b2kKCeaV0yn521dOArno",
+    "level": "hard",
+    "question": "Why is \"vishing followed by a fake confirmation email\" more dangerous than a call alone?",
+    "options": [
+      "It is no more dangerous — the email simply repeats what the caller has already told you on the phone",
+      "The email can appear to corroborate the caller's story, making the scam more convincing",
+      "Email is inherently more trustworthy than a call, so people act on it faster",
+      "It lets the attacker skip the call and work from a single message instead"
+    ],
+    "correctIdx": 1,
+    "correctLen": 87,
+    "avgOther": 83,
+    "isLongest": false,
+    "ratio": 1.05
   },
   {
     "moduleId": "0CWGai8J7q0rxAS6fOsh",
@@ -1905,24 +1527,6 @@
     "correctLen": 8,
     "avgOther": 8,
     "isLongest": true,
-    "ratio": 1.04
-  },
-  {
-    "moduleId": "5gfknBKr3gDnAQZGTVwR",
-    "module": "Malware & Ransomware Basics",
-    "qid": "1vPHJERC1Bf3cHlhFkc5",
-    "level": "easy",
-    "question": "Is it safe to plug in a USB drive you found lying around?",
-    "options": [
-      "Yes, if it looks new",
-      "No, it could contain malware",
-      "Yes, if you scan it after plugging in",
-      "Only on personal devices"
-    ],
-    "correctIdx": 1,
-    "correctLen": 28,
-    "avgOther": 27,
-    "isLongest": false,
     "ratio": 1.04
   },
   {
@@ -1944,56 +1548,146 @@
     "ratio": 1.04
   },
   {
-    "moduleId": "PnidqxS3AejqssXBMFVn",
-    "module": "Business Email Compromise (BEC)",
-    "qid": "h2jBPLsBFhTsxdmTPT2s",
-    "level": "easy",
-    "question": "What is the best way to verify an unusual payment request?",
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "1C7qAwFko3cJFfUECUGk",
+    "level": "hard",
+    "question": "If backups exist but are stored on the same always-connected network as production systems, why might they fail to protect against ransomware?",
     "options": [
-      "Reply to the email and ask them to confirm it in writing",
-      "Call the requester on a known number, not one in the email",
-      "Process it promptly so the business is not held up waiting",
-      "Check with a colleague whether the request looks normal"
+      "Backups are immune to ransomware by design, because backup formats cannot be encrypted a second time",
+      "Ransomware that spreads across the network can encrypt or destroy connected backups too",
+      "This setup has no real weakness, provided the backups run on a nightly schedule",
+      "Backups fail only because of hardware faults, not anything an attacker does"
     ],
     "correctIdx": 1,
-    "correctLen": 58,
-    "avgOther": 56,
-    "isLongest": true,
+    "correctLen": 87,
+    "avgOther": 85,
+    "isLongest": false,
     "ratio": 1.03
   },
   {
-    "moduleId": "PnidqxS3AejqssXBMFVn",
-    "module": "Business Email Compromise (BEC)",
-    "qid": "0zpZecmXK09xJCJGkEqk",
-    "level": "medium",
-    "question": "An email from the \"CEO\" arrives while the real CEO is known to be traveling, asking for an urgent wire transfer. This timing is:",
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "APl4wfwd6rMJKreXZ9XG",
+    "level": "hard",
+    "question": "Why might attackers specifically target new employees with vishing?",
     "options": [
-      "Coincidental — executives travel constantly and still send requests",
-      "A common BEC tactic, exploiting reduced ability to verify in person",
-      "Reassuring, since only someone with their calendar would know that",
-      "Irrelevant, because urgency is normal in finance requests anyway"
+      "New starters are issued older handsets, which have weaker protection against call interception",
+      "They're less familiar with normal IT processes and more likely to comply without question",
+      "New employees have no password set yet, so there is nothing for an attacker to ask for",
+      "It is entirely random — attackers dial numbers in order and take whoever answers"
     ],
     "correctIdx": 1,
-    "correctLen": 67,
-    "avgOther": 66,
+    "correctLen": 89,
+    "avgOther": 87,
+    "isLongest": false,
+    "ratio": 1.03
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "1QbxhS6QLQEWah3hMbuY",
+    "level": "medium",
+    "question": "You already clicked a phishing link and entered your password. What is the right next step?",
+    "options": [
+      "Nothing — entering it once on a fake page rarely matters",
+      "Wait a few days and watch for unusual activity first",
+      "Change that password immediately and report the incident",
+      "Mention it only if somebody else notices something wrong"
+    ],
+    "correctIdx": 2,
+    "correctLen": 56,
+    "avgOther": 55,
     "isLongest": true,
     "ratio": 1.02
   },
   {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "migqj21Patr3oRYpvPHa",
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "gbLegvSAhaX2An0FtyBS",
     "level": "medium",
-    "question": "What should you do with a smishing text after reporting it to IT?",
+    "question": "An email claims to be from the CEO, asking you to urgently buy gift cards and skip the usual approval process. This is:",
     "options": [
-      "Reply to confirm you reported it",
-      "Block the sender's number",
-      "Save it for later",
-      "Nothing further is needed"
+      "Normal — executives often skip process when they are busy",
+      "A likely Business Email Compromise (BEC) / CEO fraud attempt",
+      "Fine, provided the signature block matches their usual one",
+      "Low risk, because gift cards are a small and traceable amount"
     ],
     "correctIdx": 1,
-    "correctLen": 25,
-    "avgOther": 25,
+    "correctLen": 60,
+    "avgOther": 59,
+    "isLongest": false,
+    "ratio": 1.02
+  },
+  {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "lZLK64T09OdLh2Hew21q",
+    "level": "easy",
+    "question": "A caller claims to be your bank and asks for your PIN. You should:",
+    "options": [
+      "Give it — they identified themselves as your bank at the start of the call",
+      "Refuse and hang up, then call the bank's official number",
+      "Give a deliberately wrong PIN to see whether they notice",
+      "Ask them to send it by text instead"
+    ],
+    "correctIdx": 1,
+    "correctLen": 56,
+    "avgOther": 55,
+    "isLongest": false,
+    "ratio": 1.02
+  },
+  {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "seb8NClEEbgIpCIwwSUi",
+    "level": "easy",
+    "question": "What is a safe way to verify a caller claiming to be IT support?",
+    "options": [
+      "Trust them, since they already knew your name and department",
+      "Hang up and call IT back using a number you already have",
+      "Ask them to prove who they are during the same call",
+      "Share only limited information rather than everything"
+    ],
+    "correctIdx": 1,
+    "correctLen": 56,
+    "avgOther": 55,
+    "isLongest": false,
+    "ratio": 1.02
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "3FUVSgL7V2bbgSG0K7Ct",
+    "level": "easy",
+    "question": "Which of these is a common phishing red flag?",
+    "options": [
+      "A message creating urgency, like \"act within 24 hours\"",
+      "A message signed off with a real full name and job title",
+      "A message that arrives during normal working hours",
+      "A message that carries no attachment of any kind at all"
+    ],
+    "correctIdx": 0,
+    "correctLen": 54,
+    "avgOther": 54,
+    "isLongest": false,
+    "ratio": 1.01
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "mGTN7Qd7QaGxOjoVtAs6",
+    "level": "hard",
+    "question": "Why might ransomware sit dormant on a network for days or weeks before encrypting anything?",
+    "options": [
+      "It is a technical limitation: encrypting a whole network takes weeks of background processing before anything is visible",
+      "To spread further, identify high-value systems, and steal data before triggering the visible attack",
+      "Dormancy serves no strategic purpose and simply reflects a delay in the attacker's schedule",
+      "It happens only with poorly written ransomware that fails to run correctly at first"
+    ],
+    "correctIdx": 1,
+    "correctLen": 99,
+    "avgOther": 98,
     "isLongest": false,
     "ratio": 1.01
   },
@@ -2016,6 +1710,114 @@
     "ratio": 1.01
   },
   {
+    "moduleId": "PnidqxS3AejqssXBMFVn",
+    "module": "Business Email Compromise (BEC)",
+    "qid": "mOso75CtcxLqrK9UAFUc",
+    "level": "medium",
+    "question": "Why should payment approval processes never be bypassed, even for a \"CEO\" request?",
+    "options": [
+      "Policies like this exist for audit purposes rather than for any real security benefit",
+      "Bypassing normal checks is exactly what BEC attackers are counting on",
+      "Executives are never personally involved in payment approvals",
+      "The delay it causes outweighs the risk on routine payments"
+    ],
+    "correctIdx": 1,
+    "correctLen": 69,
+    "avgOther": 68,
+    "isLongest": false,
+    "ratio": 1.01
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "1aIOPv7uRqmJ5GuRGde1",
+    "level": "medium",
+    "question": "An attacker calls the helpdesk pretending to be an employee who \"forgot their password,\" using details found on social media. This is:",
+    "options": [
+      "A normal helpdesk interaction that the process is designed for",
+      "Pretexting used to trick the helpdesk into a password reset",
+      "Low risk, since a password reset alone grants no real access",
+      "Risky only where the caller also knows the employee ID"
+    ],
+    "correctIdx": 1,
+    "correctLen": 59,
+    "avgOther": 59,
+    "isLongest": false,
+    "ratio": 1.01
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "VrR0EoygIYZjgFCdsniv",
+    "level": "hard",
+    "question": "You receive a call (\"vishing\") from someone claiming to be Venator IT, asking you to read out a one-time verification code you just received by SMS. What should you do?",
+    "options": [
+      "Read it out, since they already knew that you work at Venator and named your team",
+      "Refuse, hang up, and verify by calling IT back on a known number",
+      "Read it out only once they confirm your employee ID first",
+      "Send it by text instead, so it is not overheard by anyone"
+    ],
+    "correctIdx": 1,
+    "correctLen": 64,
+    "avgOther": 65,
+    "isLongest": false,
+    "ratio": 0.98
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "Z2Xpr5LmLzYXhwIsEvTO",
+    "level": "easy",
+    "question": "Pretexting often exploits which human trait?",
+    "options": [
+      "Willingness to help and trust authority",
+      "Boredom during quiet periods of the day",
+      "Confidence in one's own technical expertise",
+      "Impatience with slow internal systems"
+    ],
+    "correctIdx": 0,
+    "correctLen": 39,
+    "avgOther": 40,
+    "isLongest": false,
+    "ratio": 0.98
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "0wUgdjTXhWIKEKV7l5NH",
+    "level": "medium",
+    "question": "Why do security teams generally advise against paying a ransomware ransom?",
+    "options": [
+      "Paying a ransom is illegal in every country, so the decision is already made for you",
+      "There's no guarantee of getting files back, and it funds further attacks",
+      "Ransomware self-resolves after a set period, so the files come back anyway",
+      "Insurance always covers the loss, which makes paying unnecessary"
+    ],
+    "correctIdx": 1,
+    "correctLen": 72,
+    "avgOther": 74,
+    "isLongest": false,
+    "ratio": 0.97
+  },
+  {
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "jPZV6ti3ZWYVrhtj0XjP",
+    "level": "medium",
+    "question": "What role do regular backups play in ransomware defense?",
+    "options": [
+      "They prevent infection entirely, so nothing else is needed",
+      "They let you restore files without needing to pay a ransom",
+      "They have no real security benefit, only convenience",
+      "They help with accidental deletion but not with ransomware encryption"
+    ],
+    "correctIdx": 1,
+    "correctLen": 58,
+    "avgOther": 60,
+    "isLongest": false,
+    "ratio": 0.97
+  },
+  {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
     "module": "Incident Reporting",
     "qid": "XeqYtdagk71XExB3V2sP",
@@ -2036,6 +1838,132 @@
   {
     "moduleId": "PnidqxS3AejqssXBMFVn",
     "module": "Business Email Compromise (BEC)",
+    "qid": "0zpZecmXK09xJCJGkEqk",
+    "level": "medium",
+    "question": "An email from the \"CEO\" arrives while the real CEO is known to be traveling, asking for an urgent wire transfer. This timing is:",
+    "options": [
+      "Coincidental — executives travel constantly and still send requests while away",
+      "A common BEC tactic, exploiting reduced ability to verify in person",
+      "Reassuring, since only someone with their calendar would know that",
+      "Irrelevant, because urgency is normal in finance requests anyway"
+    ],
+    "correctIdx": 1,
+    "correctLen": 67,
+    "avgOther": 69,
+    "isLongest": false,
+    "ratio": 0.97
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "OUkgvCsFxeuVUx08ozp0",
+    "level": "easy",
+    "question": "What is the main goal of a phishing attack?",
+    "options": [
+      "To trick you into revealing credentials or installing malware",
+      "To test whether the company's spam filtering is configured correctly",
+      "To create a backup copy of your mailbox on an external server",
+      "To measure how quickly staff respond to routine internal mail"
+    ],
+    "correctIdx": 0,
+    "correctLen": 61,
+    "avgOther": 63,
+    "isLongest": false,
+    "ratio": 0.96
+  },
+  {
+    "moduleId": "PnidqxS3AejqssXBMFVn",
+    "module": "Business Email Compromise (BEC)",
+    "qid": "h2jBPLsBFhTsxdmTPT2s",
+    "level": "easy",
+    "question": "What is the best way to verify an unusual payment request?",
+    "options": [
+      "Reply to the email and ask them to confirm it in writing",
+      "Call the requester on a known number, not one in the email",
+      "Process it promptly so the business is not held up waiting on a payment",
+      "Check with a colleague whether the request looks normal"
+    ],
+    "correctIdx": 1,
+    "correctLen": 58,
+    "avgOther": 61,
+    "isLongest": false,
+    "ratio": 0.96
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "unCAa3lyBe1W2WEHlx03",
+    "level": "medium",
+    "question": "A \"prize winner\" text asking you to click a link to claim a reward is most likely:",
+    "options": [
+      "A legitimate promotion",
+      "A smishing/scam attempt",
+      "Safe for a known brand",
+      "A scam only if it asks to pay"
+    ],
+    "correctIdx": 1,
+    "correctLen": 23,
+    "avgOther": 24,
+    "isLongest": false,
+    "ratio": 0.95
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "c06zSxEyOaTK36KpDL4K",
+    "level": "medium",
+    "question": "What should you do if someone's story keeps changing or has small inconsistencies?",
+    "options": [
+      "Ignore small inconsistencies — genuine callers misspeak under pressure too",
+      "Treat it as a red flag and verify further before proceeding",
+      "Assume it is ordinary miscommunication and carry on helping",
+      "Proceed as asked, but make a note of it for afterwards"
+    ],
+    "correctIdx": 1,
+    "correctLen": 59,
+    "avgOther": 62,
+    "isLongest": false,
+    "ratio": 0.95
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "v741PHdM78OoR5e4fxvI",
+    "level": "medium",
+    "question": "You get an email from \"IT Support\" but the address is it-support@venat0r-support.com. What is wrong?",
+    "options": [
+      "Nothing — support teams often use a separate sending domain",
+      "The domain is spoofed to look similar to the real one",
+      "It uses an older address format the company has retired",
+      "The subject line is missing, which filters usually flag"
+    ],
+    "correctIdx": 1,
+    "correctLen": 53,
+    "avgOther": 56,
+    "isLongest": false,
+    "ratio": 0.94
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "P11cgts8tuZSgWCP1SgU",
+    "level": "easy",
+    "question": "Which of these is a common smishing lure?",
+    "options": [
+      "A fake package delivery notification",
+      "A calendar invite forwarded by a coworker",
+      "A newsletter from the company intranet",
+      "A reminder for a meeting later today"
+    ],
+    "correctIdx": 0,
+    "correctLen": 36,
+    "avgOther": 38,
+    "isLongest": false,
+    "ratio": 0.94
+  },
+  {
+    "moduleId": "PnidqxS3AejqssXBMFVn",
+    "module": "Business Email Compromise (BEC)",
     "qid": "s9O7NYEsmjVPOMHktBL5",
     "level": "hard",
     "question": "Why might a BEC attacker specifically target someone in accounts payable rather than a random employee?",
@@ -2048,6 +1976,24 @@
     "correctIdx": 1,
     "correctLen": 63,
     "avgOther": 67,
+    "isLongest": false,
+    "ratio": 0.94
+  },
+  {
+    "moduleId": "wNcOaCrq03cTuD1Kj5AO",
+    "module": "Pretexting & Impersonation",
+    "qid": "hUoj1tiZ5AjIXVjuysJ9",
+    "level": "medium",
+    "question": "If someone pressures you to skip identity verification \"just this once,\" what should you do?",
+    "options": [
+      "Make the exception, since refusing would be unnecessarily awkward",
+      "Follow policy anyway and verify regardless of pressure",
+      "Skip it where the person appears to be senior to you",
+      "Ask a colleague to make the call on your behalf instead"
+    ],
+    "correctIdx": 1,
+    "correctLen": 54,
+    "avgOther": 57,
     "isLongest": false,
     "ratio": 0.94
   },
@@ -2097,7 +2043,7 @@
       "A short password with symbols",
       "A long, unique passphrase",
       "Your birthday plus a symbol",
-      "A common word capitalized"
+      "A common word capitalised"
     ],
     "correctIdx": 1,
     "correctLen": 25,
@@ -2124,6 +2070,42 @@
     "ratio": 0.92
   },
   {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "EYLzs5flwYHLfR7Dj39L",
+    "level": "medium",
+    "question": "Which attachment type should make you most cautious in an unexpected email?",
+    "options": [
+      "A plain .txt file sent by a colleague",
+      "A .pdf invoice you had been expecting",
+      "A macro-enabled .docm or .exe file",
+      "A .png screenshot pasted into the mail"
+    ],
+    "correctIdx": 2,
+    "correctLen": 34,
+    "avgOther": 37,
+    "isLongest": false,
+    "ratio": 0.91
+  },
+  {
+    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
+    "module": "Smishing (SMS Phishing)",
+    "qid": "qGJseGK44jJCkZTuWIji",
+    "level": "easy",
+    "question": "A text asks for your one-time password (OTP). What should you do?",
+    "options": [
+      "Reply with the code, since they clearly already have your number",
+      "Never share it — OTPs are not meant to be forwarded",
+      "Share it only once they confirm your name and account",
+      "Forward it to IT first and then reply to the sender"
+    ],
+    "correctIdx": 1,
+    "correctLen": 51,
+    "avgOther": 56,
+    "isLongest": false,
+    "ratio": 0.91
+  },
+  {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
     "module": "Incident Reporting",
     "qid": "tVm5hTrP5sFwXKKpzOpH",
@@ -2140,6 +2122,24 @@
     "avgOther": 62,
     "isLongest": false,
     "ratio": 0.91
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "NupF60F0ftJfgpgvs2bt",
+    "level": "hard",
+    "question": "Why are shortened URLs (like bit.ly links) considered higher risk in phishing emails?",
+    "options": [
+      "They load more slowly, which delays any security scanning",
+      "They hide the real destination domain until you click",
+      "They only resolve correctly on mobile devices, not desktops",
+      "They are blocked by most filters, so seeing one is suspicious"
+    ],
+    "correctIdx": 1,
+    "correctLen": 53,
+    "avgOther": 59,
+    "isLongest": false,
+    "ratio": 0.9
   },
   {
     "moduleId": "PnidqxS3AejqssXBMFVn",
@@ -2160,40 +2160,58 @@
     "ratio": 0.9
   },
   {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "3Ad2uo3GQdBqTAVPnvZe",
+    "moduleId": "5gfknBKr3gDnAQZGTVwR",
+    "module": "Malware & Ransomware Basics",
+    "qid": "1vPHJERC1Bf3cHlhFkc5",
     "level": "easy",
-    "question": "A caller asking you to urgently install remote-access software is a:",
+    "question": "Is it safe to plug in a USB drive you found lying around?",
     "options": [
-      "Normal IT procedure",
-      "Red flag / likely vishing",
-      "Requirement for all support calls",
-      "Sign of a fast, helpful technician"
+      "Yes, if it looks new and unused",
+      "No, it could contain malware",
+      "Yes, provided you scan it after plugging it in",
+      "Only on personal devices"
     ],
     "correctIdx": 1,
-    "correctLen": 25,
-    "avgOther": 29,
+    "correctLen": 28,
+    "avgOther": 34,
     "isLongest": false,
-    "ratio": 0.87
+    "ratio": 0.83
   },
   {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "KVWRPHQuunWcXEIQPCT9",
-    "level": "medium",
-    "question": "What should you do immediately after hanging up on a suspected vishing call?",
+    "moduleId": "KJNy1HHPVhAulA6nn7QJ",
+    "module": "Password Hygiene & Password Managers",
+    "qid": "9soVUDGQIdkHl9pAStHM",
+    "level": "hard",
+    "question": "What additional protection should always accompany a strong, unique password on important accounts?",
     "options": [
-      "Nothing, if you didn't fall for it",
-      "Report it to IT/security",
-      "Block your own phone number",
-      "Wait to see if they call again"
+      "A password hint stored with the account",
+      "Multi-factor authentication (MFA)",
+      "A shorter password for convenience",
+      "Sharing it with a trusted coworker as a backup"
     ],
     "correctIdx": 1,
-    "correctLen": 24,
-    "avgOther": 30,
+    "correctLen": 33,
+    "avgOther": 40,
     "isLongest": false,
-    "ratio": 0.79
+    "ratio": 0.83
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "Tbn75eimCnVmT2QUAYPu",
+    "level": "easy",
+    "question": "If you suspect an email is phishing, what should you do first?",
+    "options": [
+      "Reply to the sender and ask whether the message is legitimate",
+      "Open the link in a private window to see where it actually goes",
+      "Avoid clicking anything and report it to IT Support",
+      "Forward it to a colleague and ask whether they received it too"
+    ],
+    "correctIdx": 2,
+    "correctLen": 51,
+    "avgOther": 62,
+    "isLongest": false,
+    "ratio": 0.82
   },
   {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
@@ -2232,24 +2250,6 @@
     "ratio": 0.76
   },
   {
-    "moduleId": "85H5T3Y3Ldh3JKbagqWg",
-    "module": "Smishing (SMS Phishing)",
-    "qid": "unCAa3lyBe1W2WEHlx03",
-    "level": "medium",
-    "question": "A \"prize winner\" text asking you to click a link to claim a reward is most likely:",
-    "options": [
-      "A legitimate promotion",
-      "A smishing/scam attempt",
-      "Safe if it's a well-known brand name",
-      "Only a scam if it asks for payment"
-    ],
-    "correctIdx": 1,
-    "correctLen": 23,
-    "avgOther": 31,
-    "isLongest": false,
-    "ratio": 0.75
-  },
-  {
     "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
     "module": "Multi-Factor Authentication (MFA)",
     "qid": "vpfYPDVVeHvuyJWMUzRq",
@@ -2264,24 +2264,6 @@
     "correctIdx": 1,
     "correctLen": 21,
     "avgOther": 29,
-    "isLongest": false,
-    "ratio": 0.73
-  },
-  {
-    "moduleId": "biyeZLy4nvajdtYv6t17",
-    "module": "Vishing (Voice Phishing)",
-    "qid": "sYy4jBvM5ymJsDn9YEFR",
-    "level": "easy",
-    "question": "Vishing is phishing conducted over:",
-    "options": [
-      "Phone calls",
-      "Postal mail",
-      "Instant messaging only",
-      "Fax machines"
-    ],
-    "correctIdx": 0,
-    "correctLen": 11,
-    "avgOther": 15,
     "isLongest": false,
     "ratio": 0.73
   },
@@ -2302,6 +2284,42 @@
     "avgOther": 21,
     "isLongest": false,
     "ratio": 0.67
+  },
+  {
+    "moduleId": "biyeZLy4nvajdtYv6t17",
+    "module": "Vishing (Voice Phishing)",
+    "qid": "KVWRPHQuunWcXEIQPCT9",
+    "level": "medium",
+    "question": "What should you do immediately after hanging up on a suspected vishing call?",
+    "options": [
+      "Nothing, if you didn't fall for it",
+      "Report it to IT/security",
+      "Block your own number from outgoing calls",
+      "Wait to see whether they ring again"
+    ],
+    "correctIdx": 1,
+    "correctLen": 24,
+    "avgOther": 37,
+    "isLongest": false,
+    "ratio": 0.65
+  },
+  {
+    "moduleId": "0CWGai8J7q0rxAS6fOsh",
+    "module": "Phishing Awareness",
+    "qid": "HbtvyzmFUtSK6t57Dbd9",
+    "level": "easy",
+    "question": "Will Venator IT ever ask for your password over email or chat?",
+    "options": [
+      "Yes, when urgent",
+      "No, never",
+      "Only if signed",
+      "Only over SMS"
+    ],
+    "correctIdx": 1,
+    "correctLen": 9,
+    "avgOther": 14,
+    "isLongest": false,
+    "ratio": 0.63
   },
   {
     "moduleId": "CxP6a8gX2nxxNazQ6WWc",
@@ -2328,34 +2346,16 @@
     "level": "medium",
     "question": "A vishing caller refuses to let you call them back on a verified number. This is:",
     "options": [
-      "Normal for busy call centers",
+      "Normal for busy call centres",
       "A major red flag",
-      "A sign they're protecting your privacy",
-      "Irrelevant to legitimacy"
+      "A sign they are protecting your privacy",
+      "Irrelevant to whether the call is legitimate"
     ],
     "correctIdx": 1,
     "correctLen": 16,
-    "avgOther": 30,
+    "avgOther": 37,
     "isLongest": false,
-    "ratio": 0.53
-  },
-  {
-    "moduleId": "0CWGai8J7q0rxAS6fOsh",
-    "module": "Phishing Awareness",
-    "qid": "HbtvyzmFUtSK6t57Dbd9",
-    "level": "easy",
-    "question": "Will Venator IT ever ask for your password over email or chat?",
-    "options": [
-      "Yes, if it is urgent",
-      "No, never",
-      "Only if the request is signed",
-      "Only over SMS"
-    ],
-    "correctIdx": 1,
-    "correctLen": 9,
-    "avgOther": 21,
-    "isLongest": false,
-    "ratio": 0.44
+    "ratio": 0.43
   },
   {
     "moduleId": "D2MzfjL3w7IOl9QRnVQ4",
@@ -2385,13 +2385,13 @@
       "Yes, to see what it is",
       "No",
       "Only if it's a PDF",
-      "Only if your antivirus is on"
+      "Only if antivirus is on"
     ],
     "correctIdx": 1,
     "correctLen": 2,
-    "avgOther": 23,
+    "avgOther": 21,
     "isLongest": false,
-    "ratio": 0.09
+    "ratio": 0.1
   },
   {
     "moduleId": "KJNy1HHPVhAulA6nn7QJ",

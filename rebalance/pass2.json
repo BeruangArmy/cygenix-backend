@@ -1,0 +1,199 @@
+{
+  "xOFlrdXzXssbr8VPGkWC": [
+    "Wait for the vendor to confirm they received the funds before escalating anything internally to your finance team",
+    "Contact your bank/finance team immediately to attempt to halt or reverse the transfer, and report it",
+    "Reply to the original email and ask the sender to confirm the account details",
+    "Document what happened and include it in the end-of-week incident summary"
+  ],
+  "GMTk2KqBavbNEb20EYiP": [
+    "It is not harder to detect, because a compromised account still fails the usual sender authentication checks",
+    "The email genuinely comes from the real address, so sender-address checks alone won't catch it",
+    "A compromised account always shows unusual formatting that gives it away",
+    "An invoice cannot be altered once it has left the vendor's billing system"
+  ],
+  "Mv7s3IkrG9gKhz5uguGW": [
+    "Update the details promptly, so the vendor relationship is not damaged by a late payment",
+    "Verify the change by calling the vendor directly using a previously known number",
+    "Reply to the email asking them to confirm the change in writing",
+    "Split the next payment across both accounts as a safety measure"
+  ],
+  "aC9bZiVgGKE36EKQ1iI6": [
+    "Processing approved payments faster so there is less window to interfere",
+    "Requiring independent verification and dual approval for any payment or bank detail change",
+    "Treating email from internal addresses as inherently trusted, so finance staff can act without delay",
+    "Blocking all attachments on mail sent to finance and accounts payable"
+  ],
+  "EA2j7rORHNgFGPsx1fWz": [
+    "Yes — attackers rarely invest the effort needed to write this convincingly to a finance team",
+    "No — well-researched, well-written BEC emails are common and just as dangerous",
+    "Only if the message also contains a link or an attachment to open",
+    "Yes, provided it comes from a contact you have dealt with before"
+  ],
+  "mOso75CtcxLqrK9UAFUc": [
+    "Policies like this exist for audit purposes rather than for any real security benefit",
+    "Bypassing normal checks is exactly what BEC attackers are counting on",
+    "Executives are never personally involved in payment approvals",
+    "The delay it causes outweighs the risk on routine payments"
+  ],
+  "h2jBPLsBFhTsxdmTPT2s": [
+    "Reply to the email and ask them to confirm it in writing",
+    "Call the requester on a known number, not one in the email",
+    "Process it promptly so the business is not held up waiting on a payment",
+    "Check with a colleague whether the request looks normal"
+  ],
+  "0zpZecmXK09xJCJGkEqk": [
+    "Coincidental — executives travel constantly and still send requests while away",
+    "A common BEC tactic, exploiting reduced ability to verify in person",
+    "Reassuring, since only someone with their calendar would know that",
+    "Irrelevant, because urgency is normal in finance requests anyway"
+  ],
+
+  "tEcY9RoKX3kGlZI72do1": [
+    "Helpfulness is a culture issue rather than a security one, and it belongs with HR rather than within the security team's remit",
+    "Employees may bypass verification steps to be accommodating, which is exactly what the pretext is designed to exploit",
+    "It matters only for customer-facing staff who deal with outsiders",
+    "It has little connection, since verification is automated anyway"
+  ],
+  "g0jlEOjb6LKsTTrULuUa": [
+    "Trusting your instinct about whether someone seems honest",
+    "A consistent, non-negotiable identity verification procedure that doesn't depend on how convincing the story seems",
+    "Asking increasingly detailed follow-up questions until the caller slips up and contradicts something they said earlier",
+    "Requiring identification only from people you do not recognise"
+  ],
+  "0tbvD3xhA6uzL4LNz1b3": [
+    "It is no more dangerous — a lanyard proves nothing either way",
+    "It combines physical presence with researched, plausible details, making both social and visual cues seem legitimate",
+    "Badges are checked visually at reception before anyone is let through, so the physical risk is already handled by the front desk",
+    "Maintenance windows are internal, so nobody outside could know one"
+  ],
+  "NtvUlzEG78ce4I7ST1CA": [
+    "A failed attempt gives the security team nothing to act on",
+    "It helps identify attackers targeting the organization and warns others before someone else is targeted",
+    "Only successful attacks reveal which controls actually failed",
+    "It adds paperwork for the security team without changing anything about how the attacker operates next time"
+  ],
+  "kwAXxaPlGqEGXhZxD9Ns": [
+    "It wastes the attacker's time over several days without meaningfully improving the odds of the final request succeeding",
+    "Each small interaction lowers suspicion, making the final, higher-risk request seem like a natural continuation",
+    "Repeated contact from one person is always flagged by monitoring",
+    "It only works across months, which most attackers will not invest"
+  ],
+  "7vA92b7ydgldSUEdCICf": [
+    "It is a separate technique unrelated to other attack types",
+    "Vishing, BEC, and tailgating often rely on a fabricated pretext to work",
+    "It applies only to phone calls rather than to email or face-to-face approaches",
+    "It needs no research, so attackers reach for it by default"
+  ],
+  "JxB4DtUNd8maEWhHTpQZ": [
+    "Those titles are common enough in large firms to pass without being questioned",
+    "Titles implying authority make people less likely to question the request",
+    "Those roles rarely exist, so nobody can check the claim easily",
+    "The title is chosen at random and carries no particular weight"
+  ],
+  "c06zSxEyOaTK36KpDL4K": [
+    "Ignore small inconsistencies — genuine callers misspeak under pressure too",
+    "Treat it as a red flag and verify further before proceeding",
+    "Assume it is ordinary miscommunication and carry on helping",
+    "Proceed as asked, but make a note of it for afterwards"
+  ],
+
+  "daZAKNzQCYIzY4ItCgSe": [
+    "Attackers use leaked personal details, like your name or a recent purchase, to make the text look more convincing",
+    "Breached details add very little, because a text is far too short to carry enough context to be persuasive on its own",
+    "Data from a breach cannot be matched to a mobile number reliably",
+    "Leaked data helps with email phishing but not with SMS campaigns"
+  ],
+  "aiTIa0dJYbPlZ29SrUpu": [
+    "How official the sender name appears in your messages list alongside the genuine bank alerts you already have",
+    "Whether the same message appears when logging into the official account/app directly, not any link",
+    "Whether the spelling and grammar are correct throughout",
+    "How urgent the wording is compared with the sender's usual tone"
+  ],
+  "Ap570K2FDreZVVCEy9wT": [
+    "Enter your credentials carefully, checking the page's address bar closely as you type each of them in",
+    "Don't enter credentials; navigate to the bank's site directly via a bookmark or official app instead",
+    "Enter a deliberately wrong password first to see how it responds",
+    "Screenshot the page for reporting, then log in as you normally would"
+  ],
+  "WHpFxfWH7gknmqq1JWl6": [
+    "Phones run no antivirus at all, so a malicious link is able to install software entirely unchecked",
+    "It's harder to see the true destination URL on a small screen, and easy to tap without thinking",
+    "Mobile browsers load pages faster than scanning can complete",
+    "Text messages cannot be blocked or filtered the way email can"
+  ],
+  "ggizHGlnqxvy2UugzAXh": [
+    "Wait and watch the account for unusual activity for a few days before reporting anything",
+    "Immediately contact the account provider to secure the account, and report it to IT",
+    "Reply again and tell them to disregard the code you sent",
+    "Change your phone number so they cannot contact you again"
+  ],
+  "Xx59GZpZH0uDgzF2yNt0": [
+    "Yes — opening it is the quickest way to find out what the message refers to",
+    "No — check directly via the courier's official app or site instead",
+    "Only where the message looks professionally formatted",
+    "Yes, provided it quotes a tracking number you recognise"
+  ],
+  "YiYHnyobsjryORqtORDX": [
+    "Reply to the text and ask whether the message is genuine before acting",
+    "Log in through the bank's official app, not the link in the text",
+    "Open the link but stop short of entering your password",
+    "Call the number given in the text and ask them to confirm"
+  ],
+
+  "L3KSCKl69hTHFX2yS0W9": [
+    "It reaches far more recipients than a generic campaign does, so the odds of someone falling for it are higher",
+    "It is personalized using real details about you or your organization, making it more convincing",
+    "It is aimed only at executives, who hold the most access",
+    "It always carries a malware attachment rather than a link"
+  ],
+  "D0PfQwNujZS2GXHXofbP": [
+    "Trust it, since it references a project only an insider would know",
+    "Reply directly to the email and ask the sender to confirm the new bank details before the payment run goes out",
+    "Contact the vendor using a phone number or email address you already have on file, not one from this message",
+    "Pay it, since the branding and sender name both look authentic"
+  ],
+  "VrR0EoygIYZjgFCdsniv": [
+    "Read it out, since they already knew that you work at Venator and named your team",
+    "Refuse, hang up, and verify by calling IT back on a known number",
+    "Read it out only once they confirm your employee ID first",
+    "Send it by text instead, so it is not overheard by anyone"
+  ],
+
+  "c4X5jkneY5ZEG2hRFZgY": [
+    "It is not risky while no visible damage has occurred, since security tools would have raised an alert if anything had been taken",
+    "The attacker may already have valid credentials and could act on them at any time, even if there's no immediate visible impact",
+    "Fake login pages usually fail to capture a password correctly anyway",
+    "Password entry alone is not reportable unless data was then accessed"
+  ],
+  "XO3fquYkkryz181shJjj": [
+    "Completeness matters more, because an incomplete report misleads the team and sends them looking in the wrong place from the very start",
+    "Early containment can prevent an incident from spreading, and details can be added later, but lost time often can't be recovered",
+    "Speed has little effect once an attacker already has a foothold inside",
+    "A slower, thorough report is preferred because it needs no follow-up"
+  ],
+  "TVizGGk6VJC79SKOPyaB": [
+    "A failed attempt produces nothing the security team can usefully act on, since no harm was actually done",
+    "It helps security teams identify and warn about a campaign that may be targeting other employees too",
+    "Only successful attacks reveal which controls actually need strengthening",
+    "Reporting near-misses inflates the incident count and skews reporting"
+  ],
+
+  "WvPF2B0hewHMFVOfHHK1": [
+    "A routine identity check that the helpdesk performs before it can safely discuss anything on your account",
+    "The attacker is trying to hijack your account via a password reset, using you to relay the code",
+    "A billing verification step used when an account has a payment outstanding",
+    "A standard security audit confirming that account recovery still works"
+  ],
+  "b2kKCeaV0yn521dOArno": [
+    "It is no more dangerous — the email simply repeats what the caller has already told you on the phone",
+    "The email can appear to corroborate the caller's story, making the scam more convincing",
+    "Email is inherently more trustworthy than a call, so people act on it faster",
+    "It lets the attacker skip the call and work from a single message instead"
+  ],
+  "APl4wfwd6rMJKreXZ9XG": [
+    "New starters are issued older handsets, which have weaker protection against call interception",
+    "They're less familiar with normal IT processes and more likely to comply without question",
+    "New employees have no password set yet, so there is nothing for an attacker to ask for",
+    "It is entirely random — attackers dial numbers in order and take whoever answers"
+  ]
+}

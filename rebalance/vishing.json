@@ -1,0 +1,92 @@
+{
+  "WvPF2B0hewHMFVOfHHK1": [
+    "A routine identity check that the helpdesk performs before it can safely discuss your account",
+    "The attacker is trying to hijack your account via a password reset, using you to relay the code",
+    "A billing verification step used when an account has a payment outstanding",
+    "A standard security audit confirming that account recovery still works"
+  ],
+  "APl4wfwd6rMJKreXZ9XG": [
+    "New starters are issued older handsets, which have weaker protection against interception",
+    "They're less familiar with normal IT processes and more likely to comply without question",
+    "New employees have no password set yet, so there is nothing for an attacker to ask for",
+    "It is entirely random — attackers dial numbers in order and take whoever answers"
+  ],
+  "SNJKv9qIkBOzUEBfuN1j": [
+    "A coincidence — nothing more",
+    "Vishing combined with pretexting/social engineering research",
+    "Standard IT verification",
+    "Spear phishing, not vishing"
+  ],
+  "YZC5NZDSsfN3cPGAcCAD": [
+    "Someone claiming to be from the helpdesk asking for your password to \"fix an issue\"",
+    "An automated reminder confirming an appointment you booked yourself last week",
+    "A colleague ringing from a number already saved in your phone's contacts",
+    "A scheduled callback from your own IT team that you requested through the support portal"
+  ],
+  "b2kKCeaV0yn521dOArno": [
+    "It is no more dangerous — the email simply repeats what the caller already told you",
+    "The email can appear to corroborate the caller's story, making the scam more convincing",
+    "Email is inherently more trustworthy than a call, so people act on it faster",
+    "It lets the attacker skip the call and work from a single message instead"
+  ],
+  "lZLK64T09OdLh2Hew21q": [
+    "Give it — they identified themselves as your bank at the start of the call",
+    "Refuse and hang up, then call the bank's official number",
+    "Give a deliberately wrong PIN to see whether they notice",
+    "Ask them to send it by text instead"
+  ],
+  "jraCY3nsz4dfqLlzirz8": [
+    "Comply where the caller sounds professional and knows your details",
+    "Decline, hang up, and verify independently before taking any action",
+    "Give partial information as a compromise between helping and refusing",
+    "Pass the call to a coworker so they can decide what to share"
+  ],
+  "D2XBXGclGGqSga9vuwST": [
+    "True — caller ID is verified by the network",
+    "False — caller ID can be spoofed",
+    "True",
+    "True, provided it is a toll-free number"
+  ],
+  "seb8NClEEbgIpCIwwSUi": [
+    "Trust them, since they already knew your name and department",
+    "Hang up and call IT back using a number you already have",
+    "Ask them to prove who they are during the same call",
+    "Share only limited information rather than everything"
+  ],
+  "kURJZC9jzLnWYULxOVVW": [
+    "Read it out to confirm who you are",
+    "Refuse — OTPs authenticate you, not the caller",
+    "Read only half of it",
+    "Ask them to call back later"
+  ],
+  "vH4Mwe62TrJLCpNSECEA": [
+    "To be efficient with your time and keep the call brief",
+    "To prevent you from verifying or thinking it through",
+    "Because call-centre scripts require a stated deadline",
+    "To keep the company's phone costs down"
+  ],
+  "3Ad2uo3GQdBqTAVPnvZe": [
+    "Normal IT procedure",
+    "Red flag / likely vishing",
+    "A support requirement",
+    "Helpful and efficient"
+  ],
+  "KVWRPHQuunWcXEIQPCT9": [
+    "Nothing, if you didn't fall for it",
+    "Report it to IT/security",
+    "Block your own number from outgoing calls",
+    "Wait to see whether they ring again"
+  ],
+  "sYy4jBvM5ymJsDn9YEFR": [
+    "Phone calls",
+    "Post",
+    "Chat apps",
+    "Fax"
+  ],
+  "vehuQB7ZXjsev0D2m09t": [
+    "Normal for busy call centres",
+    "A major red flag",
+    "A sign they are protecting your privacy",
+    "Irrelevant to whether the call is legitimate"
+  ]
+}

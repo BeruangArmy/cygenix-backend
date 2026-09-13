@@ -1,0 +1,92 @@
+{
+  "OUkgvCsFxeuVUx08ozp0": [
+    "To trick you into revealing credentials or installing malware",
+    "To test whether the company's spam filtering is configured correctly",
+    "To create a backup copy of your mailbox on an external server",
+    "To measure how quickly staff respond to routine internal mail"
+  ],
+  "3FUVSgL7V2bbgSG0K7Ct": [
+    "A message creating urgency, like \"act within 24 hours\"",
+    "A message signed off with a real full name and job title",
+    "A message that arrives during normal working hours",
+    "A message that carries no attachment of any kind at all"
+  ],
+  "Tbn75eimCnVmT2QUAYPu": [
+    "Reply to the sender and ask whether the message is legitimate",
+    "Open the link in a private window to see where it actually goes",
+    "Avoid clicking anything and report it to IT Support",
+    "Forward it to a colleague and ask whether they received it too"
+  ],
+  "cAp3agctR9oUIEYISVGe": [
+    "Vishing",
+    "Smishing",
+    "Spoofing",
+    "Spamming"
+  ],
+  "HbtvyzmFUtSK6t57Dbd9": [
+    "Yes, when urgent",
+    "No, never",
+    "Only if signed",
+    "Only over SMS"
+  ],
+  "EYLzs5flwYHLfR7Dj39L": [
+    "A plain .txt file sent by a colleague",
+    "A .pdf invoice you had been expecting",
+    "A macro-enabled .docm or .exe file",
+    "A .png screenshot pasted into the mail"
+  ],
+  "6afNkGnuRa71yi5GyWr7": [
+    "Click it, since the text shown matches the site you expected",
+    "Do not click it — the real destination does not match what is shown",
+    "Click it only from a device on the company's own network",
+    "Forward it to a colleague and ask them to open it instead"
+  ],
+  "v741PHdM78OoR5e4fxvI": [
+    "Nothing — support teams often use a separate sending domain",
+    "The domain is spoofed to look similar to the real one",
+    "It uses an older address format the company has retired",
+    "The subject line is missing, which filters usually flag"
+  ],
+  "1QbxhS6QLQEWah3hMbuY": [
+    "Nothing — entering it once on a fake page rarely matters",
+    "Wait a few days and watch for unusual activity first",
+    "Change that password immediately and report the incident",
+    "Mention it only if somebody else notices something wrong"
+  ],
+  "gbLegvSAhaX2An0FtyBS": [
+    "Normal — executives often skip process when they are busy",
+    "A likely Business Email Compromise (BEC) / CEO fraud attempt",
+    "Fine, provided the signature block matches their usual one",
+    "Low risk, because gift cards are a small and traceable amount"
+  ],
+  "L3KSCKl69hTHFX2yS0W9": [
+    "It reaches far more recipients than a generic campaign does",
+    "It is personalized using real details about you or your organization, making it more convincing",
+    "It is aimed only at executives, who hold the most access",
+    "It always carries a malware attachment rather than a link"
+  ],
+  "D0PfQwNujZS2GXHXofbP": [
+    "Trust it, since it references a project only an insider would know",
+    "Reply directly to the email and ask them to confirm the bank details",
+    "Contact the vendor using a phone number or email address you already have on file, not one from this message",
+    "Pay it, since the branding and sender name both look authentic"
+  ],
+  "1MBfVv6KHDG3LWYyAygb": [
+    "Yes — a message written this well has to come from a real sender",
+    "No, well-crafted phishing with no errors is common and still dangerous",
+    "Yes, because anything poorly written is caught by the spam filter",
+    "No, but only where the message also carries an attachment"
+  ],
+  "NupF60F0ftJfgpgvs2bt": [
+    "They load more slowly, which delays any security scanning",
+    "They hide the real destination domain until you click",
+    "They only resolve correctly on mobile devices, not desktops",
+    "They are blocked by most filters, so seeing one is suspicious"
+  ],
+  "VrR0EoygIYZjgFCdsniv": [
+    "Read it out, since they already knew you work at Venator",
+    "Refuse, hang up, and verify by calling IT back on a known number",
+    "Read it out only once they confirm your employee ID first",
+    "Send it by text instead, so it is not overheard by anyone"
+  ]
+}

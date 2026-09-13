@@ -1,0 +1,92 @@
+{
+  "NNLavpnaXUpNuhmkNnev": [
+    "A fabricated, believable scenario or false identity",
+    "A malicious attachment that runs once it is opened",
+    "A weak wireless password on the office network",
+    "Software left unpatched long after a fix shipped"
+  ],
+  "Z2Xpr5LmLzYXhwIsEvTO": [
+    "Willingness to help and trust authority",
+    "Boredom during quiet periods of the day",
+    "Confidence in one's own technical expertise",
+    "Impatience with slow internal systems"
+  ],
+  "ksfPPakePz4tuYGbYMof": [
+    "Someone posing as a new IT hire asking for your login to \"test the system\"",
+    "A recurring team meeting invite sent by the project manager",
+    "An automatic software update that installs itself overnight",
+    "A press release published on the company's public website"
+  ],
+  "zZHdqe7o9oL3Spz4zBrC": [
+    "Provided promptly, since audits are routine and time-sensitive",
+    "Verified through official channels before any information is shared",
+    "Given in part, as a compromise between helping and refusing",
+    "Escalated only if the same person asks a second time"
+  ],
+  "HFyX4G5uUDAY2MfySCiH": [
+    "Yes — it signals distrust",
+    "No, it's standard and expected practice",
+    "Only when asking senior staff",
+    "Only if they seem suspicious"
+  ],
+  "JxB4DtUNd8maEWhHTpQZ": [
+    "Those titles are common enough to pass without being questioned",
+    "Titles implying authority make people less likely to question the request",
+    "Those roles rarely exist, so nobody can check the claim easily",
+    "The title is chosen at random and carries no particular weight"
+  ],
+  "7vA92b7ydgldSUEdCICf": [
+    "It is a separate technique unrelated to other attack types",
+    "Vishing, BEC, and tailgating often rely on a fabricated pretext to work",
+    "It applies only to phone calls rather than email or in person",
+    "It needs no research, so attackers reach for it by default"
+  ],
+  "c06zSxEyOaTK36KpDL4K": [
+    "Ignore small inconsistencies — genuine callers misspeak too",
+    "Treat it as a red flag and verify further before proceeding",
+    "Assume it is ordinary miscommunication and carry on helping",
+    "Proceed as asked, but make a note of it for afterwards"
+  ],
+  "hUoj1tiZ5AjIXVjuysJ9": [
+    "Make the exception, since refusing would be unnecessarily awkward",
+    "Follow policy anyway and verify regardless of pressure",
+    "Skip it where the person appears to be senior to you",
+    "Ask a colleague to make the call on your behalf instead"
+  ],
+  "1aIOPv7uRqmJ5GuRGde1": [
+    "A normal helpdesk interaction that the process is designed for",
+    "Pretexting used to trick the helpdesk into a password reset",
+    "Low risk, since a password reset alone grants no real access",
+    "Risky only where the caller also knows the employee ID"
+  ],
+  "0tbvD3xhA6uzL4LNz1b3": [
+    "It is no more dangerous — a lanyard proves nothing either way",
+    "It combines physical presence with researched, plausible details, making both social and visual cues seem legitimate",
+    "Badges are checked visually at reception, so the risk is handled",
+    "Maintenance windows are internal, so nobody outside could know one"
+  ],
+  "tEcY9RoKX3kGlZI72do1": [
+    "Helpfulness is a culture issue rather than a security one",
+    "Employees may bypass verification steps to be accommodating, which is exactly what the pretext is designed to exploit",
+    "It matters only for customer-facing staff who deal with outsiders",
+    "It has little connection, since verification is automated anyway"
+  ],
+  "NtvUlzEG78ce4I7ST1CA": [
+    "A failed attempt gives the security team nothing to act on",
+    "It helps identify attackers targeting the organization and warns others before someone else is targeted",
+    "Only successful attacks reveal which controls actually failed",
+    "It adds paperwork without changing how the attacker operates"
+  ],
+  "g0jlEOjb6LKsTTrULuUa": [
+    "Trusting your instinct about whether someone seems honest",
+    "A consistent, non-negotiable identity verification procedure that doesn't depend on how convincing the story seems",
+    "Asking increasingly detailed follow-up questions until they slip",
+    "Requiring identification only from people you do not recognise"
+  ],
+  "kwAXxaPlGqEGXhZxD9Ns": [
+    "It wastes the attacker's time without improving their odds much",
+    "Each small interaction lowers suspicion, making the final, higher-risk request seem like a natural continuation",
+    "Repeated contact from one person is always flagged by monitoring",
+    "It only works across months, which most attackers will not invest"
+  ]
+}

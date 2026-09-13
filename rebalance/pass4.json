@@ -1,0 +1,38 @@
+{
+  "DuuDLGAlVu9OwEL3TYLV": [
+    "Generates and stores strong, unique passwords for each account",
+    "Speeds up your internet connection by caching the sites you log into",
+    "Deletes old accounts",
+    "Backs up your files"
+  ],
+  "AhmPPYjclwazUbFDBKtY": [
+    "Slower login times",
+    "One breach exposes all accounts using that password",
+    "It uses more storage",
+    "None, as long as the password itself is long and hard to guess"
+  ],
+  "oDKVMFsO1KLCK4ULtQJG": [
+    "Speeds up your computer",
+    "Encrypts your files and demands payment to unlock them",
+    "Deletes spam emails",
+    "Updates your software automatically in the background overnight"
+  ],
+  "DFXx5H7jYCdvY59R1Boa": [
+    "It isn't necessary once the password is long enough to resist cracking attempts",
+    "It adds a second layer, so a stolen password alone isn't enough to log in",
+    "It makes logging in faster",
+    "It replaces the password"
+  ],
+  "WSIFjO1dTwZX1rH3if7z": [
+    "Keep working normally",
+    "Disconnect from the network and report it to IT",
+    "Restart the computer several times to clear whatever is running",
+    "Delete files at random"
+  ],
+  "ksfPPakePz4tuYGbYMof": [
+    "Someone posing as a new IT hire asking for your login to \"test the system\"",
+    "A recurring team meeting invite sent by the project manager",
+    "An automatic software update that installs itself overnight without asking you",
+    "A press release published on the company's public website"
+  ]
+}
