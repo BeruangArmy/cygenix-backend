@@ -567,6 +567,175 @@ router.post('/phishback/score', verifyToken, async (req, res) => {
   }
 });
 
+// ============================================================ 5e spot the swap
+//
+// Replaces the write-your-own-bait sandbox, whose "score" was computed from
+// the levers the user ticked about their own text and never read the text at
+// all — a number that looked like grading but was not.
+//
+// This is graded the way the quiz is: the server builds the rounds, keeps the
+// answer key, and the client is only ever told which option is which after it
+// has committed to an answer.
+
+const SWAP_BRANDS = [
+  { real: 'payroll@venatorcorp.com', brand: 'Venator payroll' },
+  { real: 'it-support@venatorcorp.com', brand: 'Venator IT' },
+  { real: 'no-reply@microsoft.com', brand: 'Microsoft' },
+  { real: 'notice@dhl.com', brand: 'DHL' },
+  { real: 'service@maybank2u.com.my', brand: 'Maybank' },
+  { real: 'billing@digi.com.my', brand: 'Digi' },
+  { real: 'alerts@paypal.com', brand: 'PayPal' },
+  { real: 'hr@venatorcorp.com', brand: 'Venator HR' },
+  { real: 'noreply@grab.com', brand: 'Grab' },
+  { real: 'support@shopee.com.my', brand: 'Shopee' },
+];
+
+/** Each mutation returns the faked address plus the tell that gives it away. */
+const SWAP_MUTATIONS = [
+  {
+    id: 'hyphen',
+    tell: 'A hyphen was pushed into the domain — venatorcorp and venator-corp are different owners.',
+    apply: (addr) => {
+      const [user, domain] = addr.split('@');
+      const dot = domain.indexOf('.');
+      const name = domain.slice(0, dot);
+      if (name.length < 6) return null;
+      const cut = Math.floor(name.length / 2);
+      return `${user}@${name.slice(0, cut)}-${name.slice(cut)}${domain.slice(dot)}`;
+    },
+  },
+  {
+    id: 'homoglyph-rn',
+    tell: 'The "m" is really "r" followed by "n" — identical at a glance, a different domain entirely.',
+    apply: (addr) => (addr.includes('m') ? addr.replace('m', 'rn') : null),
+  },
+  {
+    id: 'homoglyph-zero',
+    tell: 'A letter "o" was swapped for a zero.',
+    apply: (addr) => {
+      const at = addr.indexOf('@');
+      const domain = addr.slice(at);
+      if (!domain.includes('o')) return null;
+      return addr.slice(0, at) + domain.replace('o', '0');
+    },
+  },
+  {
+    id: 'suffix',
+    tell: 'The real domain is only a prefix here — everything before the final dot is decoration, and the actual owner is the last part.',
+    apply: (addr) => {
+      const [user, domain] = addr.split('@');
+      return `${user}@${domain}.secure-login.net`;
+    },
+  },
+  {
+    id: 'tld',
+    tell: 'Same name, different top-level domain. Anyone can register the .co version of a .com.',
+    apply: (addr) => (addr.endsWith('.com') ? `${addr.slice(0, -4)}.co` : null),
+  },
+  {
+    id: 'doubled',
+    tell: 'One letter is doubled up. Reading left to right, the eye supplies the word it expects.',
+    apply: (addr) => {
+      const at = addr.indexOf('@');
+      const domain = addr.slice(at + 1);
+      const dot = domain.indexOf('.');
+      const name = domain.slice(0, dot);
+      if (name.length < 4) return null;
+      const i = Math.floor(name.length / 2);
+      return `${addr.slice(0, at)}@${name.slice(0, i)}${name[i]}${name.slice(i)}${domain.slice(dot)}`;
+    },
+  },
+];
+
+const SWAP_ROUNDS = 6;
+const SWAP_MAX_XP = 30;
+
+/** Builds today's rounds for this user. Deterministic, so it cannot be rerolled. */
+function buildSwapRounds(uid) {
+  const key = dayKey();
+  const rounds = [];
+  for (let i = 0; i < SWAP_ROUNDS; i++) {
+    const brand = SWAP_BRANDS[pickIndex(uid, `${key}:swap:brand:${i}`, SWAP_BRANDS.length)];
+    // Try mutations in a per-round order until one applies to this address.
+    let fake = null;
+    let tell = '';
+    const start = pickIndex(uid, `${key}:swap:mut:${i}`, SWAP_MUTATIONS.length);
+    for (let k = 0; k < SWAP_MUTATIONS.length; k++) {
+      const m = SWAP_MUTATIONS[(start + k) % SWAP_MUTATIONS.length];
+      const out = m.apply(brand.real);
+      if (out && out !== brand.real) { fake = out; tell = m.tell; break; }
+    }
+    if (!fake) continue;
+    // Which side the fake sits on, also fixed for the day.
+    const fakeFirst = pickIndex(uid, `${key}:swap:side:${i}`, 2) === 0;
+    rounds.push({
+      brand: brand.brand,
+      options: fakeFirst ? [fake, brand.real] : [brand.real, fake],
+      answer: fakeFirst ? 0 : 1,
+      tell,
+    });
+  }
+  return rounds;
+}
+
+/** The rounds, with the answers stripped out. */
+router.get('/minigame/swap', verifyToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    const rounds = buildSwapRounds(uid);
+    const done = await db.collection('users').doc(uid)
+      .collection('minigames').doc(`swap_${dayKey()}`).get();
+    res.json({
+      rounds: rounds.map((r) => ({ brand: r.brand, options: r.options })),
+      maxXp: SWAP_MAX_XP,
+      playedToday: done.exists,
+      best: done.exists ? (done.data().correct || 0) : 0,
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Could not load the round.', detail: err.message });
+  }
+});
+
+/** Grades the answers against the server's own key and awards XP once a day. */
+router.post('/minigame/swap', verifyToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    const answers = Array.isArray(req.body && req.body.answers) ? req.body.answers : [];
+    const rounds = buildSwapRounds(uid);
+
+    const results = rounds.map((r, i) => ({
+      brand: r.brand,
+      options: r.options,
+      answer: r.answer,
+      picked: typeof answers[i] === 'number' ? answers[i] : -1,
+      correct: answers[i] === r.answer,
+      tell: r.tell,
+    }));
+    const correct = results.filter((r) => r.correct).length;
+
+    // XP scales with how many were spotted, and is paid once per day so the
+    // game cannot be farmed. The learning is in the tells, not the number.
+    const ref = db.collection('users').doc(uid)
+      .collection('minigames').doc(`swap_${dayKey()}`);
+    let xp = 0;
+    if (!(await ref.get()).exists) {
+      xp = Math.round((correct / Math.max(1, rounds.length)) * SWAP_MAX_XP);
+      await ref.set({
+        game: 'swap',
+        correct,
+        total: rounds.length,
+        xp,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+      if (xp > 0) await awardXp(uid, xp, 'minigame', { game: 'swap', correct });
+    }
+    const badges = await checkAndAwardBadges(uid, {});
+    res.json({ results, correct, total: rounds.length, xp, badgesAwarded: badges });
+  } catch (err) {
+    res.status(500).json({ error: 'Scoring failed.', detail: err.message });
+  }
+});
+
 // ============================================================ admin: reset
 
 /// Every subcollection that represents *earned progress*. The user document
@@ -575,7 +744,7 @@ router.post('/phishback/score', verifyToken, async (req, res) => {
 const PROGRESS_SUBCOLLECTIONS = [
   'quizAttempts', 'lessonProgress', 'challengeAttempts', 'badges', 'xpLog',
   'moduleQuizState', 'notifications', 'drills', 'rematches', 'bossRuns',
-  'phishback', 'reports',
+  'phishback', 'reports', 'minigames',
 ];
 
 /**
