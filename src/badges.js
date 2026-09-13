@@ -10,6 +10,8 @@ const { notify } = require('./notifications');
 // context lets callers report the specific event that just happened, since
 // some criteria (quiz_perfect, module_complete) only make sense evaluated
 // at the moment they occur rather than recomputed from scratch every time.
+const { tierIndexForXp, tierIndexByName } = require('./rankTiers');
+
 async function checkAndAwardBadges(uid, context = {}) {
   const [badgesSnap, userSnap, earnedSnap] = await Promise.all([
     db.collection('badges').get(),
@@ -68,6 +70,14 @@ async function checkAndAwardBadges(uid, context = {}) {
       case 'all_modules_complete':
         qualifies = allModulesComplete === true;
         break;
+      // criteriaValue is a crest tier name ("Ruby", "Obsidian", ...). Once
+      // earned the badge stays earned, so this records the highest tier the
+      // user has ever reached rather than the one they hold right now.
+      case 'rank_tier': {
+        const want = tierIndexByName(badge.criteriaValue);
+        qualifies = want >= 0 && tierIndexForXp(user.xpTotal || 0) >= want;
+        break;
+      }
       default:
         qualifies = false;
     }

@@ -374,7 +374,12 @@ router.post('/boss/:moduleId/play', verifyToken, async (req, res) => {
       return res.json({ outcome: 'fail', reply: choice.reply || '', survived, total: turns.length, xp: 0 });
     }
     // "Hanging up early is a pass" — an explicit safe exit ends the run well.
-    const done = outcome === 'pass' || turnIndex + 1 >= turns.length;
+    // A safe exit ("pass") survives the turn, it does not end the encounter.
+    // Previously any pass cleared the boss outright, so taking the correct
+    // option on turn 1 finished the whole thing for full XP after a single
+    // question. The caller is persistent by design: refuse, and they escalate.
+    // Only surviving the last turn clears it.
+    const done = turnIndex + 1 >= turns.length;
     if (done) {
       const firstClear = !data.cleared;
       await runRef.set({ cleared: true, bestTurns: Math.max(best, turns.length) }, { merge: true });
@@ -559,6 +564,61 @@ router.post('/phishback/score', verifyToken, async (req, res) => {
     res.json({ score, breakdown, notes, xp, rubric: Object.entries(LEVERS).map(([k, v]) => ({ key: k, ...v })) });
   } catch (err) {
     res.status(500).json({ error: 'Scoring failed.', detail: err.message });
+  }
+});
+
+// ============================================================ admin: reset
+
+/// Every subcollection that represents *earned progress*. The user document
+/// itself is edited field-by-field below rather than deleted, so identity
+/// survives untouched.
+const PROGRESS_SUBCOLLECTIONS = [
+  'quizAttempts', 'lessonProgress', 'challengeAttempts', 'badges', 'xpLog',
+  'moduleQuizState', 'notifications', 'drills', 'rematches', 'bossRuns',
+  'phishback', 'reports',
+];
+
+/**
+ * Wipes a user's progress and leaves their account alone.
+ *
+ * Explicitly NOT touched: the Firebase Auth user, email, password, fullName,
+ * employeeId, department, role, avatar. Only the gamification state is reset,
+ * so the person can log in exactly as before and start from zero.
+ */
+router.post('/admin/users/:uid/reset-progress', verifyToken, adminOnly, async (req, res) => {
+  try {
+    const { uid } = req.params;
+    const userRef = db.collection('users').doc(uid);
+    const snap = await userRef.get();
+    if (!snap.exists) return res.status(404).json({ error: 'User not found.' });
+
+    let deleted = 0;
+    for (const name of PROGRESS_SUBCOLLECTIONS) {
+      // Batched in chunks: a user with a long xpLog can exceed the 500-write
+      // limit of a single batch.
+      for (;;) {
+        const docs = await userRef.collection(name).limit(400).get();
+        if (docs.empty) break;
+        const batch = db.batch();
+        docs.docs.forEach((d) => batch.delete(d.ref));
+        await batch.commit();
+        deleted += docs.size;
+        if (docs.size < 400) break;
+      }
+    }
+
+    await userRef.set({
+      xpTotal: 0,
+      level: 1,
+      streakDays: 0,
+      highestStreak: 0,
+      streakInsurance: 0,
+      lastActivityDate: admin.firestore.FieldValue.delete(),
+    }, { merge: true });
+
+    res.json({ ok: true, docsDeleted: deleted, collections: PROGRESS_SUBCOLLECTIONS.length });
+  } catch (err) {
+    res.status(500).json({ error: 'Reset failed.', detail: err.message });
   }
 });
 
