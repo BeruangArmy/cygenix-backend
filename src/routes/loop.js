@@ -605,18 +605,44 @@ const SWAP_MUTATIONS = [
     },
   },
   {
+    // Only ever targets the domain name, never the TLD. Replacing the first
+    // "m" anywhere in the string quietly turned paypal.com into paypal.corn
+    // whenever the name itself had no m, which is a different trick with a
+    // different explanation — it now has its own entry below.
     id: 'homoglyph-rn',
-    tell: 'The "m" is really "r" followed by "n" — identical at a glance, a different domain entirely.',
-    apply: (addr) => (addr.includes('m') ? addr.replace('m', 'rn') : null),
-  },
-  {
-    id: 'homoglyph-zero',
-    tell: 'A letter "o" was swapped for a zero.',
+    tell: 'The "m" is two letters: an r followed by an n. At reading size they close up into a single m, which is why this one survives a glance.',
     apply: (addr) => {
       const at = addr.indexOf('@');
-      const domain = addr.slice(at);
-      if (!domain.includes('o')) return null;
-      return addr.slice(0, at) + domain.replace('o', '0');
+      if (at < 0) return null;
+      const local = addr.slice(0, at + 1);
+      const domain = addr.slice(at + 1);
+      const dot = domain.indexOf('.');
+      if (dot < 0) return null;
+      const name = domain.slice(0, dot);
+      if (!name.includes('m')) return null;
+      return local + name.replace('m', 'rn') + domain.slice(dot);
+    },
+  },
+  {
+    id: 'tld-corn',
+    tell: 'The ending is .corn, not .com — an r and an n where the m should be. It is the same substitution, moved to the part of the address nobody reads.',
+    apply: (addr) => (addr.endsWith('.com') ? `${addr.slice(0, -4)}.corn` : null),
+  },
+  {
+    // Domain name only. Left to hit the whole domain it produced ".c0m",
+    // which is a zero in the one part of an address everybody knows by
+    // shape — glaring rather than subtle, and the opposite of the point.
+    id: 'homoglyph-zero',
+    tell: 'A letter "o" is a zero. In most interface fonts the two differ by a hair, and nobody proof-reads a domain they recognise.',
+    apply: (addr) => {
+      const at = addr.indexOf('@');
+      if (at < 0) return null;
+      const domain = addr.slice(at + 1);
+      const dot = domain.indexOf('.');
+      if (dot < 0) return null;
+      const name = domain.slice(0, dot);
+      if (!name.includes('o')) return null;
+      return `${addr.slice(0, at + 1)}${name.replace('o', '0')}${domain.slice(dot)}`;
     },
   },
   {
