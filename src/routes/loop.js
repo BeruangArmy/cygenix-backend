@@ -676,35 +676,81 @@ const SWAP_MUTATIONS = [
 const SWAP_ROUNDS = 6;
 const SWAP_MAX_XP = 30;
 
-/** Builds today's rounds for this user. Deterministic, so it cannot be rerolled. */
+/**
+ * Builds today's rounds: one address per round, half of them genuine.
+ *
+ * The first version showed the real and the fake side by side and asked which
+ * was which. That is a string diff, not a skill — you never have to know what
+ * the real domain looks like, only which of two things in front of you is
+ * different. An inbox gives you one address and no reference, so that is what
+ * a round gives you now.
+ *
+ * Three real and three fake, shuffled, so "always tap fake" scores exactly
+ * 50% and cannot be mistaken for competence. Deterministic per user per day
+ * through the same FNV hash the daily drill uses, so the set cannot be
+ * rerolled by reopening the app.
+ */
 function buildSwapRounds(uid) {
   const key = dayKey();
+
+  // A fixed three-and-three, shuffled by the day's hash.
+  const verdicts = [true, true, true, false, false, false];
+  for (let i = verdicts.length - 1; i > 0; i--) {
+    const j = pickIndex(uid, `${key}:swap:shuffle:${i}`, i + 1);
+    [verdicts[i], verdicts[j]] = [verdicts[j], verdicts[i]];
+  }
+
   const rounds = [];
+  const usedBrands = new Set();
   for (let i = 0; i < SWAP_ROUNDS; i++) {
-    const brand = SWAP_BRANDS[pickIndex(uid, `${key}:swap:brand:${i}`, SWAP_BRANDS.length)];
-    // Try mutations in a per-round order until one applies to this address.
-    let fake = null;
-    let tell = '';
-    const start = pickIndex(uid, `${key}:swap:mut:${i}`, SWAP_MUTATIONS.length);
-    for (let k = 0; k < SWAP_MUTATIONS.length; k++) {
-      const m = SWAP_MUTATIONS[(start + k) % SWAP_MUTATIONS.length];
-      const out = m.apply(brand.real);
-      if (out && out !== brand.real) { fake = out; tell = m.tell; break; }
+    // Walk from the hashed start until an unused brand is found, so no brand
+    // appears twice in one sitting.
+    let brand = null;
+    const startAt = pickIndex(uid, `${key}:swap:brand:${i}`, SWAP_BRANDS.length);
+    for (let k = 0; k < SWAP_BRANDS.length; k++) {
+      const cand = SWAP_BRANDS[(startAt + k) % SWAP_BRANDS.length];
+      if (!usedBrands.has(cand.real)) { brand = cand; break; }
     }
-    if (!fake) continue;
-    // Which side the fake sits on, also fixed for the day.
-    const fakeFirst = pickIndex(uid, `${key}:swap:side:${i}`, 2) === 0;
-    rounds.push({
-      brand: brand.brand,
-      options: fakeFirst ? [fake, brand.real] : [brand.real, fake],
-      answer: fakeFirst ? 0 : 1,
-      tell,
-    });
+    if (!brand) brand = SWAP_BRANDS[startAt];
+    usedBrands.add(brand.real);
+
+    if (!verdicts[i]) {
+      rounds.push({
+        brand: brand.brand,
+        address: brand.real,
+        real: brand.real,
+        isFake: false,
+        tell: 'Genuine. This is the address the brand actually sends from — the skill is being as sure about a real one as about a fake.',
+      });
+      continue;
+    }
+
+    let address = null;
+    let tell = '';
+    const mutStart = pickIndex(uid, `${key}:swap:mut:${i}`, SWAP_MUTATIONS.length);
+    for (let k = 0; k < SWAP_MUTATIONS.length; k++) {
+      const m = SWAP_MUTATIONS[(mutStart + k) % SWAP_MUTATIONS.length];
+      const out = m.apply(brand.real);
+      if (out && out !== brand.real) { address = out; tell = m.tell; break; }
+    }
+    if (!address) {
+      // No mutation applied to this address — serve it as the genuine one
+      // rather than dropping a round.
+      rounds.push({
+        brand: brand.brand,
+        address: brand.real,
+        real: brand.real,
+        isFake: false,
+        tell: 'Genuine. This is the address the brand actually sends from.',
+      });
+      continue;
+    }
+    rounds.push({ brand: brand.brand, address, real: brand.real, isFake: true, tell });
   }
   return rounds;
 }
 
-/** The rounds, with the answers stripped out. */
+/** The rounds, with the verdict and the real address withheld. */
 router.get('/minigame/swap', verifyToken, async (req, res) => {
   try {
     const uid = req.user.uid;
@@ -712,7 +758,10 @@ router.get('/minigame/swap', verifyToken, async (req, res) => {
     const done = await db.collection('users').doc(uid)
       .collection('minigames').doc(`swap_${dayKey()}`).get();
     res.json({
-      rounds: rounds.map((r) => ({ brand: r.brand, options: r.options })),
+      // Only what the player is allowed to see: who it claims to be, and the
+      // address. Not whether it is fake, and not the genuine address to
+      // compare it against.
+      rounds: rounds.map((r) => ({ brand: r.brand, address: r.address })),
       maxXp: SWAP_MAX_XP,
       playedToday: done.exists,
       best: done.exists ? (done.data().correct || 0) : 0,
@@ -722,25 +771,25 @@ router.get('/minigame/swap', verifyToken, async (req, res) => {
   }
 });
 
-/** Grades the answers against the server's own key and awards XP once a day. */
+/** Grades the verdicts against the server's own key; XP once a day. */
 router.post('/minigame/swap', verifyToken, async (req, res) => {
   try {
     const uid = req.user.uid;
+    // answers[i] === true means the player called that round a fake.
     const answers = Array.isArray(req.body && req.body.answers) ? req.body.answers : [];
     const rounds = buildSwapRounds(uid);
 
     const results = rounds.map((r, i) => ({
       brand: r.brand,
-      options: r.options,
-      answer: r.answer,
-      picked: typeof answers[i] === 'number' ? answers[i] : -1,
-      correct: answers[i] === r.answer,
+      address: r.address,
+      real: r.real,
+      isFake: r.isFake,
+      picked: typeof answers[i] === 'boolean' ? answers[i] : null,
+      correct: answers[i] === r.isFake,
       tell: r.tell,
     }));
     const correct = results.filter((r) => r.correct).length;
 
-    // XP scales with how many were spotted, and is paid once per day so the
-    // game cannot be farmed. The learning is in the tells, not the number.
     const ref = db.collection('users').doc(uid)
       .collection('minigames').doc(`swap_${dayKey()}`);
     let xp = 0;
