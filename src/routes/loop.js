@@ -702,6 +702,9 @@ function buildSwapRounds(uid) {
 
   const rounds = [];
   const usedBrands = new Set();
+  // Mutations are spread too, not just brands. Seeing .secure-login.net twice
+  // in one sitting teaches the round rather than the pattern.
+  const usedMutations = new Set();
   for (let i = 0; i < SWAP_ROUNDS; i++) {
     // Walk from the hashed start until an unused brand is found, so no brand
     // appears twice in one sitting.
@@ -728,10 +731,17 @@ function buildSwapRounds(uid) {
     let address = null;
     let tell = '';
     const mutStart = pickIndex(uid, `${key}:swap:mut:${i}`, SWAP_MUTATIONS.length);
-    for (let k = 0; k < SWAP_MUTATIONS.length; k++) {
-      const m = SWAP_MUTATIONS[(mutStart + k) % SWAP_MUTATIONS.length];
-      const out = m.apply(brand.real);
-      if (out && out !== brand.real) { address = out; tell = m.tell; break; }
+    // Two passes: first only mutations not used yet this sitting, then any
+    // that apply, so a brand is never dropped just because its one workable
+    // mutation has already appeared.
+    for (const fresh of [true, false]) {
+      for (let k = 0; k < SWAP_MUTATIONS.length && !address; k++) {
+        const m = SWAP_MUTATIONS[(mutStart + k) % SWAP_MUTATIONS.length];
+        if (fresh && usedMutations.has(m.id)) continue;
+        const out = m.apply(brand.real);
+        if (out && out !== brand.real) { address = out; tell = m.tell; usedMutations.add(m.id); }
+      }
+      if (address) break;
     }
     if (!address) {
       // No mutation applied to this address — serve it as the genuine one
