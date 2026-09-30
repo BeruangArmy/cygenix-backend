@@ -7,6 +7,7 @@
 //
 // Re-runnable: keyed by slug, so running it twice changes nothing.
 require('dotenv').config();
+const admin = require('firebase-admin');
 const { db } = require('./src/firebaseAdmin');
 
 const BADGES = [
@@ -46,7 +47,15 @@ const BADGES = [
     const { slug, ...rest } = b;
     const ref = db.collection('badges').doc(slug);
     if ((await ref.get()).exists) { skipped++; continue; }
-    await ref.set({ ...rest, iconUrl: '' });
+    // createdAt is required, not decorative: watchBadges() orders by it and
+    // Firestore drops any document missing the ordered field, so a badge
+    // written without one exists, can be earned, and is invisible to the
+    // screen that lists definitions. That is exactly what happened here.
+    await ref.set({
+      ...rest,
+      iconUrl: '',
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
     console.log('badge:', rest.badgeName, '->', rest.criteriaValue);
     wrote++;
   }
