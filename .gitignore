@@ -3,3 +3,6 @@ node_modules/
 serviceAccountKey.json
 npm-debug.log*
 questions.txt
+
+# Domain-migration undo maps: uid -> previous email. Local only.
+rollback-*.json

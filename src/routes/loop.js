@@ -578,14 +578,14 @@ router.post('/phishback/score', verifyToken, async (req, res) => {
 // has committed to an answer.
 
 const SWAP_BRANDS = [
-  { real: 'payroll@venatorcorp.com', brand: 'Venator payroll' },
-  { real: 'it-support@venatorcorp.com', brand: 'Venator IT' },
+  { real: 'payroll@vasbcorp.com', brand: 'Venator payroll' },
+  { real: 'it-support@vasbcorp.com', brand: 'Venator IT' },
   { real: 'no-reply@microsoft.com', brand: 'Microsoft' },
   { real: 'notice@dhl.com', brand: 'DHL' },
   { real: 'service@maybank2u.com.my', brand: 'Maybank' },
   { real: 'billing@digi.com.my', brand: 'Digi' },
   { real: 'alerts@paypal.com', brand: 'PayPal' },
-  { real: 'hr@venatorcorp.com', brand: 'Venator HR' },
+  { real: 'hr@vasbcorp.com', brand: 'Venator HR' },
   { real: 'noreply@grab.com', brand: 'Grab' },
   { real: 'support@shopee.com.my', brand: 'Shopee' },
 ];
@@ -594,7 +594,7 @@ const SWAP_BRANDS = [
 const SWAP_MUTATIONS = [
   {
     id: 'hyphen',
-    tell: 'A hyphen was pushed into the domain — venatorcorp and venator-corp are different owners.',
+    tell: 'A hyphen was pushed into the domain — vasbcorp and vasb-corp are different owners.',
     apply: (addr) => {
       const [user, domain] = addr.split('@');
       const dot = domain.indexOf('.');
