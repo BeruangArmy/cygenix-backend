@@ -5,6 +5,15 @@ const { db, admin } = require('./firebaseAdmin');
 // flip `read`). type is one of: badge_earned, xp_gained, module_unlocked,
 // daily_rank.
 async function notify(uid, { type, title, body, meta = {} }) {
+  // The Notifications switch in the app is honoured here, which is the only
+  // place notifications are ever created. Until now it set a field nothing
+  // read: the toggle moved, the preference was not even persisted, and every
+  // notification was written regardless — a control that did nothing.
+  //
+  // Absent means on, so existing accounts keep their notifications.
+  const prefs = await db.collection('users').doc(uid).get();
+  if (prefs.exists && prefs.data().notifOn === false) return;
+
   const col = db.collection('users').doc(uid).collection('notifications');
   await col.add({
     type,

@@ -28,8 +28,20 @@ service cloud.firestore {
     match /users/{uid} {
       allow read: if isSelf(uid) || isAdmin();
       allow create: if isSelf(uid) && isCompanyEmail() && request.resource.data.role == 'employee';
+      // A user may only change the handful of presentation fields the app
+      // actually writes from the client. Everything else on this document —
+      // xpTotal, level, streakDays, highestStreak, streakInsurance,
+      // departmentId, employeeId, role — is earned or assigned progress, and
+      // the whole trust boundary depends on it being written by the Admin SDK
+      // alone.
+      //
+      // The previous rule only pinned `role`, which meant a modified client
+      // could write xpTotal straight to Firestore and skip every backend
+      // award, badge check and leaderboard aggregation.
       allow update: if isAdmin() ||
-        (isSelf(uid) && request.resource.data.role == resource.data.role);
+        (isSelf(uid)
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['nickname', 'avatarId', 'musicOn', 'notifOn', 'photoBase64']));
       allow delete: if isAdmin();
 
       // users/{uid}/quizAttempts (Table 8), lessonProgress (Table 5),
