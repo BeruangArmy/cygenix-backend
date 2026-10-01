@@ -74,10 +74,22 @@ async function buildEmployeeReportData(uid, { rankMaps, modulesSnap } = {}) {
     };
   });
 
+  // Accuracy counts first serves only — a retry round is practice, not
+  // assessment. Counting it meant the app's own "Retry Missed" button lowered
+  // the score it was offered to improve, and one stubborn question was
+  // counted against the user every time it came back round.
+  //
+  // It also makes the figure stable: a first serve is always the level's five
+  // questions, so pooling (sum/sum) and averaging per attempt give the same
+  // answer. Retry rounds serve 1-4 questions, and it was that uneven size
+  // that had the app showing 62% here and 67% in the client for one account.
   let correctTotal = 0;
   let questionsTotal = 0;
+  let attemptsCounted = 0;
   quizAttemptsSnap.docs.forEach((d) => {
     const a = d.data();
+    if (a.isRetry) return;
+    attemptsCounted += 1;
     correctTotal += a.score || 0;
     questionsTotal += a.total || 0;
   });
@@ -103,7 +115,11 @@ async function buildEmployeeReportData(uid, { rankMaps, modulesSnap } = {}) {
       correct: correctTotal,
       total: questionsTotal,
       pct: questionsTotal > 0 ? (correctTotal / questionsTotal) * 100 : null,
+      // Every submission, retries included — this one is "how much work has
+      // this person done", which is a different question from how accurate
+      // they are, and the retries are real work.
       attemptCount: quizAttemptsSnap.size,
+      gradedAttemptCount: attemptsCounted,
     },
     ranks: ranksFor(uid, resolvedRankMaps),
   };
