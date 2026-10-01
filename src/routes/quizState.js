@@ -80,7 +80,21 @@ router.get('/modules/:moduleId/quiz-state', verifyToken, async (req, res) => {
         return {
           id: d.id,
           questionText: q.questionText,
-          options: isRetry ? shuffle(q.options || []) : (q.options || []),
+          // Shuffled on every serve, not only on a retry round.
+          //
+          // Questions are served in the admin's sequenceOrder, which is
+          // deliberate and stays. But the options were handed back in their
+          // stored order every single time, so repeating a level — after a
+          // fail, or through the module retry that replays Easy/Medium/Hard
+          // — served the same five questions with the correct answer in the
+          // same position each time. The second run could be cleared by
+          // remembering "it was C" without reading a word, which is what
+          // "the quiz is too easy" actually describes.
+          //
+          // Safe because grading never uses the index: /check and /submit
+          // both compare selectedText against the correct option's text, so
+          // order is presentation only.
+          options: shuffle(q.options || []),
           xpValue: q.xpValue || 0,
         };
       });

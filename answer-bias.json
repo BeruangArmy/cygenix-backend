@@ -1012,7 +1012,7 @@
     "module": "Phishing Awareness",
     "qid": "6afNkGnuRa71yi5GyWr7",
     "level": "medium",
-    "question": "A link in an email displays as \"venator.com/login\" but hovering shows a totally different URL. What should you do?",
+    "question": "A link in an email displays as \"vasbcorp.com/login\" but hovering shows a totally different URL. What should you do?",
     "options": [
       "Click it, since the text shown matches the site you expected",
       "Do not click it — the real destination does not match what is shown",
@@ -1750,18 +1750,18 @@
     "module": "Phishing Awareness",
     "qid": "VrR0EoygIYZjgFCdsniv",
     "level": "hard",
-    "question": "You receive a call (\"vishing\") from someone claiming to be Venator IT, asking you to read out a one-time verification code you just received by SMS. What should you do?",
+    "question": "You receive a call (\"vishing\") from someone claiming to be VASB IT, asking you to read out a one-time verification code you just received by SMS. What should you do?",
     "options": [
-      "Read it out, since they already knew that you work at Venator and named your team",
+      "Read it out, since they already knew that you work at VASB and named your team",
       "Refuse, hang up, and verify by calling IT back on a known number",
       "Read it out only once they confirm your employee ID first",
       "Send it by text instead, so it is not overheard by anyone"
     ],
     "correctIdx": 1,
     "correctLen": 64,
-    "avgOther": 65,
+    "avgOther": 64,
     "isLongest": false,
-    "ratio": 0.98
+    "ratio": 1
   },
   {
     "moduleId": "wNcOaCrq03cTuD1Kj5AO",
@@ -1930,7 +1930,7 @@
     "module": "Phishing Awareness",
     "qid": "v741PHdM78OoR5e4fxvI",
     "level": "medium",
-    "question": "You get an email from \"IT Support\" but the address is it-support@venat0r-support.com. What is wrong?",
+    "question": "You get an email from \"IT Support\" but the address is it-support@vasbc0rp-support.com. What is wrong?",
     "options": [
       "Nothing — support teams often use a separate sending domain",
       "The domain is spoofed to look similar to the real one",
@@ -2308,7 +2308,7 @@
     "module": "Phishing Awareness",
     "qid": "HbtvyzmFUtSK6t57Dbd9",
     "level": "easy",
-    "question": "Will Venator IT ever ask for your password over email or chat?",
+    "question": "Will VASB IT ever ask for your password over email or chat?",
     "options": [
       "Yes, when urgent",
       "No, never",
@@ -2326,18 +2326,18 @@
     "module": "Incident Reporting",
     "qid": "SWLUG6trWn2NDJeNG60C",
     "level": "easy",
-    "question": "Where should Venator employees report a suspected security incident?",
+    "question": "Where should VASB employees report a suspected security incident?",
     "options": [
       "Your line manager, who will pass it on if they judge it serious",
-      "IT Support (it-support@venator.com)",
+      "IT Support (it-support@vasbcorp.com)",
       "The police, since a security incident is a criminal matter",
       "The vendor whose product was involved in the incident"
     ],
     "correctIdx": 1,
-    "correctLen": 35,
+    "correctLen": 36,
     "avgOther": 58,
     "isLongest": false,
-    "ratio": 0.6
+    "ratio": 0.62
   },
   {
     "moduleId": "biyeZLy4nvajdtYv6t17",
