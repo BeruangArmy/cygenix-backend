@@ -206,7 +206,20 @@ router.post('/modules/:moduleId/quiz-state/submit', verifyToken, async (req, res
       const newLevel = levelForXp(newXp);
       xpTotalAfter = newXp;
       playerLevelAfter = newLevel;
-      tx.set(userRef, { xpTotal: newXp, level: newLevel }, { merge: true });
+      // Running first-serve tallies, so accuracy is a field read rather than
+      // a scan of every attempt this person has ever made. The leaderboard
+      // ranks 50 people at once and the roster report covers everyone —
+      // neither can afford a subcollection query per user.
+      //
+      // First serves only, matching reportData.js and the client: a retry
+      // round is practice, not assessment.
+      const firstServe = isRetry
+        ? {}
+        : {
+          firstServeCorrect: (current.firstServeCorrect || 0) + (questionsSnap.size - wrongIds.length),
+          firstServeTotal: (current.firstServeTotal || 0) + questionsSnap.size,
+        };
+      tx.set(userRef, { xpTotal: newXp, level: newLevel, ...firstServe }, { merge: true });
       tx.set(userRef.collection('xpLog').doc(), {
         sourceType: 'quiz',
         sourceId: `${moduleId}:${state.currentLevel}`,
@@ -221,6 +234,13 @@ router.post('/modules/:moduleId/quiz-state/submit', verifyToken, async (req, res
         isRetry,
         score: questionsSnap.size - wrongIds.length,
         total: questionsSnap.size,
+        // Which questions were missed, not just how many. wrongIds was
+        // already computed here and then discarded, so the per-question
+        // picture — the one thing that tells an administrator what the
+        // organisation as a whole is weak at, rather than who is behind —
+        // could never be recovered afterwards. Recording it costs nothing
+        // and cannot be backfilled later.
+        wrongIds,
         xpEarned,
         submittedAt: admin.firestore.FieldValue.serverTimestamp(),
       });

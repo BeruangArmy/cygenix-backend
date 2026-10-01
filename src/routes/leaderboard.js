@@ -43,6 +43,17 @@ async function applyRankDeltas(window, rows) {
 // weekly/monthly rank by summing xpLog.xpChange (Table 13) within the
 // window, via a collectionGroup query — needs the xpLog/createdAt
 // collection-group index declared in firestore.indexes.json.
+
+// Accuracy from the running first-serve tallies on the user document, so a
+// board of 50 people costs 50 fields rather than 50 subcollection queries.
+// null until someone has actually sat a first serve — a board row showing 0%
+// for a new joiner reads as "scored nothing", which is not what it means.
+function accuracyPctOf(data) {
+  const total = data.firstServeTotal || 0;
+  if (total <= 0) return null;
+  return Math.round(((data.firstServeCorrect || 0) / total) * 1000) / 10;
+}
+
 router.get('/leaderboard', verifyToken, async (req, res) => {
   const window = (req.query.window || 'alltime').toString();
 
@@ -57,6 +68,7 @@ router.get('/leaderboard', verifyToken, async (req, res) => {
           name: data.nickname || data.fullName || 'Unknown',
           xp: data.xpTotal || 0,
           level: data.level || 1,
+          accuracyPct: accuracyPctOf(data),
           avatarId: data.avatarId || 'assets/mascot_neutral.png',
           me: d.id === req.user.uid,
         };
@@ -90,6 +102,7 @@ router.get('/leaderboard', verifyToken, async (req, res) => {
         name: data.nickname || data.fullName || 'Unknown',
         xp: r.xp,
         level: data.level || 1,
+        accuracyPct: accuracyPctOf(data),
         avatarId: data.avatarId || 'assets/mascot_neutral.png',
         me: r.id === req.user.uid,
       };
