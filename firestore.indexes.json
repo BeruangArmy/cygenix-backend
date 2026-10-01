@@ -1,10 +1,29 @@
 {
   "indexes": [],
+  "_comment": [
+    "A fieldOverride REPLACES Firestore's automatic indexing for that field — it",
+    "does not add to it. These two were written to enable the collection-group",
+    "queries the leaderboard and reports need, and in doing so they silently",
+    "removed the ordinary single-collection index every other query relies on.",
+    "",
+    "The effect was invisible until something read one user's own subcollection in",
+    "order: GET /admin/employees/:id and GET /progress/:userId both do",
+    "orderBy('submittedAt','desc') on one user's quizAttempts, and both were",
+    "failing with FAILED_PRECONDITION and returning 500. The admin employee page",
+    "showed '0 Lessons Done' and 'No quiz attempts yet' for an account with 43",
+    "attempts and 23 completed lessons, because the whole response errored rather",
+    "than any one field being wrong.",
+    "",
+    "So both scopes are declared explicitly. COLLECTION is what a per-user query",
+    "needs; COLLECTION_GROUP is what the cross-user aggregates need."
+  ],
   "fieldOverrides": [
     {
       "collectionGroup": "xpLog",
       "fieldPath": "createdAt",
       "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "DESCENDING", "queryScope": "COLLECTION" },
         { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" },
         { "order": "DESCENDING", "queryScope": "COLLECTION_GROUP" }
       ]
@@ -13,6 +32,8 @@
       "collectionGroup": "quizAttempts",
       "fieldPath": "submittedAt",
       "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "DESCENDING", "queryScope": "COLLECTION" },
         { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" },
         { "order": "DESCENDING", "queryScope": "COLLECTION_GROUP" }
       ]
