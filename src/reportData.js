@@ -1,5 +1,5 @@
 const { db } = require('./firebaseAdmin');
-const { levelsCleared, highestLevelCleared } = require('./quizLevels');
+const { QUIZ_LEVELS, levelsCleared, highestLevelCleared } = require('./quizLevels');
 
 const RANK_WINDOWS = { weekly: 7, monthly: 30 };
 
@@ -66,7 +66,11 @@ async function buildEmployeeReportData(uid, { rankMaps, modulesSnap } = {}) {
       title: d.data().title || '(untitled)',
       levelsCleared: levelsCleared(state),
       highestLevel: highestLevelCleared(state),
-      completed: !!(state && state.phase === 'completed'),
+      // Via levelsCleared, not phase. Taking the optional module retry rewinds
+      // phase to 'in_progress', so reading it directly reported a finished
+      // module as unfinished for as long as the retry was open — the same bug
+      // that was dropping modules out of the employee's secured count.
+      completed: levelsCleared(state) >= QUIZ_LEVELS.length,
     };
   });
 
@@ -87,6 +91,12 @@ async function buildEmployeeReportData(uid, { rankMaps, modulesSnap } = {}) {
     level: user.level || 1,
     xpTotal: user.xpTotal || 0,
     streakDays: user.streakDays || 0,
+    highestStreak: user.highestStreak || 0,
+    // Stored as a plain 'YYYY-MM-DD' string and as a Timestamp respectively;
+    // handed over as Date objects so a spreadsheet can treat them as dates
+    // rather than text that happens to look like one.
+    lastActiveAt: user.lastActivityDate ? new Date(`${user.lastActivityDate}T00:00:00Z`) : null,
+    joinedAt: user.createdAt && user.createdAt.toDate ? user.createdAt.toDate() : null,
     badges: badgesSnap.docs.map((d) => ({ id: d.id, badgeName: d.data().badgeName || d.id })),
     modules,
     accuracy: {

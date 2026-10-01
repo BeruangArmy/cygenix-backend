@@ -7,6 +7,14 @@ const QUIZ_LEVELS = ['easy', 'medium', 'hard'];
 // phase means all 3 are done. No state doc yet means 0 cleared.
 function levelsCleared(stateData) {
   if (!stateData) return 0;
+  // completedOnce is sticky; phase is not. Taking the optional module retry
+  // rewinds phase to 'in_progress' and currentLevel to 'easy', so deriving
+  // the cleared count from those alone meant accepting a reward *un-secured
+  // the module*: it dropped out of "N of 9 secured", the map node reverted,
+  // and abandoning the retry left it that way until all three levels were
+  // beaten again. Clearing all three levels is a thing that happened; a
+  // later retry cannot unhappen it.
+  if (stateData.completedOnce === true) return QUIZ_LEVELS.length;
   if (stateData.phase === 'completed') return QUIZ_LEVELS.length;
   const idx = QUIZ_LEVELS.indexOf(stateData.currentLevel);
   return idx < 0 ? 0 : idx;

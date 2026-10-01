@@ -237,6 +237,9 @@ router.post('/modules/:moduleId/quiz-state/submit', verifyToken, async (req, res
         advanced = true;
       } else {
         update.phase = 'completed';
+        // Sticky: phase is rewound by the optional retry, this is not.
+        // See quizLevels.js levelsCleared().
+        update.completedOnce = true;
         update.completedAt = admin.firestore.FieldValue.serverTimestamp();
         if (state.isModuleRetryPass) {
           update.lockedUntil = new Date(Date.now() + 7 * 86400000);
