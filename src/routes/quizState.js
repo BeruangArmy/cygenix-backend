@@ -177,11 +177,21 @@ router.post('/modules/:moduleId/quiz-state/submit', verifyToken, async (req, res
     });
 
     const userRef = db.collection('users').doc(req.user.uid);
+    // Carried out of the transaction so the response can state the resulting
+    // total rather than only the delta. The client has a live listener on
+    // this same user document, so a delta it has to add is a race it loses:
+    // the listener pushes the already-updated total, the response then adds
+    // the award a second time, and the player sees inflated XP and a level
+    // they have not reached until the next push corrects it.
+    let xpTotalAfter = 0;
+    let playerLevelAfter = 0;
     await db.runTransaction(async (tx) => {
       const userSnap = await tx.get(userRef);
       const current = userSnap.data() || {};
       const newXp = (current.xpTotal || 0) + xpEarned;
       const newLevel = levelForXp(newXp);
+      xpTotalAfter = newXp;
+      playerLevelAfter = newLevel;
       tx.set(userRef, { xpTotal: newXp, level: newLevel }, { merge: true });
       tx.set(userRef.collection('xpLog').doc(), {
         sourceType: 'quiz',
@@ -259,6 +269,10 @@ router.post('/modules/:moduleId/quiz-state/submit', verifyToken, async (req, res
 
     res.json({
       xpEarned,
+      // Authoritative, post-award. "newLevel" below is the quiz difficulty,
+      // not the player level — hence the distinct name.
+      xpTotal: xpTotalAfter,
+      playerLevel: playerLevelAfter,
       wrongCount: wrongIds.length,
       advanced,
       moduleCompleted,

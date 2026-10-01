@@ -89,11 +89,17 @@ router.post('/challenges/:challengeId/attempt', verifyToken, async (req, res) =>
     const xpEarned = isCorrect ? (challenge.xpReward || 0) : 0;
 
     const userRef = db.collection('users').doc(req.user.uid);
+    // See quizState.js: the client holds a live listener on this document,
+    // so it is given the resulting total, never a delta to add.
+    let xpTotalAfter = 0;
+    let playerLevelAfter = 0;
     await db.runTransaction(async (tx) => {
       const userSnap = await tx.get(userRef);
       const current = userSnap.data() || {};
       const newXp = (current.xpTotal || 0) + xpEarned;
       const newLevel = levelForXp(newXp);
+      xpTotalAfter = newXp;
+      playerLevelAfter = newLevel;
       if (xpEarned > 0) tx.set(userRef, { xpTotal: newXp, level: newLevel }, { merge: true });
       tx.set(userRef.collection('challengeAttempts').doc(), {
         moduleId,
@@ -125,7 +131,9 @@ router.post('/challenges/:challengeId/attempt', verifyToken, async (req, res) =>
       });
     }
 
-    res.json({ isCorrect, correctOption: challenge.correctOption, xpEarned, streakDays: newStreak, badgesAwarded });
+    res.json({ isCorrect, correctOption: challenge.correctOption, xpEarned,
+      xpTotal: xpTotalAfter, playerLevel: playerLevelAfter,
+      streakDays: newStreak, badgesAwarded });
   } catch (err) {
     res.status(500).json({ error: 'Failed to grade challenge attempt.', detail: err.message });
   }
