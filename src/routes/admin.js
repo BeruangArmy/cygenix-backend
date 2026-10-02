@@ -63,6 +63,11 @@ router.get('/admin/employees', verifyToken, adminOnly, async (req, res) => {
         level: data.level || 1,
         streakDays: data.streakDays || 0,
         avatarId: data.avatarId || 'assets/mascot_neutral.png',
+        // Already on the user document and already used for streaks; the
+        // roster just never passed it on. The Overview needs it to say "no
+        // activity in 9 days" rather than only "15% done", which is the
+        // difference between a number and something worth acting on.
+        lastActivityDate: data.lastActivityDate || null,
         completion,
       };
     });
@@ -131,13 +136,29 @@ router.get('/admin/employees/:id', verifyToken, adminOnly, async (req, res) => {
 router.get('/admin/dashboard-stats', verifyToken, adminOnly, async (req, res) => {
   try {
     const weekAgo = new Date(Date.now() - 7 * 86400000);
-    const [employeesSnap, modulesPublishedSnap, activeAttemptsSnap, total, countsByUser] = await Promise.all([
+    const [employeesSnap, modulesPublishedSnap, activeAttemptsSnap, total, countsByUser, allModulesSnap, bossSnap] = await Promise.all([
       db.collection('users').where('role', '==', 'employee').get(),
       db.collection('modules').where('status', '==', 'published').get(),
       db.collectionGroup('quizAttempts').where('submittedAt', '>=', weekAgo).get(),
       totalLessonCount(),
       completedLessonCountsByUser(),
+      db.collection('modules').orderBy('order').get(),
+      // One collection-group read instead of a boss lookup per module. A boss
+      // lives at modules/{id}/boss/main, so the parent of the parent is the
+      // module it belongs to.
+      db.collectionGroup('boss').get(),
     ]);
+
+    // A boss document with no turns is not a boss anyone can play, so it
+    // counts as missing — that is the state an admin needs to be told about.
+    const modulesWithBoss = new Set(
+      bossSnap.docs
+        .filter((d) => ((d.data().turns || []).length > 0))
+        .map((d) => d.ref.parent.parent.id),
+    );
+    const modulesWithoutBoss = allModulesSnap.docs
+      .filter((d) => !modulesWithBoss.has(d.id))
+      .map((d) => ({ id: d.id, title: d.data().title || '(untitled)' }));
 
     const activeUids = new Set(activeAttemptsSnap.docs.map((d) => d.ref.parent.parent.id));
     const totalEmployees = employeesSnap.size;
@@ -153,6 +174,7 @@ router.get('/admin/dashboard-stats', verifyToken, adminOnly, async (req, res) =>
       activeThisWeek: activeUids.size,
       avgCompletionPct,
       modulesPublished: modulesPublishedSnap.size,
+      modulesWithoutBoss,
     });
   } catch (err) {
     res.status(500).json({ error: 'Failed to load dashboard stats.', detail: err.message });
