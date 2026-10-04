@@ -22,10 +22,14 @@ async function checkAndAwardBadges(uid, context = {}) {
 
   const user = userSnap.data();
   const alreadyEarned = new Set(earnedSnap.docs.map((d) => d.id));
+  // A badge saved as a draft is not awarded. Absent means published, so every
+  // badge that existed before drafts did keeps working exactly as it did.
+  const liveBadges = badgesSnap.docs.filter((d) => d.data().status !== 'draft');
+
   const newlyAwarded = [];
 
   let rank = null;
-  const needsRank = badgesSnap.docs.some((d) => !alreadyEarned.has(d.id) && d.data().criteriaType === 'top_rank');
+  const needsRank = liveBadges.some((d) => !alreadyEarned.has(d.id) && d.data().criteriaType === 'top_rank');
   if (needsRank) {
     const leaderboardSnap = await db.collection('users').orderBy('xpTotal', 'desc').limit(200).get();
     rank = leaderboardSnap.docs.findIndex((d) => d.id === uid) + 1 || null;
@@ -34,7 +38,7 @@ async function checkAndAwardBadges(uid, context = {}) {
   // Only run this (a published-module count + the user's completed-module
   // count) when a badge actually needs it, matching the top_rank pattern.
   let allModulesComplete = null;
-  const needsAllModules = badgesSnap.docs.some((d) => !alreadyEarned.has(d.id) && d.data().criteriaType === 'all_modules_complete');
+  const needsAllModules = liveBadges.some((d) => !alreadyEarned.has(d.id) && d.data().criteriaType === 'all_modules_complete');
   if (needsAllModules) {
     const [modulesSnap, completedStateSnap] = await Promise.all([
       db.collection('modules').where('status', '==', 'published').get(),
@@ -43,7 +47,7 @@ async function checkAndAwardBadges(uid, context = {}) {
     allModulesComplete = modulesSnap.size > 0 && completedStateSnap.size >= modulesSnap.size;
   }
 
-  for (const badgeDoc of badgesSnap.docs) {
+  for (const badgeDoc of liveBadges) {
     if (alreadyEarned.has(badgeDoc.id)) continue;
     const badge = badgeDoc.data();
     let qualifies = false;
