@@ -131,6 +131,45 @@ router.get('/admin/employees/:id', verifyToken, adminOnly, async (req, res) => {
   }
 });
 
+// GET /admin/content-stats — how the authored content is actually landing.
+//
+// The Content screens could say what exists but never how it was doing: a
+// badge nobody has earned looks the same as one everybody has, and a boss
+// nobody can clear looks the same as a fair one. Both are already recorded,
+// just never read back — earned badges under users/{uid}/badges (the document
+// id is the badge definition's id) and encounters under users/{uid}/bossRuns.
+//
+// Two collection-group reads for the whole roster rather than a query per
+// badge and per module.
+router.get('/admin/content-stats', verifyToken, adminOnly, async (req, res) => {
+  try {
+    const [earnedSnap, runsSnap, bossSnap] = await Promise.all([
+      db.collectionGroup('badges').get(),
+      db.collectionGroup('bossRuns').get(),
+      db.collectionGroup('boss').get(),
+    ]);
+
+    const badges = {};
+    earnedSnap.docs.forEach((d) => { badges[d.id] = (badges[d.id] || 0) + 1; });
+
+    const bosses = {};
+    const bump = (moduleId) => (bosses[moduleId] ||= { turns: 0, runs: 0, cleared: 0 });
+    bossSnap.docs.forEach((d) => {
+      bump(d.ref.parent.parent.id).turns = (d.data().turns || []).length;
+    });
+    runsSnap.docs.forEach((d) => {
+      const r = d.data();
+      const b = bump(r.moduleId || d.id);
+      b.runs += 1;
+      if (r.cleared === true) b.cleared += 1;
+    });
+
+    res.json({ badges, bosses });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to load content stats.', detail: err.message });
+  }
+});
+
 // GET /admin/dashboard-stats — real numbers for the Admin Dashboard tiles
 // (previously hardcoded placeholders on the client).
 router.get('/admin/dashboard-stats', verifyToken, adminOnly, async (req, res) => {
