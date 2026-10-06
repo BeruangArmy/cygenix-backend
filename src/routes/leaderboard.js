@@ -114,4 +114,43 @@ router.get('/leaderboard', verifyToken, async (req, res) => {
   }
 });
 
+// GET /leaderboard/department
+//
+// The caller's standing inside their own department, by all-time xpTotal.
+//
+// Separate from /leaderboard on purpose. The profile pill used to read its
+// number out of whatever /leaderboard response happened to be in memory,
+// which made it wrong twice over: that board is the top 50 across the whole
+// company, so the rank it carried was an overall rank being labelled
+// "in <department>", and it changed — or vanished — depending on which Ranks
+// tab the user had opened last (US-05).
+//
+// departmentId comes off req.userDoc, never the query string: a client that
+// could name its own department could rank itself against an empty one.
+router.get('/leaderboard/department', verifyToken, async (req, res) => {
+  try {
+    const departmentId = req.userDoc.departmentId;
+    if (!departmentId) {
+      return res.json({ rank: null, total: 0, departmentId: null, departmentName: null });
+    }
+
+    // No orderBy here: a where + orderBy on different fields would need a
+    // composite index, and ranking in memory over one department is cheap.
+    const snap = await db.collection('users').where('departmentId', '==', departmentId).get();
+    const ranked = snap.docs
+      .map((d) => ({ id: d.id, xp: d.data().xpTotal || 0 }))
+      .sort((a, b) => (b.xp - a.xp) || a.id.localeCompare(b.id));
+
+    const i = ranked.findIndex((r) => r.id === req.user.uid);
+    res.json({
+      rank: i === -1 ? null : i + 1,
+      total: ranked.length,
+      departmentId,
+      departmentName: req.userDoc.departmentName || null,
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to load department rank.', detail: err.message });
+  }
+});
+
 module.exports = router;
