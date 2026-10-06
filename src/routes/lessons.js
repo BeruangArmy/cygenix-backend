@@ -1,6 +1,7 @@
 const express = require('express');
 const { db, admin } = require('../firebaseAdmin');
 const { verifyToken } = require('../middleware/auth');
+const { levelForXp } = require('../xpCurve');
 
 const router = express.Router();
 
@@ -32,7 +33,16 @@ router.post('/lessons/:id/complete', verifyToken, async (req, res) => {
       const userSnap = await tx.get(userRef);
       const current = userSnap.data() || {};
       const newXp = (current.xpTotal || 0) + LESSON_COMPLETE_XP;
-      const newLevel = 1 + Math.floor(newXp / 500);
+      // The curve, not the flat 500-XP rule this route was written against.
+      //
+      // Every other writer of `level` (quizState, challenges, loop) moved to
+      // levelForXp when the curve replaced the flat rule; this one did not,
+      // and it writes the same field. So finishing a lesson overwrote a
+      // correct level with a lower one — an account on 3058 XP dropped from
+      // level 9 to 7 for reading a lesson, then climbed back on the next
+      // quiz. The crest made it visible: rank comes from XP, so the profile
+      // read "Level 7" while the ladder still said Diamond III.
+      const newLevel = levelForXp(newXp);
       tx.set(progressRef, {
         moduleId,
         lessonId,
