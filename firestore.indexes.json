@@ -1,5 +1,25 @@
 {
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "quizQuestions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "sequenceOrder", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "_comment_indexes": [
+    "watchQuizQuestions() in firestore_service.dart is the only query in the",
+    "app that orders on two fields — orderBy('sequenceOrder').orderBy('createdAt')",
+    "— so it is the only one that needs a composite index. Without it the",
+    "snapshot stream errors with FAILED_PRECONDITION, and because the admin",
+    "Quiz Questions tab only tested !snapshot.hasData, that error left the",
+    "loading spinner up forever (IT-05).",
+    "",
+    "COLLECTION scope, not COLLECTION_GROUP: the query reads one module's",
+    "quizQuestions subcollection, never across modules."
+  ],
   "_comment": [
     "A fieldOverride REPLACES Firestore's automatic indexing for that field — it",
     "does not add to it. These two were written to enable the collection-group",
