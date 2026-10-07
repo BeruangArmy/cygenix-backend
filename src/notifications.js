@@ -4,15 +4,22 @@ const { db, admin } = require('./firebaseAdmin');
 // backend-side (see firestore.rules — clients can't create these, only
 // flip `read`). type is one of: badge_earned, xp_gained, module_unlocked,
 // daily_rank.
-async function notify(uid, { type, title, body, meta = {} }) {
+async function notify(uid, { type, title, body, meta = {}, critical = false }) {
   // The Notifications switch in the app is honoured here, which is the only
   // place notifications are ever created. Until now it set a field nothing
   // read: the toggle moved, the preference was not even persisted, and every
   // notification was written regardless — a control that did nothing.
   //
   // Absent means on, so existing accounts keep their notifications.
-  const prefs = await db.collection('users').doc(uid).get();
-  if (prefs.exists && prefs.data().notifOn === false) return;
+  //
+  // `critical` overrides it. The switch is there to mute badges, XP and rank
+  // chatter — it was never meant to mute "your account was approved", which
+  // is the one message a muted user still has to receive to use the app at
+  // all. Account decisions are the only thing that sets it.
+  if (!critical) {
+    const prefs = await db.collection('users').doc(uid).get();
+    if (prefs.exists && prefs.data().notifOn === false) return;
+  }
 
   const col = db.collection('users').doc(uid).collection('notifications');
   await col.add({

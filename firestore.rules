@@ -15,9 +15,33 @@ service cloud.firestore {
       return isSignedIn() && request.auth.uid == uid;
     }
 
+    function myDoc() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
     function isAdmin() {
-      return isSignedIn() &&
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+      return isSignedIn() && myDoc().role == 'admin';
+    }
+
+    // Account approval gate.
+    //
+    // A missing status reads as 'approved' on purpose. Every account that
+    // existed before approvals shipped has no status field, and gating them
+    // on one would have locked out the whole company the moment these rules
+    // deployed — before any migration could run. The backfill script is
+    // tidiness, not the thing keeping people in.
+    //
+    // Admins are always approved: an admin whose own status somehow said
+    // pending could never reach the screen that fixes it.
+    function isApproved() {
+      return isSignedIn() && (myDoc().get('status', 'approved') == 'approved' || myDoc().role == 'admin');
+    }
+
+    // What an approved, signed-in employee is. Content reads below use this
+    // rather than isSignedIn(), so a pending or rejected account can hold a
+    // valid Firebase session and still read nothing but its own profile.
+    function isActiveUser() {
+      return isSignedIn() && isApproved();
     }
 
     // users/{uid} — profile + gamification stats (xpTotal, level, streakDays,
@@ -27,7 +51,13 @@ service cloud.firestore {
     // console). Admins can read/write any profile.
     match /users/{uid} {
       allow read: if isSelf(uid) || isAdmin();
-      allow create: if isSelf(uid) && isCompanyEmail() && request.resource.data.role == 'employee';
+      // status is pinned to 'pending' at creation. Together with the update
+      // rule below — whose hasOnly() list deliberately omits 'status' — this
+      // is what stops an account approving itself: it cannot be born
+      // approved, and it cannot be edited approved.
+      allow create: if isSelf(uid) && isCompanyEmail()
+        && request.resource.data.role == 'employee'
+        && request.resource.data.status == 'pending';
       // A user may only change the handful of presentation fields the app
       // actually writes from the client. Everything else on this document —
       // xpTotal, level, streakDays, highestStreak, streakInsurance,
@@ -41,7 +71,14 @@ service cloud.firestore {
       allow update: if isAdmin() ||
         (isSelf(uid)
           && request.resource.data.diff(resource.data).affectedKeys()
-               .hasOnly(['nickname', 'avatarId', 'musicOn', 'notifOn', 'photoBase64']));
+      //
+      // fcmToken is on this list so a waiting account can register for the
+      // push that tells it the decision — it has no API access until it is
+      // approved, so the token cannot travel through the backend. Writing it
+      // only ever affects which of your own devices your own notifications
+      // reach. 'status' stays off this list, which is what stops an account
+      // approving itself.
+               .hasOnly(['nickname', 'avatarId', 'musicOn', 'notifOn', 'photoBase64', 'fcmToken']));
       allow delete: if isAdmin();
 
       // users/{uid}/quizAttempts (Table 8), lessonProgress (Table 5),
@@ -49,30 +86,30 @@ service cloud.firestore {
       // "earned" side) — all written by the trusted backend only
       // (firebase-admin bypasses rules); read-only for the owner/admin.
       match /quizAttempts/{attemptId} {
-        allow read: if isSelf(uid) || isAdmin();
+        allow read: if (isSelf(uid) && isApproved()) || isAdmin();
         allow write: if false;
       }
       match /lessonProgress/{progressId} {
-        allow read: if isSelf(uid) || isAdmin();
+        allow read: if (isSelf(uid) && isApproved()) || isAdmin();
         allow write: if false;
       }
       match /challengeAttempts/{attemptId} {
-        allow read: if isSelf(uid) || isAdmin();
+        allow read: if (isSelf(uid) && isApproved()) || isAdmin();
         allow write: if false;
       }
       match /badges/{badgeId} {
-        allow read: if isSelf(uid) || isAdmin();
+        allow read: if (isSelf(uid) && isApproved()) || isAdmin();
         allow write: if false;
       }
       match /xpLog/{logId} {
-        allow read: if isSelf(uid) || isAdmin();
+        allow read: if (isSelf(uid) && isApproved()) || isAdmin();
         allow write: if false;
       }
       // Per-module leveled-quiz progression (current level, missed-question
       // retry gate, module completion + 7-day retry lock) — see
       // cygenix-backend/src/routes/quizState.js. Backend-authoritative only.
       match /moduleQuizState/{moduleId} {
-        allow read: if isSelf(uid) || isAdmin();
+        allow read: if (isSelf(uid) && isApproved()) || isAdmin();
         allow write: if false;
       }
       // Notifications (badge earned, XP gained, module unlocked, daily
@@ -80,7 +117,7 @@ service cloud.firestore {
       // own read (and only that field — nothing else about a
       // notification is client-editable).
       match /notifications/{notificationId} {
-        allow read: if isSelf(uid) || isAdmin();
+        allow read: if (isSelf(uid) && isApproved()) || isAdmin();
         allow update: if isSelf(uid) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
         allow create, delete: if false;
       }
@@ -100,11 +137,11 @@ service cloud.firestore {
     // can read modules/lessons; only admins can write, straight from the
     // Flutter Admin Content Management screens.
     match /modules/{moduleId} {
-      allow read: if isSignedIn();
+      allow read: if isActiveUser();
       allow write: if isAdmin();
 
       match /lessons/{lessonId} {
-        allow read: if isSignedIn();
+        allow read: if isActiveUser();
         allow write: if isAdmin();
       }
 
@@ -130,7 +167,7 @@ service cloud.firestore {
     // Whether a given user has *earned* a badge lives at
     // users/{uid}/badges above, written only by the backend.
     match /badges/{badgeId} {
-      allow read: if isSignedIn();
+      allow read: if isActiveUser();
       allow write: if isAdmin();
     }
   }

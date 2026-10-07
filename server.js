@@ -11,6 +11,7 @@ const progressRoutes = require('./src/routes/progress');
 const adminRoutes = require('./src/routes/admin');
 const notificationsRoutes = require('./src/routes/notifications');
 const loopRoutes = require('./src/routes/loop');
+const approvalsRoutes = require('./src/routes/approvals');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(leaderboardRoutes);
 app.use(progressRoutes);
 app.use(adminRoutes);
 app.use(notificationsRoutes);
+app.use(approvalsRoutes);
 app.use(loopRoutes);
 
 app.use((req, res) => res.status(404).json({ error: 'Not found.' }));
