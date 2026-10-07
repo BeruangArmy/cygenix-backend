@@ -3,6 +3,7 @@ const PDFDocument = require('pdfkit');
 const { db } = require('../firebaseAdmin');
 const { verifyToken, adminOnly } = require('../middleware/auth');
 const { notify } = require('../notifications');
+const { sendPush } = require('../push');
 const { buildEmployeeReportData, computeAllRankMaps } = require('../reportData');
 const { renderEmployeeReport } = require('../reportPdf');
 const { buildEmployeeReportWorkbook, buildAllEmployeesReportWorkbook } = require('../reportExcel');
@@ -232,7 +233,16 @@ router.post('/admin/employees/:id/notify', verifyToken, adminOnly, async (req, r
     const title = (req.body && req.body.title) || 'A message from your admin';
     const body = (req.body && req.body.body) || 'Your admin noticed you\'re behind on your cybersecurity training — jump back in when you get a chance!';
 
-    await notify(userId, { type: 'admin_message', title, body, meta: { fromAdmin: true } });
+    const sent = await notify(userId, { type: 'admin_message', title, body, meta: { fromAdmin: true } });
+    // A nudge is aimed at someone who has stopped opening the app, so the
+    // in-app notification alone would wait in a feed they are not looking at.
+    // Push is the only part of a nudge that can actually reach them.
+    //
+    // Deliberately not `critical`: unlike an account decision, a nudge is
+    // exactly the kind of message the Notifications switch exists to mute,
+    // and notify() above already respects that. This only mirrors whatever
+    // notify() decided to send.
+    if (sent) await sendPush(userId, { title, body, data: { type: 'admin_message' } });
     res.json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: 'Failed to send notification.', detail: err.message });

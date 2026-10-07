@@ -3,7 +3,10 @@ const { db, admin } = require('./firebaseAdmin');
 // Writes one notification doc to users/{uid}/notifications. Always
 // backend-side (see firestore.rules — clients can't create these, only
 // flip `read`). type is one of: badge_earned, xp_gained, module_unlocked,
-// daily_rank.
+// daily_rank, admin_message, account_approved, account_rejected.
+//
+// Returns whether anything was written, so a caller that also wants to send
+// a push can respect the same preference rather than routing around it.
 async function notify(uid, { type, title, body, meta = {}, critical = false }) {
   // The Notifications switch in the app is honoured here, which is the only
   // place notifications are ever created. Until now it set a field nothing
@@ -18,7 +21,7 @@ async function notify(uid, { type, title, body, meta = {}, critical = false }) {
   // all. Account decisions are the only thing that sets it.
   if (!critical) {
     const prefs = await db.collection('users').doc(uid).get();
-    if (prefs.exists && prefs.data().notifOn === false) return;
+    if (prefs.exists && prefs.data().notifOn === false) return false;
   }
 
   const col = db.collection('users').doc(uid).collection('notifications');
@@ -35,6 +38,7 @@ async function notify(uid, { type, title, body, meta = {}, critical = false }) {
   // schedule keeps it free — there is no cron on the free tier, and the
   // clean-up only needs to happen when the list actually changes.
   await pruneOldNotifications(uid);
+  return true;
 }
 
 /** Deletes notifications created before today (UTC). */
